@@ -4,11 +4,13 @@ interface Props {
 }
 
 const { title } = Astro.props;
----
+import { ViewTransitions } from 'astro:transitions';
 
+---
 <!doctype html>
 <html lang="en">
 	<head>
+		<ViewTransitions />
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
@@ -16,26 +18,23 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body transition:animate="slide">
+		<nav transition:persist class="w-[100vw] h-16 backdrop-blur-lg text-center items-center text-lg pt-3 sticky top-0 z-50">
+			<a class="ml-10" href="/">Home</a>
+			<a class="ml-10" href="/about">About</a>
+		</nav>
 		<slot />
 	</body>
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		background-color: #FFF7D9;
+		color: #000;
+		overflow-x: hidden;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+		font-size: 18px;
 	}
 	code {
 		font-family:
