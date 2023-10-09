@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 
 import WateredPlant from "../img/WateredPlant.png";
+import Body1 from "../components/body1.svelte";
+import Body2 from "../components/body2.svelte";
 ---
 
 <script>
@@ -14,14 +16,9 @@ import WateredPlant from "../img/WateredPlant.png";
         'dishwasher',
         'washing machine',
         'fridge',
-        'freezer',
         'oven',
-        'microwave',
         'shower',
-        'toilet',
-        'air conditioner',
-        'heater',
-        'fan',
+        'air conditioner'
     ]
 
     // change the word with a slight transition
@@ -42,7 +39,7 @@ import WateredPlant from "../img/WateredPlant.png";
 </script>
 
 <Layout title="GreenBeen">
-    <div class="w-[100vw] h-[80vw] p-10 flex">
+    <div class="w-[100vw] h-[80vh] p-10 flex">
         <div class="w-[50vw]">
             <h1 class='text-4xl font-medium'><span class="text-green-700">Green</span><span class="text-amber-600">Been</span></h1>
             <p class="text-xl pt-5">Saving the environment one <span id="changedWord" class="text-green-700 transition-all ease-in-out transform scale-0 w-96">roof</span> at a time 🌿</p>
@@ -63,5 +60,10 @@ import WateredPlant from "../img/WateredPlant.png";
         <div class="w-[35vw] hidden sm:block">
             <img src={WateredPlant.src} alt="hero" class="w-[35vw]"/>
         </div>
+    </div>
+    <Body1 client:only='svelte' />
+    <Body2 client:only='svelte' />
+    <div>
+        
     </div>
 </Layout>
