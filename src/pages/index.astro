@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import WateredPlant from "../img/WateredPlant.png";
 import Body1 from "../components/body1.svelte";
 import Body2 from "../components/body2.svelte";
+import Body3 from "../components/body3.svelte";
 ---
 
 <script>
@@ -63,7 +64,19 @@ import Body2 from "../components/body2.svelte";
     </div>
     <Body1 client:only='svelte' />
     <Body2 client:only='svelte' />
-    <div>
-        
+    <div class="flex flex-wrap justify-evenly h-[80vh]">
+        <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2">
+            <p>Renewable Energy Programs</p> 
+        </div>
+        <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2">
+            <p>Cost Insights</p>
+        </div>
+        <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2">
+            <p>Green and Clean Energy Practices</p>
+        </div>
+        <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2">
+            <p>Sustainability Tips</p>
+        </div>
     </div>
+    <Body3 client:only='svelte' />
 </Layout>
