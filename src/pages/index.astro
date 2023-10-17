@@ -44,13 +44,20 @@ import Body3 from "../components/body3.svelte";
     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
     const renderer = new THREE.WebGLRenderer();
+    const renderer2 = new THREE.WebGLRenderer();
 
     let threeDHolder = document.getElementById('3DHolder1') as HTMLDivElement
     threeDHolder.appendChild( renderer.domElement );
 
+    let threeDHolder2 = document.getElementById('3DHolder2') as HTMLDivElement
+    threeDHolder2.appendChild( renderer2.domElement );
+
     renderer.setSize( threeDHolder.clientWidth, threeDHolder.clientHeight );
     // change the background color
     renderer.setClearColor(0x000000, 0)
+    renderer2.setSize( threeDHolder2.clientWidth, threeDHolder2.clientHeight );
+    // change the background color
+    renderer2.setClearColor(0x000000, 0)
 
     const geometry = new THREE.BoxGeometry( 1, 1, 1 );
     const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
@@ -66,6 +73,7 @@ import Body3 from "../components/body3.svelte";
         cube.rotation.y += 0.01;
 
         renderer.render( scene, camera );
+        renderer2.render( scene, camera );
     }
 
     animate();
@@ -87,17 +95,65 @@ import Body3 from "../components/body3.svelte";
     gsap.from('.body1', {
         y: 100,
         duration: 0.5,
+        opacity: 0,
         scrollTrigger: {
             trigger: '.body1',
             start: 'top center', // Trigger point
             end: 'bottom center', // End point
         },
     });
-    gsap.to('.body2', {
+    gsap.from('.body2', {
         x: 100,
         duration: 1,
+        opacity: 0,
         scrollTrigger: {
             trigger: '.body2',
+            start: 'top center', // Trigger point
+            end: 'bottom center', // End point
+        },
+    });
+
+    // make each box appear one after the other from the top fading in
+    gsap.from('#rbox1', {
+        y: -100,
+        opacity: 0,
+        duration: 0.3,
+        delay: 0,
+        scrollTrigger: {
+            trigger: '#rbox1',
+            start: 'top center', // Trigger point
+            end: 'bottom center', // End point
+        },
+    });
+    gsap.from('#rbox2', {
+        y: -100,
+        opacity: 0,
+        duration: 0.3,
+        delay: 0.3,
+        scrollTrigger: {
+            trigger: '#rbox2',
+            start: 'top center', // Trigger point
+            end: 'bottom center', // End point
+        },
+    });
+    gsap.from('#rbox3', {
+        y: -100,
+        opacity: 0,
+        duration: 0.3,
+        delay: 0.6,
+        scrollTrigger: {
+            trigger: '#rbox3',
+            start: 'top center', // Trigger point
+            end: 'bottom center', // End point
+        },
+    });
+    gsap.from('#rbox4', {
+        y: -100,
+        opacity: 0,
+        duration: 0.3,
+        delay: 0.9,
+        scrollTrigger: {
+            trigger: '#rbox4',
             start: 'top center', // Trigger point
             end: 'bottom center', // End point
         },
@@ -144,9 +200,10 @@ import Body3 from "../components/body3.svelte";
                 <p class="text-lg">The world is at a critical juncture when it comes to environmental sustainability. Green energy initiatives are vital to mitigating the harmful effects of fossil fuels and combating climate change. By adopting renewable energy sources, we can make a significant positive impact on the environment.</p>
             </div>
         </div>
-        <div id="3DHolder1" class="h-[40vh] w-[40vw]">
+        <div id="3DHolder2" class="h-[40vh] w-[40vw]">
         </div>
     </div>
+    <p class="text-center pb-10 text-4xl font-medium text-amber-700">What We Offer</p>
     <div class="flex flex-wrap justify-evenly h-auto gap-10">
         <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2" id="rbox1">
             <p>Renewable Energy Programs</p> 
