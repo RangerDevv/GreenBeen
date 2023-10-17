@@ -37,10 +37,75 @@ import Body3 from "../components/body3.svelte";
     setInterval(() => {
         changeWord()
     }, 5000);
+
+    import * as THREE from 'three';
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+    const renderer = new THREE.WebGLRenderer();
+
+    let threeDHolder = document.getElementById('3DHolder1') as HTMLDivElement
+    threeDHolder.appendChild( renderer.domElement );
+
+    renderer.setSize( threeDHolder.clientWidth, threeDHolder.clientHeight );
+    // change the background color
+    renderer.setClearColor(0x000000, 0)
+
+    const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+    const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    const cube = new THREE.Mesh( geometry, material );
+    scene.add( cube );
+
+    camera.position.z = 5;
+
+    function animate() {
+        requestAnimationFrame( animate );
+
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+
+        renderer.render( scene, camera );
+    }
+
+    animate();
+
+    import { gsap } from "gsap";
+    
+    import { Flip } from "gsap/Flip";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import { Observer } from "gsap/Observer";
+    import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+    import { Draggable } from "gsap/Draggable";
+    import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+    import { EaselPlugin } from "gsap/EaselPlugin";
+    import { PixiPlugin } from "gsap/PixiPlugin";
+    import { TextPlugin } from "gsap/TextPlugin";
+    
+    
+    gsap.registerPlugin(Flip,ScrollTrigger,Observer,ScrollToPlugin,Draggable,MotionPathPlugin,EaselPlugin,PixiPlugin,TextPlugin);
+    gsap.from('.body1', {
+        y: 100,
+        duration: 0.5,
+        scrollTrigger: {
+            trigger: '.body1',
+            start: 'top center', // Trigger point
+            end: 'bottom center', // End point
+        },
+    });
+    gsap.to('.body2', {
+        x: 100,
+        duration: 1,
+        scrollTrigger: {
+            trigger: '.body2',
+            start: 'top center', // Trigger point
+            end: 'bottom center', // End point
+        },
+    });
 </script>
 
 <Layout title="GreenBeen">
-    <div class="w-[100vw] h-[80vh] p-10 flex">
+    <div class="w-[100vw] h-[100vh] p-10 flex" id="AG">
         <div class="w-[50vw]">
             <h1 class='text-4xl font-medium'><span class="text-green-700">Green</span><span class="text-amber-600">Been</span></h1>
             <p class="text-xl pt-5">Saving the environment one <span id="changedWord" class="text-green-700 transition-all ease-in-out transform scale-0 w-96">roof</span> at a time 🌿</p>
@@ -54,29 +119,46 @@ import Body3 from "../components/body3.svelte";
             <svg width="50" height="50" viewBox="0 0 114 114" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="57" cy="57" r="57" fill="#9498FF"/>
                 <path d="M60.1901 66.7656L59.05 68.4088L60.0977 69.1358L61.1988 68.4926L60.1901 66.7656ZM81.1903 54.5001L80.1908 52.7677L80.1816 52.7731L81.1903 54.5001ZM96.122 47.5182C96.4082 46.4514 95.7754 45.3545 94.7086 45.0683L77.3234 40.4041C76.2565 40.1179 75.1597 40.7507 74.8734 41.8175C74.5872 42.8844 75.22 43.9813 76.2869 44.2675L91.7404 48.4134L87.5945 63.8669C87.3083 64.9338 87.9411 66.0306 89.0079 66.3169C90.0748 66.6031 91.1716 65.9703 91.4579 64.9034L96.122 47.5182ZM38.1902 51.5004L39.3303 49.8573L38.1025 49.0053L36.9375 49.9413L38.1902 51.5004ZM61.1988 68.4926L82.199 56.2271L80.1816 52.7731L59.1815 65.0386L61.1988 68.4926ZM82.1898 56.2325L95.1898 48.7323L93.1909 45.2676L80.1908 52.7678L82.1898 56.2325ZM20.4428 68.3247L39.4428 53.0596L36.9375 49.9413L17.9375 65.2065L20.4428 68.3247ZM37.05 53.1436L59.05 68.4088L61.3303 65.1224L39.3303 49.8573L37.05 53.1436Z" fill="black"/>
-                </svg>   
+            </svg>   
             </div>
             </a>
         </div>
         <div class="w-[35vw] hidden sm:block">
-            <img src={WateredPlant.src} alt="hero" class="w-[35vw]"/>
+            <img src={WateredPlant.src} alt="hero" class="w-[35vw]" id="AGIMG"/>
         </div>
     </div>
-    <Body1 client:only='svelte' />
-    <Body2 client:only='svelte' />
-    <div class="flex flex-wrap justify-evenly h-[80vh]">
-        <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2">
+    <div id="body1" class="body1 flex flex-wrap justify-evenly h-auto">
+        <div id="3DHolder1" class="h-[40vh] w-[40vw]">
+        </div>
+        <div class='flex flex-wrap justify-evenly w-auto h-[80vh]'>
+            <div class="w-[50vw] flex-col mt-9">
+                <p class="text-2xl font-semibold">The Importance of Green Energy Initiatives</p>
+                <p class="text-lg">The world is at a critical juncture when it comes to environmental sustainability. Green energy initiatives are vital to mitigating the harmful effects of fossil fuels and combating climate change. By adopting renewable energy sources, we can make a significant positive impact on the environment.</p>
+            </div>
+        </div>
+    </div>
+    <div id="body2" class="body2 flex flex-wrap justify-evenly h-auto">
+        <div class='flex flex-wrap justify-evenly w-auto h-[80vh]'>
+            <div class="w-[50vw] flex-col mt-9">
+                <p class="text-2xl font-semibold">The Importance of Green Energy Initiatives</p>
+                <p class="text-lg">The world is at a critical juncture when it comes to environmental sustainability. Green energy initiatives are vital to mitigating the harmful effects of fossil fuels and combating climate change. By adopting renewable energy sources, we can make a significant positive impact on the environment.</p>
+            </div>
+        </div>
+        <div id="3DHolder1" class="h-[40vh] w-[40vw]">
+        </div>
+    </div>
+    <div class="flex flex-wrap justify-evenly h-auto gap-10">
+        <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2" id="rbox1">
             <p>Renewable Energy Programs</p> 
         </div>
-        <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2">
+        <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2" id="rbox2">
             <p>Cost Insights</p>
         </div>
-        <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2">
+        <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2" id="rbox3">
             <p>Green and Clean Energy Practices</p>
         </div>
-        <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2">
+        <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2" id="rbox4">
             <p>Sustainability Tips</p>
         </div>
     </div>
-    <Body3 client:only='svelte' />
 </Layout>
