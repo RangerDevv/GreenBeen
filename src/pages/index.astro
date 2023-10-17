@@ -2,9 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 
 import WateredPlant from "../img/WateredPlant.png";
-import Body1 from "../components/body1.svelte";
-import Body2 from "../components/body2.svelte";
-import Body3 from "../components/body3.svelte";
 ---
 
 <script>
@@ -93,7 +90,7 @@ import Body3 from "../components/body3.svelte";
     
     gsap.registerPlugin(Flip,ScrollTrigger,Observer,ScrollToPlugin,Draggable,MotionPathPlugin,EaselPlugin,PixiPlugin,TextPlugin);
     gsap.from('.body1', {
-        y: 100,
+        x: 100,
         duration: 0.5,
         opacity: 0,
         scrollTrigger: {
@@ -110,6 +107,16 @@ import Body3 from "../components/body3.svelte";
             trigger: '.body2',
             start: 'top center', // Trigger point
             end: 'bottom center', // End point
+        },
+    });
+
+    gsap.to('#AG', {
+        opacity: 0,
+        scrollTrigger: {
+            trigger: '#AG',
+            start: 'left', // Trigger point
+            end: 'center', // End point
+            scrub: true,
         },
     });
 
