@@ -70,10 +70,26 @@ import WateredPlant from "../img/WateredPlant.png";
         cube.rotation.y += 0.01;
 
         renderer.render( scene, camera );
-        renderer2.render( scene, camera );
     }
 
     animate();
+
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+    const loader = new GLTFLoader();
+
+    loader.load( 'src/model/gltf (1)/zGear2.gltf', function ( gltf ) {
+
+        scene.add( gltf.scene );
+
+        renderer2.render( scene, camera );
+
+    }, undefined, function ( error ) {
+
+        console.error( error );
+
+    } );
+
 
     import { gsap } from "gsap";
     
@@ -99,10 +115,14 @@ import WateredPlant from "../img/WateredPlant.png";
             end: 'bottom center', // End point
         },
     });
-    gsap.from('.body2', {
-        x: 100,
-        duration: 1,
+    gsap.fromTo('.body2', {
+        x: -100,
+        duration: 0.5,
         opacity: 0,
+    }, {
+        x: 0,
+        duration: 0.5,
+        opacity: 1,
         scrollTrigger: {
             trigger: '.body2',
             start: 'top center', // Trigger point
@@ -168,7 +188,7 @@ import WateredPlant from "../img/WateredPlant.png";
 </script>
 
 <Layout title="GreenBeen">
-    <div class="w-[100vw] h-[100vh] p-10 flex" id="AG">
+    <div class="w-[100vw] h-[100vh] p-10 flex sticky top-0" id="AG">
         <div class="w-[50vw]">
             <h1 class='text-4xl font-medium'><span class="text-green-700">Green</span><span class="text-amber-600">Been</span></h1>
             <p class="text-xl pt-5">Saving the environment one <span id="changedWord" class="text-green-700 transition-all ease-in-out transform scale-0 w-96">roof</span> at a time 🌿</p>
@@ -211,7 +231,7 @@ import WateredPlant from "../img/WateredPlant.png";
         </div>
     </div>
     <p class="text-center pb-10 text-4xl font-medium text-amber-700">What We Offer</p>
-    <div class="flex flex-wrap justify-evenly h-auto gap-10">
+    <div class="flex flex-wrap justify-evenly h-auto sm:h-80 gap-10">
         <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2" id="rbox1">
             <p>Renewable Energy Programs</p> 
         </div>
@@ -223,6 +243,16 @@ import WateredPlant from "../img/WateredPlant.png";
         </div>
         <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2" id="rbox4">
             <p>Sustainability Tips</p>
+        </div>
+    </div>
+    <div id="body3" class="body1 flex flex-wrap justify-evenly h-auto">
+        <div id="3DHolder1" class="h-[40vh] w-[40vw]">
+        </div>
+        <div class='flex flex-wrap justify-evenly w-auto h-[80vh]'>
+            <div class="w-[50vw] flex-col mt-9">
+                <p class="text-2xl font-semibold">The Importance of Green Energy Initiatives</p>
+                <p class="text-lg">The world is at a critical juncture when it comes to environmental sustainability. Green energy initiatives are vital to mitigating the harmful effects of fossil fuels and combating climate change. By adopting renewable energy sources, we can make a significant positive impact on the environment.</p>
+            </div>
         </div>
     </div>
 </Layout>
