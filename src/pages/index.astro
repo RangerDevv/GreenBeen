@@ -17,7 +17,7 @@ import WateredPlant from "../img/WateredPlant.png";
         'oven',
         'shower',
         'air conditioner'
-    ]
+    ] 
 
     // change the word with a slight transition
     function changeWord(){
@@ -78,7 +78,7 @@ import WateredPlant from "../img/WateredPlant.png";
 
     const loader = new GLTFLoader();
 
-    loader.load( 'src/model/gltf (1)/zGear2.gltf', function ( gltf ) {
+    loader.load( '../model/gltf (1)/Gear2.gltf', function ( gltf ) {
 
         scene.add( gltf.scene );
 
@@ -105,6 +105,7 @@ import WateredPlant from "../img/WateredPlant.png";
     
     
     gsap.registerPlugin(Flip,ScrollTrigger,Observer,ScrollToPlugin,Draggable,MotionPathPlugin,EaselPlugin,PixiPlugin,TextPlugin);
+
     gsap.from('.body1', {
         x: 100,
         duration: 0.5,
@@ -139,6 +140,19 @@ import WateredPlant from "../img/WateredPlant.png";
             scrub: true,
         },
     });
+
+    // scale the green rectangle up as you scroll
+    let smallGreenRect = document.getElementById('smallGreenRect') as HTMLDivElement
+    gsap.to('#smallGreenRect',{
+        scale: 100,
+        scrollTrigger: {
+            trigger: '#body2',
+            start: 'left', // Trigger point
+            end: 'bottom center', // End point
+            scrub: true,
+            markers: true,
+        },
+    })
 
     // make each box appear one after the other from the top fading in
     gsap.from('#rbox1', {
@@ -185,6 +199,21 @@ import WateredPlant from "../img/WateredPlant.png";
             end: 'bottom center', // End point
         },
     });
+
+    // animate the WWO text
+    gsap.fromTo('#WWO', {
+        opacity: 0,
+        y: -100,
+    }, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        scrollTrigger: {
+            trigger: '#WWO',
+            start: 'top center', // Trigger point
+            end: 'bottom center', // End point
+        },
+    });
 </script>
 
 <Layout title="GreenBeen">
@@ -224,14 +253,16 @@ import WateredPlant from "../img/WateredPlant.png";
         <div class='flex flex-wrap justify-evenly w-auto h-[80vh]'>
             <div class="w-[50vw] flex-col mt-9">
                 <p class="text-2xl font-semibold">The Importance of Green Energy Initiatives</p>
+                <!-- a small green rect -->
                 <p class="text-lg">The world is at a critical juncture when it comes to environmental sustainability. Green energy initiatives are vital to mitigating the harmful effects of fossil fuels and combating climate change. By adopting renewable energy sources, we can make a significant positive impact on the environment.</p>
             </div>
         </div>
         <div id="3DHolder2" class="h-[40vh] w-[40vw]">
         </div>
     </div>
-    <p class="text-center pb-10 text-4xl font-medium text-amber-700">What We Offer</p>
-    <div class="flex flex-wrap justify-evenly h-auto sm:h-80 gap-10">
+    <div class="w-10 h-10 bg-green-600 rounded-full -z-[9999]" id="smallGreenRect"></div>
+    <p class="text-center pb-10 text-4xl font-medium text-amber-700 z-50" id="WWO">What We Offer</p>
+    <div class="flex flex-wrap justify-evenly h-auto sm:h-80 gap-10 z-10">
         <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2" id="rbox1">
             <p>Renewable Energy Programs</p> 
         </div>

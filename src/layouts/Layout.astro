@@ -5,9 +5,41 @@ interface Props {
 
 const { title } = Astro.props;
 import { ViewTransitions } from 'astro:transitions';
-
-
 ---
+<script>
+	import Lenis from '@studio-freight/lenis'
+
+	const lenis = new Lenis()
+
+	lenis.on('scroll', (e:any) => {
+	console.log(e)
+	})
+
+	function raf(time:any) {
+	lenis.raf(time)
+	requestAnimationFrame(raf)
+	}
+
+	requestAnimationFrame(raf)
+
+	import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+	// integrate with GSAP using scroller proxy
+	gsap.registerPlugin(ScrollTrigger)
+
+	ScrollTrigger.scrollerProxy('body', {
+	scrollTop(value:any) {
+	return arguments.length
+	? lenis.scrollTo(value)
+	: lenis.scroll()
+	},
+	getBoundingClientRect() {
+	return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight}
+	}
+	})
+
+</script>
 <!doctype html>
 <html lang="en">
 	<head>
@@ -22,7 +54,7 @@ import { ViewTransitions } from 'astro:transitions';
 	<body>
 		<nav transition:persist class="w-[100vw] h-16 backdrop-blur-xl text-center items-center text-lg pt-3 sticky top-0 z-50">
 			<a class="ml-10" href="/">Home</a>
-			<a class="ml-10" href="/about">About</a>
+			<a class="ml-10" href="/documentation">Documentation</a>
 		</nav>
 		<slot />
 	</body>
@@ -49,5 +81,24 @@ import { ViewTransitions } from 'astro:transitions';
 			Bitstream Vera Sans Mono,
 			Courier New,
 			monospace;
+	}
+	html.lenis {
+	height: auto;
+	}
+
+	.lenis.lenis-smooth {
+	scroll-behavior: auto;
+	}
+
+	.lenis.lenis-smooth [data-lenis-prevent] {
+	overscroll-behavior: contain;
+	}
+
+	.lenis.lenis-stopped {
+	overflow: hidden;
+	}
+
+	.lenis.lenis-scrolling iframe {
+	pointer-events: none;
 	}
 </style>
