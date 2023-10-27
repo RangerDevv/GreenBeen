@@ -9,32 +9,22 @@ import { ViewTransitions } from 'astro:transitions';
 <script>
 	import Lenis from '@studio-freight/lenis'
 
-	const lenis = new Lenis()
-
-	function raf(time:any) {
-	lenis.raf(time)
-	requestAnimationFrame(raf)
-	}
-
-	requestAnimationFrame(raf)
-
 	import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-	// integrate with GSAP using scroller proxy
+	const lenis = new Lenis()
+
+	lenis.on('scroll', ScrollTrigger.update)
+
 	gsap.registerPlugin(ScrollTrigger)
 
-	ScrollTrigger.scrollerProxy('body', {
-	scrollTop(value:any) {
-	return arguments.length
-	? lenis.scrollTo(value)
-	: lenis.scroll()
-	},
-	getBoundingClientRect() {
-	return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight}
-	}
+	gsap.ticker.fps(60)
+
+	gsap.ticker.add((time)=>{
+	lenis.raf(time * 1000)
 	})
 
+	gsap.ticker.lagSmoothing(0)
 </script>
 <!doctype html>
 <html lang="en">
