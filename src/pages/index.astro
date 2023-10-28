@@ -113,7 +113,6 @@ import WateredPlant from "../img/WateredPlant.png";
             trigger: '.body1',
             start: 'top center', // Trigger point
             end: 'bottom center', // End point
-            markers: true,
         },
     });
     gsap.fromTo('.body2', {
@@ -136,6 +135,7 @@ import WateredPlant from "../img/WateredPlant.png";
         duration: 0.5,
         opacity: 0,
     }, {
+        x: 0,
         duration: 0.5,
         opacity: 1,
         scrollTrigger: {
@@ -285,6 +285,17 @@ import WateredPlant from "../img/WateredPlant.png";
             scrub: true,
         },
     });
+
+    // animate the CTA button
+    gsap.to('#CTABtn',{
+        opacity: 1,
+        scale:1,
+        scrollTrigger: {
+            trigger: '#WWO',
+            start: 'left', // Trigger point
+            end: 'bottom center', // End point
+        },
+    })
 </script>
 
 <Layout title="GreenBeen">
@@ -436,9 +447,9 @@ import WateredPlant from "../img/WateredPlant.png";
         </div>
     </div>
     <div id="CTO" class="flex flex-col justify-center h-screen z-50">
-        <p class="text-center pb-5 text-4xl font-medium text-white z-50" id="WWO">What are you waiting for?</p>
-        <button class="bg-[#9498FF] hover:bg-green-400 outline p-2 w-40 h-14 rounded-full mx-auto">
+        <p class="text-center pb-5 text-4xl font-medium text-white" id="WWO">What are you waiting for?</p>
+        <a id="CTABtn" href="/" class="mx-auto opacity-0"><button class="bg-[#9498FF] hover:bg-green-400 transition-colors ease-in-out outline p-2 w-40 h-14 rounded-full">
             Go green today!
-        </button>
+        </button></a>
     </div>
 </Layout>
