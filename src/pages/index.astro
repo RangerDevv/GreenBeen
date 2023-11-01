@@ -35,6 +35,21 @@ import WateredPlant from "../img/WateredPlant.png";
         changeWord()
     }, 5000);
 
+    // skew the image so taht it seems like it is rotating according to the mouse position
+    let AGIMG = document.getElementById('AGIMG') as HTMLImageElement
+    let AG = document.getElementById('AG') as HTMLDivElement
+    AG.addEventListener('mousemove', (e) => {
+        let x = e.clientX
+        let y = e.clientY
+        let width = AG.clientWidth
+        let height = AG.clientHeight
+        let xPercent = x / width
+        let yPercent = y / height
+        let xSkew = xPercent * 10 - 10
+        let ySkew = yPercent * 10 - 5
+        AGIMG.style.transform = `skew(${ySkew}deg, ${xSkew}deg)`
+    })
+
     import * as THREE from 'three';
 
     const scene = new THREE.Scene();
@@ -318,7 +333,7 @@ import WateredPlant from "../img/WateredPlant.png";
             </a>
         </div>
         <div class="w-[35vw] hidden sm:block">
-            <img src={WateredPlant.src} alt="hero" class="w-[35vw] hover:skew-y-12 transition-all ease-out" id="AGIMG"/>
+            <img src={WateredPlant.src} alt="hero" class="w-[35vw] transition-all ease-out" id="AGIMG"/>
         </div>
     </div>
     <div id="body1" class="body1 flex flex-wrap justify-evenly h-auto">
