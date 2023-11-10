@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import WateredPlant from "../img/WateredPlant.png";
 import BodyPic from "../img/1BodyPic.png";
 import BodyPic2 from "../img/BodyPic22.png";
-import BodyPic3 from "../img/BodyPic3.jpeg";
+import BodyPic3 from "../img/TaRebatePic.png";
 ---
 
 <script>
@@ -270,7 +270,7 @@ document.addEventListener('astro:page-load', () => {
             <p class="text-xl pt-5">Saving the environment one <span id="changedWord" class="text-green-700 transition-all ease-in-out transform scale-0 w-96">roof</span> at a time 🌿</p>
 
             <p class="text-xl pt-5 pb-10">GreenBeen is a website that helps you find the best eco-friendly products for your home. We have a wide range of products that are eco-friendly and sustainable.</p>
-            <a id="CTABtn" href="/" class=""><button class="bg-green-400 transition-colors ease-in-out outline p-1 w-36 h-12 rounded-full text-base">
+            <a id="CTABtn" href="/" class=""><button class="bg-green-400 transition-colors ease-in-out outline p-3 rounded-full text-base">
                 Go green today!
             </button></a>
         </div>
@@ -300,7 +300,7 @@ document.addEventListener('astro:page-load', () => {
             <img src={BodyPic2.src} alt="hero" class="w-[40vw] transition-all ease-out" id="AGIMG"/>
         </div>
     </div>
-    <div class="w-10 h-10 bg-green-600 rounded-full fixed -z-10" id="smallGreenRect"></div>
+    <div class="w-10 h-10 bg-green-600 rounded-full fixed z-0" id="smallGreenRect"></div>
     <div>
         <p class="text-center pb-10 text-4xl font-medium text-white z-50" id="WWO">What We Offer</p>
         <div class="flex flex-wrap justify-evenly h-auto sm:h-80 gap-10 z-10">
@@ -322,8 +322,8 @@ document.addEventListener('astro:page-load', () => {
         <div class="h-[40vh] w-[40vw]">
             <img src={BodyPic3.src} alt="hero" class="w-[40vw] transition-all ease-out rounded-xl" id="AGIMG"/>
         </div>
-        <div class='flex flex-wrap justify-evenly w-auto h-[80vh]'>
-            <div class="w-[50vw] flex-col mt-9">
+        <div class='flex flex-wrap justify-evenly w-auto'>
+            <div class="w-[50vw] flex-col mt-9 h-96">
                 <p class="text-2xl font-semibold">Tax Rebate</p>
                 <p class="text-lg">Discover the numerous tax incentives offered by governments to homeowners who invest in green and clean energy solutions. Our comprehensive guides will help you navigate these rebate programs, ensuring you maximize your savings while making a significant contribution to the environment.</p>
                 <div class="flex mt-8"> 
@@ -338,7 +338,7 @@ document.addEventListener('astro:page-load', () => {
             </div>
         </div>
     </div>
-    <div id="quote1Trigger" class="flex flex-col justify-center z-10 mb-40">
+    <div id="quote1Trigger" class="flex flex-wrap justify-evenly w-auto mt-24 mb-24">
         <div id="quote1" class="flex flex-wrap justify-evenly h-auto">
             <div class="w-[50vw] flex-col mt-9">
                 <p class="text-2xl font-semibold">"Time is the currency of change, and <span class="underline underline-offset-3 decoration-4 decoration-yellow-400">every moment we delay is another opportunity missed</span> to make a positive impact on our environment. The world needs your action today, so that together, we can create a future where clean energy, sustainability, and eco-conscious living are not just options but a way of life. Don't wait. Take that first step towards a greener and more prosperous tomorrow, for you, your family, and the generations to come."</p>
