@@ -278,7 +278,7 @@ document.addEventListener('astro:page-load', () => {
             <img src={WateredPlant.src} alt="hero" class="w-[35vw] transition-all ease-out" id="AGIMG"/>
         </div>
     </div>
-    <div id="body1" class="body1 flex flex-wrap justify-evenly h-auto">
+    <div id="body1" class="body1 flex flex-col sm:flex-row justify-evenly h-auto">
         <div id="" class="h-[40vh] w-[40vw]">
             <img src={BodyPic.src} alt="hero" class="w-[40vw] transition-all ease-out" id="AGIMG"/>
         </div>
@@ -289,7 +289,7 @@ document.addEventListener('astro:page-load', () => {
             </div>
         </div>
     </div>
-    <div id="body2" class="body2 flex flex-wrap justify-evenly h-auto -z-50">
+    <div id="body2" class="body2 flex flex-col-reverse sm:flex-row justify-evenly h-auto -z-50">
         <div class='flex flex-wrap justify-evenly w-auto h-[80vh]'>
             <div class="w-[50vw] flex-col mt-9">
                 <p class="text-2xl font-semibold">Why Choose GreenBeen?</p>
@@ -318,7 +318,7 @@ document.addEventListener('astro:page-load', () => {
             </div>
         </div>
     </div>
-    <div id="body3" class="flex flex-wrap justify-evenly h-auto z-10">
+    <div id="body3" class="flex flex-col sm:flex-row justify-evenly h-auto z-10">
         <div class="h-[40vh] w-[40vw]">
             <img src={BodyPic3.src} alt="hero" class="w-[40vw] transition-all ease-out rounded-xl" id="AGIMG"/>
         </div>
@@ -341,12 +341,12 @@ document.addEventListener('astro:page-load', () => {
     <div id="quote1Trigger" class="flex flex-wrap justify-evenly w-auto mt-24 mb-24">
         <div id="quote1" class="flex flex-wrap justify-evenly h-auto">
             <div class="w-[50vw] flex-col mt-9">
-                <p class="text-2xl font-semibold">"Time is the currency of change, and <span class="underline underline-offset-3 decoration-4 decoration-yellow-400">every moment we delay is another opportunity missed</span> to make a positive impact on our environment. The world needs your action today, so that together, we can create a future where clean energy, sustainability, and eco-conscious living are not just options but a way of life. Don't wait. Take that first step towards a greener and more prosperous tomorrow, for you, your family, and the generations to come."</p>
+                <p class=" text-lg text-justify sm:text-2xl font-semibold">"Time is the currency of change, and <span class="underline underline-offset-3 decoration-4 decoration-yellow-400">every moment we delay is another opportunity missed</span> to make a positive impact on our environment. The world needs your action today, so that together, we can create a future where clean energy, sustainability, and eco-conscious living are not just options but a way of life. Don't wait. Take that first step towards a greener and more prosperous tomorrow, for you, your family, and the generations to come."</p>
                 <p class="text-lg">- Mayc Buban (CEO of GreenBeen)</p>
             </div>
             </div>
     </div>
-    <div id="testimonials" class="flex flex-col">
+    <div id="testimonials" class="flex flex-col overflow-hidden">
         <p class="text-center pb-5 text-4xl font-medium text-white z-10" id="WWO">What Our Customers Are Saying</p>
         <div class="flex flex-row h-auto w-screen gap-5 pt-20 justify-center" id="row1">
             <!-- create a bunch of rectangles -->
