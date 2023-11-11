@@ -5,6 +5,10 @@ import WateredPlant from "../img/WateredPlant.png";
 import BodyPic from "../img/1BodyPic.png";
 import BodyPic2 from "../img/BodyPic22.png";
 import BodyPic3 from "../img/TaRebatePic.png";
+import CardPic1 from "../img/cardPictures/cardBodyPic1.jpeg";
+import CardPic2 from "../img/cardPictures/cardBodyPic2.jpeg";
+import CardPic3 from "../img/cardPictures/cardBodyPic3.jpeg";
+import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
 ---
 
 <script>
@@ -304,16 +308,20 @@ document.addEventListener('astro:page-load', () => {
     <div>
         <p class="text-center pb-10 text-4xl font-medium text-white z-50" id="WWO">What We Offer</p>
         <div class="flex flex-wrap justify-evenly h-auto sm:h-80 gap-10 z-10">
-            <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2" id="rbox1">
+            <a href="/waysToSave/RenuableEnergyProgram"><div class="w-56 h-64 rounded-lg bg-blue-200 text-center justify-evenly space-y-5 p-2" id="rbox1">
+                <img src={CardPic1.src} transition:name="cImg1" alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
                 <p>Renewable Energy Programs</p> 
-            </div>
-            <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2" id="rbox2">
+            </div></a>
+            <div class="w-56 h-64 rounded-lg bg-blue-200 text-center justify-evenly space-y-5 p-2" id="rbox2">
+                <img src={CardPic2.src} alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
                 <p>Cost Insights</p>
             </div>
-            <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2" id="rbox3">
+            <div class="w-56 h-64 rounded-lg bg-blue-200 text-center justify-evenly space-y-5 p-2" id="rbox3">
+                <img src={CardPic3.src} alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
                 <p>Green and Clean Energy Practices</p>
             </div>
-            <div class="w-52 h-64 rounded-lg bg-slate-400 text-center pt-40 p-2" id="rbox4">
+            <div class="w-56 h-64 rounded-lg bg-blue-200 text-center justify-evenly space-y-5 p-2" id="rbox4">
+                <img src={CardPic4.src} alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
                 <p>Sustainability Tips</p>
             </div>
         </div>

@@ -1,0 +1,33 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import CardPic1 from "../../img/cardPictures/cardBodyPic1.jpeg";
+---
+<Layout title="Renewable Energy Programs">
+<div class="flex flex-row justify-center w-full h-full gap-10">
+    <img src={CardPic1.src} alt="Card Picture" transition:name="cImg1" class="w-60 h-60 shadow-xl rounded-lg sticky top-16 left-2" />
+    <div>
+        <h1 class="text-2xl font-bold text-left">Renewable Energy Programs</h1>
+        <p class="text-left whitespace-pre-line pb-16">
+            Welcome to GreenBeen's dedicated page on renewable energy programs. Here, you'll find valuable information about various initiatives recommended by the Environmental Protection Agency (EPA) to help homeowners like you transition to cleaner, more sustainable energy sources.
+
+            What Are Renewable Energy Programs?
+
+            Renewable energy programs are government-sponsored initiatives designed to encourage the adoption of green energy solutions. These programs aim to reduce the environmental impact of energy consumption while promoting energy efficiency and sustainability. By participating in these programs, you can make a significant positive impact on the environment and your home's energy efficiency.
+
+            Program Highlights:
+
+           -- Solar Energy Incentives: Learn about government incentives and rebates for installing solar panels on your home.
+           -- Wind Power Initiatives: Explore programs that support the use of wind turbines for clean energy generation.
+           -- Geothermal Energy: Discover how geothermal systems can be an eco-friendly heating and cooling solution for your home.
+           -- Energy-Efficient Home Upgrades: Find out about programs that offer financial support for energy-efficient home improvements.
+            How to Get Started:
+
+            Ready to explore renewable energy programs for your home? Check out our detailed guides and resources to learn more about the available initiatives, eligibility criteria, and application processes. Take the first step towards a greener future by participating in these programs today!
+        </p>
+        <!-- a floating go back button -->
+        <a href="/#WWO" class="fixed left-1/2 bottom-4 z-50 flex items-center justify-center w-auto h-10 text-lg p-2 font-bold text-white bg-green-500 rounded-full shadow-lg cursor-pointer hover:bg-green-700 hover:text-white">
+            Go back
+        </a>
+    </div>
+</div>
+</Layout>
