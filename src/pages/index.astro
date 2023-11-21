@@ -210,50 +210,6 @@ document.addEventListener('astro:page-load', () => {
         },
     });
 
-    // animate the testimonials using fromTo
-
-    gsap.fromTo('#row1', {
-        x: -100,
-    }, {
-        opacity: 1,
-        x: 0,
-        duration: 0.5,
-        scrollTrigger: {
-            trigger: '#row1',
-            start: 'top center', // Trigger point
-            end: 'bottom center', // End point
-            scrub: true,
-        },
-    });
-
-    gsap.fromTo('#row2', {
-        x: 100,
-    }, {
-        opacity: 1,
-        x: 0,
-        duration: 0.5,
-        scrollTrigger: {
-            trigger: '#row2',
-            start: 'top center', // Trigger point
-            end: 'bottom center', // End point
-            scrub: true,
-        },
-    });
-
-    gsap.fromTo('#row3', {
-        x: -100,
-    }, {
-        opacity: 1,
-        x: 0,
-        duration: 0.5,
-        scrollTrigger: {
-            trigger: '#row3',
-            start: 'top center', // Trigger point
-            end: 'bottom center', // End point
-            scrub: true,
-        },
-    });
-
     // animate the CTA button
     gsap.to('#CTABtn',{
         opacity: 1,
@@ -307,23 +263,24 @@ document.addEventListener('astro:page-load', () => {
     <div class="w-10 h-10 bg-green-600 rounded-full fixed z-0" id="smallGreenRect"></div>
     <div>
         <p class="text-center pb-10 text-4xl font-medium text-white z-50" id="WWO">What We Offer</p>
-        <div class="flex flex-wrap justify-evenly h-auto sm:h-80 gap-10 z-10">
+        <p class=" text-center text-lg text-white z-50 pb-10" id="WWO">Click to learm more about each</p>
+        <div class="flex flex-wrap justify-evenly h-auto gap-10 z-10">
             <a href="/waysToSave/RenuableEnergyProgram"><div class="w-56 h-64 rounded-lg bg-blue-200 text-center justify-evenly space-y-5 p-2" id="rbox1">
                 <img src={CardPic1.src} transition:name="cImg1" alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
                 <p>Renewable Energy Programs</p> 
             </div></a>
-            <div class="w-56 h-64 rounded-lg bg-blue-200 text-center justify-evenly space-y-5 p-2" id="rbox2">
-                <img src={CardPic2.src} alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
+            <a href="/waysToSave/costInsight"><div class="w-56 h-64 rounded-lg bg-blue-200 text-center justify-evenly space-y-5 p-2" id="rbox2">
+                <img src={CardPic2.src} transition:name="cImg2" alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
                 <p>Cost Insights</p>
-            </div>
-            <div class="w-56 h-64 rounded-lg bg-blue-200 text-center justify-evenly space-y-5 p-2" id="rbox3">
-                <img src={CardPic3.src} alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
+            </div></a>
+            <a href="/waysToSave/greenAndClean"><div class="w-56 h-64 rounded-lg bg-blue-200 text-center justify-evenly space-y-5 p-2" id="rbox3">
+                <img src={CardPic3.src} transition:name="cImg3" alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
                 <p>Green and Clean Energy Practices</p>
-            </div>
-            <div class="w-56 h-64 rounded-lg bg-blue-200 text-center justify-evenly space-y-5 p-2" id="rbox4">
-                <img src={CardPic4.src} alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
+            </div></a>
+            <a href="/waysToSave/sustainibility"><div class="w-56 h-64 rounded-lg bg-blue-200 text-center justify-evenly space-y-5 p-2" id="rbox4">
+                <img src={CardPic4.src} transition:name="cImg4" alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
                 <p>Sustainability Tips</p>
-            </div>
+            </div></a>
         </div>
     </div>
     <div id="body3" class="flex flex-col sm:flex-row justify-evenly h-auto z-10">
@@ -356,61 +313,15 @@ document.addEventListener('astro:page-load', () => {
     </div>
     <div id="testimonials" class="flex flex-col overflow-hidden">
         <p class="text-center pb-5 text-4xl font-medium text-white z-10" id="WWO">What Our Customers Are Saying</p>
-        <div class="flex flex-row h-auto w-screen gap-5 pt-20 justify-center" id="row1">
+        <div class="flex flex-row h-auto w-screen gap-5 pt-16 justify-center" id="row1">
             <!-- create a bunch of rectangles -->
-            <div class="w-60 rounded-lg h-auto bg-white text-left p-4" id="rbox1">
-                <p>GreenBeen helped me understand the tax rebates available for my solar panel installation. Thanks to their guidance, I not only reduced my carbon footprint but also enjoyed significant savings on my taxes!</p>
-                <p class="text-right font-bold">- Sarah W. (Homeowner)</p>
-            </div>
-            <div class="w-60 rounded-lg h-auto bg-white text-left p-4" id="rbox1">
-                <p>The wealth of information on GreenBeen is incredible! I learned about energy-efficient appliances and how they can make a difference. This website is my go-to source for all things green.</p>
-                <p class="text-right font-bold">- David H. (Environment Enthusiast)</p>
-            </div>
-            <div class="w-60 rounded-lg h-auto bg-white text-left p-4" id="rbox1">
-                <p>As a mom, I'm committed to teaching my kids about sustainability. GreenBeen's sustainability tips have been invaluable. We've incorporated eco-friendly habits into our daily lives, making a positive impact together!</p>
-                <p class="text-right font-bold">- Lisa M. (Eco-Warrior Mom)</p>
-            </div>
-            <div class="w-60 rounded-lg h-auto bg-white text-left p-4" id="rbox1">
-                <p>GreenBeen simplifies complex concepts. Their page on renewable energy programs made it easy for me to choose the right solution for my home. I now proudly use solar power, thanks to their guidance.</p>
-                <p class="text-right font-bold">- Robert L. (Renewable Energy Advocate)</p>
-            </div>
-        </div>
-        <div class="flex flex-row h-auto w-screen gap-5 pt-5 justify-center" id="row2">
-            <!-- create a bunch of rectangles -->
-            <div class="w-60 rounded-lg h-auto bg-white text-left p-4" id="rbox1">
-                <p>GreenBeen helped me understand the tax rebates available for my solar panel installation. Thanks to their guidance, I not only reduced my carbon footprint but also enjoyed significant savings on my taxes!</p>
-                <p class="text-right font-bold">- Sarah W. (Homeowner)</p>
-            </div>
-            <div class="w-60 rounded-lg h-auto bg-white text-left p-4" id="rbox1">
-                <p>The wealth of information on GreenBeen is incredible! I learned about energy-efficient appliances and how they can make a difference. This website is my go-to source for all things green.</p>
-                <p class="text-right font-bold">- David H. (Environment Enthusiast)</p>
-            </div>
-            <div class="w-60 rounded-lg h-auto bg-white text-left p-4" id="rbox1">
-                <p>As a mom, I'm committed to teaching my kids about sustainability. GreenBeen's sustainability tips have been invaluable. We've incorporated eco-friendly habits into our daily lives, making a positive impact together!</p>
-                <p class="text-right font-bold">- Lisa M. (Eco-Warrior Mom)</p>
-            </div>
-            <div class="w-60 rounded-lg h-auto bg-white text-left p-4" id="rbox1">
-                <p>GreenBeen simplifies complex concepts. Their page on renewable energy programs made it easy for me to choose the right solution for my home. I now proudly use solar power, thanks to their guidance.</p>
-                <p class="text-right font-bold">- Robert L. (Renewable Energy Advocate)</p>
-            </div>
-        </div>
-        <div class="flex flex-row h-auto w-screen gap-5 pt-5 justify-center" id="row3">
-            <!-- create a bunch of rectangles -->
-            <div class="w-60 rounded-lg h-auto bg-white text-left p-4" id="rbox1">
-                <p>GreenBeen helped me understand the tax rebates available for my solar panel installation. Thanks to their guidance, I not only reduced my carbon footprint but also enjoyed significant savings on my taxes!</p>
-                <p class="text-right font-bold">- Sarah W. (Homeowner)</p>
-            </div>
-            <div class="w-60 rounded-lg h-auto bg-white text-left p-4" id="rbox1">
-                <p>The wealth of information on GreenBeen is incredible! I learned about energy-efficient appliances and how they can make a difference. This website is my go-to source for all things green.</p>
-                <p class="text-right font-bold">- David H. (Environment Enthusiast)</p>
-            </div>
-            <div class="w-60 rounded-lg h-auto bg-white text-left p-4" id="rbox1">
-                <p>As a mom, I'm committed to teaching my kids about sustainability. GreenBeen's sustainability tips have been invaluable. We've incorporated eco-friendly habits into our daily lives, making a positive impact together!</p>
-                <p class="text-right font-bold">- Lisa M. (Eco-Warrior Mom)</p>
-            </div>
-            <div class="w-60 rounded-lg h-auto bg-white text-left p-4" id="rbox1">
-                <p>GreenBeen simplifies complex concepts. Their page on renewable energy programs made it easy for me to choose the right solution for my home. I now proudly use solar power, thanks to their guidance.</p>
-                <p class="text-right font-bold">- Robert L. (Renewable Energy Advocate)</p>
+            <div class="w-96 md:w-1/2 text-lg rounded-lg h-80 align-middle bg-[#FFF7D9] text-left p-4" id="rbox1">
+                <p>
+                    Discovering GreenBeen was a game-changer for me. Their detailed insights on renewable energy programs, cost analysis, and tax rebates made my transition to a greener home both informed and cost-effective. The community engagement and sustainability tips added a personal touch, turning my journey into a shared commitment. GreenBeen isn't just a website; it's the catalyst for positive change. Highly recommend for anyone ready to take action towards a more sustainable lifestyle.
+                </p>
+                <div class="h-auto w-full">
+                    - Ryan Greenold
+                </div>
             </div>
         </div>
     </div>
