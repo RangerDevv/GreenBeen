@@ -221,6 +221,17 @@ document.addEventListener('astro:page-load', () => {
         },
     })
 }, { once: false})
+
+// if the user has scrolled past 150px set the opacity of the AG to 0
+document.addEventListener('scroll', () => {
+    let AG = document.getElementById('AG') as HTMLDivElement
+    let scroll = window.scrollY
+    if(scroll >= 250){
+        AG.style.opacity = '0'
+    } else {
+        AG.style.opacity = '1'
+    }
+})
 </script>
 
 <Layout title="GreenBeen">
@@ -264,7 +275,7 @@ document.addEventListener('astro:page-load', () => {
     <div>
         <p class="text-center pb-10 text-4xl font-medium text-white z-50" id="WWO">What We Offer</p>
         <p class=" text-center text-lg text-white z-50 pb-10" id="WWO">Click to learm more about each</p>
-        <div class="flex flex-wrap justify-evenly h-auto gap-10 z-10">
+        <div class="flex flex-wrap justify-evenly h-auto gap-5 z-10">
             <a href="/waysToSave/RenuableEnergyProgram"><div class="w-56 h-64 rounded-lg bg-blue-200 text-center justify-evenly space-y-5 p-2" id="rbox1">
                 <img src={CardPic1.src} transition:name="cImg1" alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
                 <p>Renewable Energy Programs</p> 

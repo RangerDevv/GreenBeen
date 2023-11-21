@@ -57,6 +57,13 @@ import { ViewTransitions } from 'astro:transitions';
 		font-family: system-ui, sans-serif;
 		font-size: 18px;
 	}
+
+	/* increase the font sizes depending on how big the screen is but keep it the default size on mobile and 768px */
+	@media (min-width: 1440px) {
+		html {
+			font-size: calc(18px + (24 - 18) * ((100vw - 768px) / (1920 - 768)));
+		}
+	}
 	code {
 		font-family:
 			Menlo,
