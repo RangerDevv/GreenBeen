@@ -22,216 +22,216 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
     import { EaselPlugin } from "gsap/EaselPlugin";
     import { PixiPlugin } from "gsap/PixiPlugin";
     import { TextPlugin } from "gsap/TextPlugin";
-document.addEventListener('astro:page-load', () => {
-    // This only runs once.
-    let listOfEcoWrods=[
-        'roof',
-        'lightbulb',
-        'car',
-        'house',
-        'garden',
-        'dishwasher',
-        'washing machine',
-        'fridge',
-        'oven',
-        'shower',
-        'air conditioner'
-    ] 
+    document.addEventListener('astro:page-load', () => {
+        // This only runs once.
+        let listOfEcoWrods=[
+            'roof',
+            'lightbulb',
+            'car',
+            'house',
+            'garden',
+            'dishwasher',
+            'washing machine',
+            'fridge',
+            'oven',
+            'shower',
+            'air conditioner'
+        ] 
 
-    // change the word with a slight transition
-    function changeWord(){
-        let word = document.getElementById('changedWord') as HTMLSpanElement
-        let randomWord = listOfEcoWrods[Math.floor(Math.random() * listOfEcoWrods.length)]
-        word.classList.add('transition-all', 'duration-500', 'ease-in-out', 'transform', 'scale-0')
-        setTimeout(() => {
-            word.innerText = randomWord
-            word.classList.remove('scale-0')
-        }, 500);
-    }
+        // change the word with a slight transition
+        function changeWord(){
+            let word = document.getElementById('changedWord') as HTMLSpanElement
+            let randomWord = listOfEcoWrods[Math.floor(Math.random() * listOfEcoWrods.length)]
+            word.classList.add('transition-all', 'duration-500', 'ease-in-out', 'transform', 'scale-0')
+            setTimeout(() => {
+                word.innerText = randomWord
+                word.classList.remove('scale-0')
+            }, 500);
+        }
 
-    // change the word every 5 seconds
-    setInterval(() => {
-        changeWord()
-    }, 5000);
+        // change the word every 5 seconds
+        setInterval(() => {
+            changeWord()
+        }, 5000);
 
-    // skew the image so taht it seems like it is rotating according to the mouse position
-    let AGIMG = document.getElementById('AGIMG') as HTMLImageElement
-    let AG = document.getElementById('AG') as HTMLDivElement
-    AG.addEventListener('mousemove', (e) => {
-        let x = e.clientX
-        let y = e.clientY
-        let width = AG.clientWidth
-        let height = AG.clientHeight
-        let xPercent = x / width
-        let yPercent = y / height
-        let xSkew = xPercent * 10 - 10
-        let ySkew = yPercent * 10 - 5
-        AGIMG.style.transform = `skew(${ySkew}deg, ${xSkew}deg)`
+        // skew the image so taht it seems like it is rotating according to the mouse position
+        let AGIMG = document.getElementById('AGIMG') as HTMLImageElement
+        let AG = document.getElementById('AG') as HTMLDivElement
+        AG.addEventListener('mousemove', (e) => {
+            let x = e.clientX
+            let y = e.clientY
+            let width = AG.clientWidth
+            let height = AG.clientHeight
+            let xPercent = x / width
+            let yPercent = y / height
+            let xSkew = xPercent * 10 - 10
+            let ySkew = yPercent * 10 - 5
+            AGIMG.style.transform = `skew(${ySkew}deg, ${xSkew}deg)`
+        })
+
+        
+        
+        gsap.registerPlugin(Flip,ScrollTrigger,Observer,ScrollToPlugin,Draggable,MotionPathPlugin,EaselPlugin,PixiPlugin,TextPlugin);
+
+        gsap.from('.body1', {
+            x: 100,
+            duration: 0.5,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.body1',
+                start: 'top center', // Trigger point
+                end: 'bottom center', // End point
+            },
+        });
+        gsap.fromTo('.body2', {
+            x: -100,
+            duration: 0.5,
+            opacity: 0,
+        }, {
+            x: 0,
+            duration: 0.5,
+            opacity: 1,
+            scrollTrigger: {
+                trigger: '.body2',
+                start: 'top center', // Trigger point
+                end: 'bottom center', // End point
+            },
+        });
+
+        gsap.fromTo('#body3', {
+            x: 100,
+            duration: 0.5,
+            opacity: 0,
+        }, {
+            x: 0,
+            duration: 0.5,
+            opacity: 1,
+            scrollTrigger: {
+                trigger: '#body3',
+                start: 'top center', // Trigger point
+                end: 'bottom center', // End point
+            },
+        });
+
+        gsap.to('#AG', {
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '#AG',
+                start: 'left', // Trigger point
+                end: 'center', // End point
+                scrub: true,
+            },
+        });
+
+        // scale the green rectangle up as you scroll
+        gsap.to('#smallGreenRect',{
+            scale: 400,
+            scrollTrigger: {
+                trigger: '#body2',
+                start: 'left', // Trigger point
+                end: 'bottom center', // End point
+                scrub: true,
+            },
+        })
+
+        // make each box appear one after the other from the top fading in
+        gsap.from('#rbox1', {
+            y: -100,
+            opacity: 0,
+            duration: 0.3,
+            delay: 0,
+            scrollTrigger: {
+                trigger: '#rbox1',
+                start: 'top center', // Trigger point
+                end: 'bottom center', // End point
+            },
+        });
+        gsap.from('#rbox2', {
+            y: -100,
+            opacity: 0,
+            duration: 0.3,
+            delay: 0.3,
+            scrollTrigger: {
+                trigger: '#rbox2',
+                start: 'top center', // Trigger point
+                end: 'bottom center', // End point
+            },
+        });
+        gsap.from('#rbox3', {
+            y: -100,
+            opacity: 0,
+            duration: 0.3,
+            delay: 0.6,
+            scrollTrigger: {
+                trigger: '#rbox3',
+                start: 'top center', // Trigger point
+                end: 'bottom center', // End point
+            },
+        });
+        gsap.from('#rbox4', {
+            y: -100,
+            opacity: 0,
+            duration: 0.3,
+            delay: 0.9,
+            scrollTrigger: {
+                trigger: '#rbox4',
+                start: 'top center', // Trigger point
+                end: 'bottom center', // End point
+            },
+        });
+
+        // animate the WWO text
+        gsap.fromTo('#WWO', {
+            opacity: 0,
+            y: -100,
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            scrollTrigger: {
+                trigger: '#WWO',
+                start: 'top center', // Trigger point
+                end: 'bottom center', // End point
+            },
+        });
+
+        // animate the quote
+        gsap.fromTo('#quote1', {
+            opacity: 0,
+            y: -100,
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            scrollTrigger: {
+                trigger: '#quote1Trigger',
+                start: 'top center', // Trigger point
+                end: 'bottom center', // End point
+            },
+        });
+
+        // animate the CTA button
+        gsap.to('#CTABtn',{
+            opacity: 1,
+            scale:1,
+            scrollTrigger: {
+                trigger: '#WWO',
+                start: 'left', // Trigger point
+                end: 'bottom center', // End point
+            },
+        })
+    }, { once: false})
+
+    // if the user has scrolled past 150px set the opacity of the AG to 0
+    document.addEventListener('scroll', () => {
+        let AG = document.getElementById('AG') as HTMLDivElement
+        let scroll = window.scrollY
+        if(scroll >= 250){
+            AG.style.opacity = '0'
+        } else {
+            AG.style.opacity = '1'
+        }
     })
-
-    
-    
-    gsap.registerPlugin(Flip,ScrollTrigger,Observer,ScrollToPlugin,Draggable,MotionPathPlugin,EaselPlugin,PixiPlugin,TextPlugin);
-
-    gsap.from('.body1', {
-        x: 100,
-        duration: 0.5,
-        opacity: 0,
-        scrollTrigger: {
-            trigger: '.body1',
-            start: 'top center', // Trigger point
-            end: 'bottom center', // End point
-        },
-    });
-    gsap.fromTo('.body2', {
-        x: -100,
-        duration: 0.5,
-        opacity: 0,
-    }, {
-        x: 0,
-        duration: 0.5,
-        opacity: 1,
-        scrollTrigger: {
-            trigger: '.body2',
-            start: 'top center', // Trigger point
-            end: 'bottom center', // End point
-        },
-    });
-
-    gsap.fromTo('#body3', {
-        x: 100,
-        duration: 0.5,
-        opacity: 0,
-    }, {
-        x: 0,
-        duration: 0.5,
-        opacity: 1,
-        scrollTrigger: {
-            trigger: '#body3',
-            start: 'top center', // Trigger point
-            end: 'bottom center', // End point
-        },
-    });
-
-    gsap.to('#AG', {
-        opacity: 0,
-        scrollTrigger: {
-            trigger: '#AG',
-            start: 'left', // Trigger point
-            end: 'center', // End point
-            scrub: true,
-        },
-    });
-
-    // scale the green rectangle up as you scroll
-    gsap.to('#smallGreenRect',{
-        scale: 400,
-        scrollTrigger: {
-            trigger: '#body2',
-            start: 'left', // Trigger point
-            end: 'bottom center', // End point
-            scrub: true,
-        },
-    })
-
-    // make each box appear one after the other from the top fading in
-    gsap.from('#rbox1', {
-        y: -100,
-        opacity: 0,
-        duration: 0.3,
-        delay: 0,
-        scrollTrigger: {
-            trigger: '#rbox1',
-            start: 'top center', // Trigger point
-            end: 'bottom center', // End point
-        },
-    });
-    gsap.from('#rbox2', {
-        y: -100,
-        opacity: 0,
-        duration: 0.3,
-        delay: 0.3,
-        scrollTrigger: {
-            trigger: '#rbox2',
-            start: 'top center', // Trigger point
-            end: 'bottom center', // End point
-        },
-    });
-    gsap.from('#rbox3', {
-        y: -100,
-        opacity: 0,
-        duration: 0.3,
-        delay: 0.6,
-        scrollTrigger: {
-            trigger: '#rbox3',
-            start: 'top center', // Trigger point
-            end: 'bottom center', // End point
-        },
-    });
-    gsap.from('#rbox4', {
-        y: -100,
-        opacity: 0,
-        duration: 0.3,
-        delay: 0.9,
-        scrollTrigger: {
-            trigger: '#rbox4',
-            start: 'top center', // Trigger point
-            end: 'bottom center', // End point
-        },
-    });
-
-    // animate the WWO text
-    gsap.fromTo('#WWO', {
-        opacity: 0,
-        y: -100,
-    }, {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        scrollTrigger: {
-            trigger: '#WWO',
-            start: 'top center', // Trigger point
-            end: 'bottom center', // End point
-        },
-    });
-
-    // animate the quote
-    gsap.fromTo('#quote1', {
-        opacity: 0,
-        y: -100,
-    }, {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        scrollTrigger: {
-            trigger: '#quote1Trigger',
-            start: 'top center', // Trigger point
-            end: 'bottom center', // End point
-        },
-    });
-
-    // animate the CTA button
-    gsap.to('#CTABtn',{
-        opacity: 1,
-        scale:1,
-        scrollTrigger: {
-            trigger: '#WWO',
-            start: 'left', // Trigger point
-            end: 'bottom center', // End point
-        },
-    })
-}, { once: false})
-
-// if the user has scrolled past 150px set the opacity of the AG to 0
-document.addEventListener('scroll', () => {
-    let AG = document.getElementById('AG') as HTMLDivElement
-    let scroll = window.scrollY
-    if(scroll >= 250){
-        AG.style.opacity = '0'
-    } else {
-        AG.style.opacity = '1'
-    }
-})
 </script>
 
 <Layout title="GreenBeen">
@@ -302,7 +302,7 @@ document.addEventListener('scroll', () => {
             <div class="w-[50vw] flex-col mt-9 h-96">
                 <p class="text-2xl font-semibold">Tax Rebate</p>
                 <p class="text-lg">Discover the numerous tax incentives offered by governments to homeowners who invest in green and clean energy solutions. Our comprehensive guides will help you navigate these rebate programs, ensuring you maximize your savings while making a significant contribution to the environment.</p>
-                <div class="flex mt-8"> 
+                <a href="/taxRebate"><div class="flex mt-8"> 
                     <button class=" align-middle pr-2 underline underline-offset-4">
                         Learn More
                     </button>
@@ -310,7 +310,7 @@ document.addEventListener('scroll', () => {
                         <circle cx="57" cy="57" r="57" fill="#9498FF"/>
                         <path d="M60.1901 66.7656L59.05 68.4088L60.0977 69.1358L61.1988 68.4926L60.1901 66.7656ZM81.1903 54.5001L80.1908 52.7677L80.1816 52.7731L81.1903 54.5001ZM96.122 47.5182C96.4082 46.4514 95.7754 45.3545 94.7086 45.0683L77.3234 40.4041C76.2565 40.1179 75.1597 40.7507 74.8734 41.8175C74.5872 42.8844 75.22 43.9813 76.2869 44.2675L91.7404 48.4134L87.5945 63.8669C87.3083 64.9338 87.9411 66.0306 89.0079 66.3169C90.0748 66.6031 91.1716 65.9703 91.4579 64.9034L96.122 47.5182ZM38.1902 51.5004L39.3303 49.8573L38.1025 49.0053L36.9375 49.9413L38.1902 51.5004ZM61.1988 68.4926L82.199 56.2271L80.1816 52.7731L59.1815 65.0386L61.1988 68.4926ZM82.1898 56.2325L95.1898 48.7323L93.1909 45.2676L80.1908 52.7678L82.1898 56.2325ZM20.4428 68.3247L39.4428 53.0596L36.9375 49.9413L17.9375 65.2065L20.4428 68.3247ZM37.05 53.1436L59.05 68.4088L61.3303 65.1224L39.3303 49.8573L37.05 53.1436Z" fill="black"/>
                     </svg>   
-                </div>
+                </div></a>
             </div>
         </div>
     </div>
