@@ -86,7 +86,7 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
         gsap.fromTo('.body2', {
             x: -100,
             duration: 0.5,
-            opacity: 0,
+            opacity: 0.5,
         }, {
             x: 0,
             duration: 0.5,
@@ -128,7 +128,7 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
             scale: 400,
             scrollTrigger: {
                 trigger: '#body2',
-                start: 'left', // Trigger point
+                start: '50% center', // Trigger point
                 end: 'bottom center', // End point
                 scrub: true,
             },
@@ -320,20 +320,77 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
                 <p class=" text-lg text-justify sm:text-2xl font-semibold">"Time is the currency of change, and <span class="underline underline-offset-3 decoration-4 decoration-yellow-400">every moment we delay is another opportunity missed</span> to make a positive impact on our environment. The world needs your action today, so that together, we can create a future where clean energy, sustainability, and eco-conscious living are not just options but a way of life. Don't wait. Take that first step towards a greener and more prosperous tomorrow, for you, your family, and the generations to come."</p>
                 <p class="text-lg">- Mayc Buban (CEO of GreenBeen)</p>
             </div>
-            </div>
+        </div>
     </div>
     <div id="testimonials" class="flex flex-col overflow-hidden">
         <p class="text-center pb-5 text-4xl font-medium text-white z-10" id="WWO">What Our Customers Are Saying</p>
-        <div class="flex flex-row h-auto w-screen gap-5 pt-16 justify-center" id="row1">
+        <div class="flex flex-wrap h-auto w-screen gap-5 pt-16 justify-center" id="row1">
             <!-- create a bunch of rectangles -->
-            <div class="w-96 md:w-1/2 text-lg rounded-lg h-80 align-middle bg-[#FFF7D9] text-left p-4" id="rbox1">
+            <div class="w-72 text-base font-semibold rounded-lg h-auto align-middle bg-[#fee488] text-left p-5" id="rbox1">
                 <p>
-                    Discovering GreenBeen was a game-changer for me. Their detailed insights on renewable energy programs, cost analysis, and tax rebates made my transition to a greener home both informed and cost-effective. The community engagement and sustainability tips added a personal touch, turning my journey into a shared commitment. GreenBeen isn't just a website; it's the catalyst for positive change. Highly recommend for anyone ready to take action towards a more sustainable lifestyle.
+                    Thanks to GreenBeen, I found the perfect solar solution for my home – saving the planet and my wallet!
                 </p>
-                <div class="h-auto w-full">
+                <div class="h-auto w-full flex pt-10 gap-10">
                     - Ryan Greenold
+                    <!--  realistic avatar from https://getavataaars.com/ that is different for each testimonial -->
+                    <img src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=ShirtVNeck&clotheColor=Gray02&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Smile&skinColor=Light" alt="avatar" class="w-10 h-10 rounded-full"/>
+                    
                 </div>
             </div>
+            <div class="w-72 text-base font-semibold rounded-lg h-auto align-middle bg-[#fee488] text-left p-5" id="rbox1">
+                <p>
+                    GreenBeen's tax rebate info made going green a no-brainer; I wish I'd done it sooner!
+                </p>
+                <div class="h-auto w-full flex pt-16 gap-10">
+                    - Emily Sheerwood
+                    <!--  realistic avatar from https://getavataaars.com/ that is different for each testimonial -->
+                    <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraightStrand&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=ShirtVNeck&clotheColor=Gray02&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Smile&skinColor=Light" alt="avatar" class="w-10 h-10 rounded-full"/>
+                    
+                </div>
+            </div>
+            <div class="w-72 text-base font-semibold rounded-lg h-auto align-middle bg-[#fee488] text-left p-5" id="rbox1">
+                <p>
+                    Thanks to GreenBeen, I found the perfect solar solution for my home – saving the planet and my wallet!
+                </p>
+                <div class="h-auto w-full flex pt-10 gap-10">
+                    - Jim Hussam
+                    <!--  realistic avatar from https://getavataaars.com/ that is different for each testimonial make this one bald -->
+                    <img src="https://avataaars.io/" alt="avatar" class="w-10 h-10 rounded-full"/>
+                </div>
+            </div>
+            <div class="w-72 text-base font-semibold rounded-lg h-auto align-middle bg-[#fee488] text-left p-5" id="rbox1">
+                <p>
+                    Transformed my home with GreenBeen's insights – from smart tech to eco-friendly practices, every tip makes a difference!
+                </p>
+                <div class="h-auto w-full flex pt-10 gap-10">
+                    - Neil Patil Armstrong
+                    <!--  realistic avatar from https://dicebear.com/avatars/ that is different for each testimonial -->
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg" alt="avatar" class="w-10 h-10 rounded-full"/>
+                    
+                </div>
+            </div>
+            <div class="w-72 text-base font-semibold rounded-lg h-auto align-middle bg-[#fee488] text-left p-5" id="rbox1">
+                <p>
+                    Thanks to GreenBeen, I found the perfect solar solution for my home – saving the planet and my wallet!
+                </p>
+                <div class="h-auto w-full flex pt-10 gap-10">
+                    - Jessica Waltuh
+                    <!--  realistic avatar from thispersondoesnotexist.com that is different for each testimonial -->
+                    <img src="https://thispersondoesnotexist.com/" alt="avatar" class="w-10 h-10 rounded-full"/>
+                    
+                </div>
+            </div>
+            <div class="w-72 text-base font-semibold rounded-lg h-auto align-middle bg-[#fee488] text-left p-5" id="rbox1">
+                <p>
+                    GreenBeen empowered me to make eco-friendly choices effortlessly, from tax rebates to sustainable practices – now, my home is a beacon of green living!
+                </p>
+                <div class="h-auto w-full flex pt-4">
+                    - Miachel J Jack
+                    <!--  an random avatar from https://avatars.dicebear.com/ that is different for each testimonial -->
+                    <img src="https://api.dicebear.com/7.x/notionists/svg" alt="avatar" class="w-10 h-10 rounded-full"/>
+                </div>
+            </div>
+
         </div>
     </div>
     <div id="CTO" class="flex flex-col justify-center h-screen z-50">
