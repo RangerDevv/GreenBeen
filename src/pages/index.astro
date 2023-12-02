@@ -213,17 +213,17 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
         });
 
         // animate the CTA button
-        gsap.to('#invisible',{
+        gsap.to('#CTABtn',{
             opacity: 1,
             scale:1,
             scrollTrigger: {
-                trigger: '#invisible',
+                trigger: '#WWO',
                 start: 'left', // Trigger point
                 end: 'bottom center', // End point
             },
         })
 
-        gsap.fromTo('#body3', {
+        gsap.fromTo('#invisible', {
             x: 100,
             duration: 0.5,
             opacity: 0,
