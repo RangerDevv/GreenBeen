@@ -236,7 +236,7 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
 
 <Layout title="GreenBeen">
     <div class="w-[100vw] h-[100vh] p-10 flex sticky top-0" id="AG">
-        <div class="w-[50vw]">
+        <div class="w-screen sm:w-[50vw]">
             <h1 class='text-4xl font-medium'><span class="text-green-700">Green</span><span class="text-amber-600">Been</span></h1>
             <p class="text-xl pt-5">Saving the environment one <span id="changedWord" class="text-green-700 transition-all ease-in-out transform scale-0 w-96">roof</span> at a time 🌿</p>
 
@@ -250,25 +250,25 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
         </div>
     </div>
     <div id="body1" class="body1 flex flex-col sm:flex-row justify-evenly h-auto">
-        <div id="" class="h-[40vh] w-[40vw]">
-            <img src={BodyPic.src} alt="hero" class="w-[40vw] transition-all ease-out" id="AGIMG"/>
+        <div id="" class="w-screen h-auto sm:h-[40vh] sm:w-[40vw]">
+            <img src={BodyPic.src} alt="hero" class="sm:w-[40vw] transition-all ease-out" id="AGIMG"/>
         </div>
         <div class='flex flex-wrap justify-evenly w-auto h-[80vh]'>
-            <div class="w-[50vw] flex-col mt-9">
+            <div class="p-4 w-full sm:w-[50vw] flex-col mt-9">
                 <p class="text-2xl font-semibold">The Importance of Green Energy Initiatives</p>
                 <p class="text-lg">The world is at a critical juncture when it comes to environmental sustainability. Green energy initiatives are vital to mitigating the harmful effects of fossil fuels and combating climate change. By adopting renewable energy sources, we can make a significant positive impact on the environment.</p>
             </div>
         </div>
     </div>
-    <div id="body2" class="body2 flex flex-col-reverse sm:flex-row justify-evenly h-auto -z-50">
+    <div id="body2" class="flex flex-col-reverse sm:flex-row justify-evenly h-auto -z-50">
         <div class='flex flex-wrap justify-evenly w-auto h-[80vh]'>
-            <div class="w-[50vw] flex-col mt-9">
+            <div class="w-screen sm:w-[50vw] flex-col mt-9 p-4">
                 <p class="text-2xl font-semibold">Why Choose GreenBeen?</p>
                 <p class="text-lg">When you join GreenBeen, you become part of a thriving community dedicated to a greener, more sustainable future. Our website is regularly updated with the most current information, news, and trends in green energy and sustainability. Sign up for our newsletter to stay informed and connect with like-minded individuals who share your enthusiasm for eco-friendly living.</p>
             </div>
         </div>
-        <div class="h-[40vh] w-[40vw]">
-            <img src={BodyPic2.src} alt="hero" class="w-[40vw] transition-all ease-out" id="AGIMG"/>
+        <div class="w-screen h-auto sm:h-[40vh] sm:w-[40vw]">
+            <img src={BodyPic2.src} alt="hero" class="sm:w-[40vw] transition-all ease-out" id="AGIMG"/>
         </div>
     </div>
     <div class="w-10 h-10 bg-green-600 rounded-full fixed z-0" id="smallGreenRect"></div>
@@ -295,11 +295,11 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
         </div>
     </div>
     <div id="body3" class="flex flex-col sm:flex-row justify-evenly h-auto z-10 mt-24">
-        <div class="h-[40vh] w-[40vw]">
-            <img src={BodyPic3.src} alt="hero" class="w-[40vw] transition-all ease-out rounded-xl" id="AGIMG"/>
+        <div class="w-screen h-auto sm:h-[40vh] sm:w-[40vw]">
+            <img src={BodyPic3.src} alt="hero" class="sm:w-[40vw] transition-all ease-out rounded-xl" id="AGIMG"/>
         </div>
         <div class='flex flex-wrap justify-evenly w-auto'>
-            <div class="w-[50vw] flex-col mt-9 h-96">
+            <div class="w-screen p-4 sm:w-[50vw] flex-col mt-9 h-96">
                 <p class="text-2xl font-semibold">Tax Rebate</p>
                 <p class="text-lg">Discover the numerous tax incentives offered by governments to homeowners who invest in green and clean energy solutions. Our comprehensive guides will help you navigate these rebate programs, ensuring you maximize your savings while making a significant contribution to the environment.</p>
                 <a href="/taxRebate"><div class="flex mt-8"> 
@@ -316,7 +316,7 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
     </div>
     <div id="quote1Trigger" class="flex flex-wrap justify-evenly w-auto mt-24 mb-24">
         <div id="quote1" class="flex flex-wrap justify-evenly h-auto">
-            <div class="w-[50vw] flex-col mt-9">
+            <div class="w-screen p-10 sm:w-[50vw] flex-col mt-9">
                 <p class=" text-lg text-justify sm:text-2xl font-semibold">"Time is the currency of change, and <span class="underline underline-offset-3 decoration-4 decoration-yellow-400">every moment we delay is another opportunity missed</span> to make a positive impact on our environment. The world needs your action today, so that together, we can create a future where clean energy, sustainability, and eco-conscious living are not just options but a way of life. Don't wait. Take that first step towards a greener and more prosperous tomorrow, for you, your family, and the generations to come."</p>
                 <p class="text-lg">- Mayc Buban (CEO of GreenBeen)</p>
             </div>
