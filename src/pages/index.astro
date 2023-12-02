@@ -213,15 +213,30 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
         });
 
         // animate the CTA button
-        gsap.to('#CTABtn',{
+        gsap.to('#invisible',{
             opacity: 1,
             scale:1,
             scrollTrigger: {
-                trigger: '#WWO',
+                trigger: '#invisible',
                 start: 'left', // Trigger point
                 end: 'bottom center', // End point
             },
         })
+
+        gsap.fromTo('#body3', {
+            x: 100,
+            duration: 0.5,
+            opacity: 0,
+        }, {
+            x: 0,
+            duration: 0.5,
+            opacity: 1,
+            scrollTrigger: {
+                trigger: '#invisible',
+                start: 'top center', // Trigger point
+                end: 'bottom center', // End point
+            },
+        });
     }, { once: false})
 
     // if the user has scrolled past 150px set the opacity of the AG to 0
@@ -237,6 +252,8 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
 </script>
 
 <Layout title="GreenBeen">
+    <!-- invisible rectangle only on mobile screens -->
+    <div class="w-screen h-10 bg-transparent rounded-full fixed z-0 sm:hidden" id="invisible"></div>
     <div class="w-[100vw] h-[100vh] p-10 flex sticky top-0" id="AG">
         <div class="w-screen sm:w-[50vw]">
             <h1 class='text-4xl font-medium'><span class="text-green-700">Green</span><span class="text-amber-600">Been</span></h1>
