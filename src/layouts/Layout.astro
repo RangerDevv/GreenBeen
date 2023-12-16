@@ -16,10 +16,6 @@ import { ViewTransitions } from 'astro:transitions';
 
 	lenis.on('scroll', ScrollTrigger.update)
 
-	gsap.registerPlugin(ScrollTrigger)
-
-	gsap.ticker.fps(60)
-
 	gsap.ticker.add((time)=>{
 	lenis.raf(time * 1000)
 	})
@@ -46,15 +42,19 @@ import { ViewTransitions } from 'astro:transitions';
 	</body>
 </html>
 <style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap');
+
 	:root {
-		background-color: #FFF7D9;
-		color: #000;
+		background-color: #f0eab5;
+		color: #0A361E;
 		overflow-x: hidden;
-		background-image: radial-gradient(#f4a629 0.5px, #FFF7D9 0.5px);
+		background-image: radial-gradient(#f4a629 0.5px, #f0eab5
+ 		0.5px);
 		background-size: 10px 10px;
 	}
 	html {
-		font-family: system-ui, sans-serif;
+		font-family: 'Poppins', sans-serif;
+		font-family: 'Roboto', sans-serif;
 		font-size: 18px;
 	}
 

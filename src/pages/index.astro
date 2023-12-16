@@ -46,7 +46,7 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
             setTimeout(() => {
                 word.innerText = randomWord
                 word.classList.remove('scale-0')
-            }, 500);
+            }, 800);
         }
 
         // change the word every 5 seconds
@@ -95,6 +95,7 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
                 trigger: '.body2',
                 start: 'top center', // Trigger point
                 end: 'bottom center', // End point
+                markers: true,
             },
         });
 
@@ -113,6 +114,21 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
             },
         });
 
+        gsap.fromTo('#body4', {
+            x: -100,
+            duration: 0.5,
+            opacity: 0,
+        }, {
+            x: 0,
+            duration: 0.5,
+            opacity: 1,
+            scrollTrigger: {
+                trigger: '#body4',
+                start: 'top center', // Trigger point
+                end: 'bottom center', // End point
+            },
+        });
+
         gsap.to('#AG', {
             opacity: 0,
             // make it come form the left
@@ -125,16 +141,42 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
             },
         });
 
-        // scale the green rectangle up as you scroll
-        gsap.to('#smallGreenRect',{
-            scale: 400,
+        // // scale the green rectangle up as you scroll
+        // gsap.to('#smallGreenRect',{
+        //     scale: 400,
+        //     duration: 2,
+        //     ease: 'power2.inOut',
+        //     scrollTrigger: {
+        //         trigger: '#body2',
+        //         start: '50% center', // Trigger point
+        //         end: 'bottom center', // End point
+        //         markers: true,
+        //     },
+        // })
+
+        // create a timeline for the green rectangle so that it scales up and down
+        let greenRect = gsap.timeline({
             scrollTrigger: {
                 trigger: '#body2',
                 start: '50% center', // Trigger point
-                end: 'bottom center', // End point
+                end: '+=1000', // End point
+                markers: true,
                 scrub: true,
             },
+            // if it reaches the end of body 1 it will reverse the animation
+            onEnter: () => {
+                greenRect.play()
+            },
+            onLeave: () => {
+                greenRect.reverse()
+            },
         })
+        greenRect.to('#smallGreenRect',{
+            scale: 400,
+            duration: 2,
+            ease: 'power2.inOut',
+        })
+
 
         // make each box appear one after the other from the top fading in
         gsap.from('#rbox1', {
@@ -222,21 +264,6 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
                 end: 'bottom center', // End point
             },
         })
-
-        gsap.fromTo('#invisible', {
-            x: 100,
-            duration: 0.5,
-            opacity: 0,
-        }, {
-            x: 0,
-            duration: 0.5,
-            opacity: 1,
-            scrollTrigger: {
-                trigger: '#invisible',
-                start: 'top center', // Trigger point
-                end: 'bottom center', // End point
-            },
-        });
     }, { once: false})
 
     // if the user has scrolled past 150px set the opacity of the AG to 0
@@ -249,11 +276,47 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
             AG.style.opacity = '1'
         }
     })
+
+    // change the graph when the user clicks on the button
+    let Co2Value1 = document.getElementById('CO2value1') as HTMLSpanElement
+    let Co2Value2 = document.getElementById('CO2value2') as HTMLSpanElement
+    // let Co2Value3 = document.getElementById('CO2value3') as HTMLSpanElement
+
+    let lineGraph1Width = 100
+    let lineGraph2Width = 85
+    let lineGraph3Width = 260
+
+    let changeGraphButton = document.getElementById('changeGraphButton') as HTMLButtonElement
+
+    function changeGraph(){
+        // change the values of the graph
+        Co2Value1.innerText = '2 metric tons'
+        Co2Value2.innerText = '$400'
+        // animate the graph when the user clicks on the button
+    gsap.to('#lineGraph1',{
+        width: lineGraph1Width,
+        duration: 1,
+        ease: 'power2.inOut',
+    })
+    gsap.to('#lineGraph2',{
+        width: lineGraph2Width,
+        duration: 1,
+        ease: 'power2.inOut',
+    })
+    gsap.to('#lineGraph3',{
+        width: lineGraph3Width,
+        duration: 1,
+        ease: 'power2.inOut',
+    })
+    }
+
+    changeGraphButton.addEventListener('click', () => {
+        changeGraph()
+    })
+
 </script>
 
 <Layout title="GreenBeen">
-    <!-- invisible rectangle only on mobile screens -->
-    <div class="w-screen h-10 bg-transparent rounded-full fixed z-0 sm:hidden" id="invisible"></div>
     <div class="w-[100vw] h-[100vh] p-10 flex sticky top-0" id="AG">
         <div class="w-screen sm:w-[50vw]">
             <h1 class='text-4xl font-medium'><span class="text-green-700">Green</span><span class="text-amber-600">Been</span></h1>
@@ -283,6 +346,8 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
         <div class='flex flex-wrap justify-evenly w-auto h-[80vh]'>
             <div class="w-screen sm:w-[50vw] flex-col mt-9 p-4">
                 <p class="text-2xl font-semibold">Why Choose GreenBeen?</p>
+                <!--  invisivle trigger for the scroll animation -->
+                <div id="invisible" class="w-auto h-10 bg-transparent"></div>
                 <p class="text-lg">When you join GreenBeen, you become part of a thriving community dedicated to a greener, more sustainable future. Our website is regularly updated with the most current information, news, and trends in green energy and sustainability. Sign up for our newsletter to stay informed and connect with like-minded individuals who share your enthusiasm for eco-friendly living.</p>
             </div>
         </div>
@@ -290,30 +355,30 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
             <img src={BodyPic2.src} alt="hero" class="sm:w-[40vw] transition-all ease-out" id="AGIMG"/>
         </div>
     </div>
-    <div class="w-10 h-10 bg-green-600 rounded-full fixed z-0" id="smallGreenRect"></div>
+    <div class="w-10 h-10 bg-[#1e3e2c] rounded-full fixed z-0" id="smallGreenRect"></div>
     <div>
         <p class="text-center pb-10 text-4xl font-medium text-white z-50" id="WWO">What We Offer</p>
         <p class=" text-center text-lg text-white z-50 pb-10 animate-bounce" id="WWO">Click to learm more about each ↓</p>
         <div class="flex flex-wrap justify-evenly h-auto gap-5 z-10">
-            <a href="/waysToSave/RenuableEnergyProgram"><div class="w-56 h-64 rounded-lg bg-blue-200 text-center justify-evenly space-y-5 p-2" id="rbox1">
+            <a href="/waysToSave/RenuableEnergyProgram"><div class="w-56 h-64 rounded-lg shadow-xl text-white hover:drop-shadow-lg outline outline-slate-950 outline-1 text-center justify-evenly space-y-5 p-2" id="rbox1">
                 <img src={CardPic1.src} transition:name="cImg1" alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
                 <p>Renewable Energy Programs</p> 
             </div></a>
-            <a href="/waysToSave/costInsight"><div class="w-56 h-64 rounded-lg bg-blue-200 text-center justify-evenly space-y-5 p-2" id="rbox2">
+            <a href="/waysToSave/costInsight"><div class="w-56 h-64 rounded-lg shadow-xl text-white hover:drop-shadow-lg outline outline-slate-950 outline-1 text-center justify-evenly space-y-5 p-2" id="rbox2">
                 <img src={CardPic2.src} transition:name="cImg2" alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
                 <p>Cost Insights</p>
             </div></a>
-            <a href="/waysToSave/greenAndClean"><div class="w-56 h-64 rounded-lg bg-blue-200 text-center justify-evenly space-y-5 p-2" id="rbox3">
+            <a href="/waysToSave/greenAndClean"><div class="w-56 h-64 rounded-lg shadow-xl text-white hover:drop-shadow-lg outline outline-slate-950 outline-1 text-center justify-evenly space-y-5 p-2" id="rbox3">
                 <img src={CardPic3.src} transition:name="cImg3" alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
                 <p>Green and Clean Energy Practices</p>
             </div></a>
-            <a href="/waysToSave/sustainibility"><div class="w-56 h-64 rounded-lg bg-blue-200 text-center justify-evenly space-y-5 p-2" id="rbox4">
+            <a href="/waysToSave/sustainibility"><div class="w-56 h-64 rounded-lg shadow-xl text-white hover:drop-shadow-lg outline outline-slate-950 outline-1 text-center justify-evenly space-y-5 p-2" id="rbox4">
                 <img src={CardPic4.src} transition:name="cImg4" alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
                 <p>Sustainability Tips</p>
             </div></a>
         </div>
     </div>
-    <div id="body3" class="flex flex-col sm:flex-row justify-evenly h-auto z-10 mt-24">
+    <div id="body3" class="flex flex-col sm:flex-row justify-evenly h-auto z-10 mt-24 text-white">
         <div class="w-screen h-auto sm:h-[40vh] sm:w-[40vw]">
             <img src={BodyPic3.src} alt="hero" class="sm:w-[40vw] transition-all ease-out rounded-xl" id="AGIMG"/>
         </div>
@@ -333,15 +398,39 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
             </div>
         </div>
     </div>
-    <div id="quote1Trigger" class="flex flex-wrap justify-evenly w-auto mt-24 mb-24">
-        <div id="quote1" class="flex flex-wrap justify-evenly h-auto">
-            <div class="w-screen p-10 sm:w-[50vw] flex-col mt-9">
-                <p class=" text-lg text-justify sm:text-2xl font-semibold">"Time is the currency of change, and <span class="underline underline-offset-3 decoration-4 decoration-yellow-400">every moment we delay is another opportunity missed</span> to make a positive impact on our environment. The world needs your action today, so that together, we can create a future where clean energy, sustainability, and eco-conscious living are not just options but a way of life. Don't wait. Take that first step towards a greener and more prosperous tomorrow, for you, your family, and the generations to come."</p>
-                <p class="text-lg">- Mayc Buban (CEO of GreenBeen)</p>
+    <!-- A section called whats the difference that has a bar graph and a button click me to find out that calls a function to change the graph -->
+    <div id="body4" class="flex flex-col sm:flex-row justify-evenly w-auto h-auto z-10 mt-16 text-white">
+        <div class="w-[50vw]">
+        <p class="text-3xl font-semibold text-left pb-4">What's the Difference?</p>
+        Embarking on the journey of transitioning to green energy is more than just a decision; it's a transformative leap towards a sustainable and eco-conscious lifestyle. Beyond the bold claims lies a tangible impact that reverberates across the environment, your community, and, most importantly, your own well-being.
+        By making the switch to green energy, you are not merely embracing a trend; you are investing in a cleaner, healthier future. Picture your home powered by renewable energy sources, radiating an eco-friendly aura that not only reduces your carbon footprint but also sets a precedent for responsible living.
+        </div>
+        <div class='flex flex-col justify-center w-[45vw]'>
+            <div class=" flex p-4 flex-col justify-center items-center w-full">
+                <button class=" p-2 w-40 h-auto rounded-md bg-green-400 text-black outline mt-5" id="changeGraphButton">
+                    Click me to find out
+                </button>
+                <div class="flex flex-col gap-4 pt-10 w-full">
+                    <div class="flex flex-col gap-1">
+                        <p class="text-white text-lg">Emissions</p>
+                        <div id="lineGraph1" class="h-2 w-96 bg-gradient-to-l rounded-full from-green-500 to-green-800"></div>
+                        <p class="text-white text-xs"><span id="CO2value1">48 metric tons</span> of carbon dioxide equivalents/per year</p>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="text-white text-lg">Electricity Bill</p>
+                        <div id="lineGraph2" class="h-2 w-96 bg-gradient-to-l rounded-full from-orange-500 to-orange-800"></div>
+                        <p class="text-white text-xs"><span id="CO2value2">$1,480</span>/year</p>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="text-white text-lg">Animal Death Due to Pollution</p>
+                        <div id="lineGraph3" class="h-2 w-1 bg-gradient-to-l rounded-full from-blue-500 to-blue-800"></div>
+                        <p class="text-white text-xs"><span id='CO2value3'>1 million animals</span>/year</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div id="testimonials" class="flex flex-col overflow-hidden">
+    <div id="testimonials" class="flex flex-col overflow-hidden pt-24">
         <p class="text-center pb-5 text-4xl font-medium text-white z-10" id="WWO">What Our Customers Are Saying</p>
         <div class="flex flex-wrap h-auto w-screen gap-5 pt-16 justify-center" id="row1">
             <!-- create a bunch of rectangles -->
