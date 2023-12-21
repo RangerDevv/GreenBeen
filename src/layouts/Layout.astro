@@ -12,7 +12,11 @@ import { ViewTransitions } from 'astro:transitions';
 	import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-	const lenis = new Lenis()
+	const lenis = new Lenis({
+		smoothTouch: true,
+		smoothWheel: true,
+		lerp: 0.1,
+	})
 
 	lenis.on('scroll', ScrollTrigger.update)
 
