@@ -353,28 +353,28 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
     </div>
     <div class="w-10 h-10 bg-[#1e3e2c] rounded-full fixed z-0" id="smallGreenRect"></div>
     <div>
-        <p class="text-center pb-10 text-4xl font-medium text-white z-50" id="WWO">What We Offer</p>
-        <p class=" text-center text-lg text-white z-50 pb-10 animate-bounce" id="WWO">Click to learn more about each ↓</p>
+        <p class="text-center pb-10 text-4xl font-medium text-[#f0eab5] z-50" id="WWO">What We Offer</p>
+        <p class=" text-center text-lg text-[#f0eab5] z-50 pb-10 animate-bounce" id="WWO">Click to learn more about each ↓</p>
         <div class="flex flex-wrap justify-evenly h-auto gap-5 z-10">
-            <a href="/waysToSave/RenuableEnergyProgram"><div class="w-56 h-64 rounded-lg shadow-xl text-white hover:drop-shadow-lg outline outline-slate-950 outline-1 text-center justify-evenly space-y-5 p-2" id="rbox1">
+            <a href="/waysToSave/RenuableEnergyProgram"><div class="w-56 h-64 rounded-lg shadow-xl text-[#f0eab5] hover:drop-shadow-lg outline outline-slate-950 outline-1 text-center justify-evenly space-y-5 p-2" id="rbox1">
                 <img src={CardPic1.src} transition:name="cImg1" alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
                 <p>Renewable Energy Programs</p> 
             </div></a>
-            <a href="/waysToSave/costInsight"><div class="w-56 h-64 rounded-lg shadow-xl text-white hover:drop-shadow-lg outline outline-slate-950 outline-1 text-center justify-evenly space-y-5 p-2" id="rbox2">
+            <a href="/waysToSave/costInsight"><div class="w-56 h-64 rounded-lg shadow-xl text-[#f0eab5] hover:drop-shadow-lg outline outline-slate-950 outline-1 text-center justify-evenly space-y-5 p-2" id="rbox2">
                 <img src={CardPic2.src} transition:name="cImg2" alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
                 <p>Cost Insights</p>
             </div></a>
-            <a href="/waysToSave/greenAndClean"><div class="w-56 h-64 rounded-lg shadow-xl text-white hover:drop-shadow-lg outline outline-slate-950 outline-1 text-center justify-evenly space-y-5 p-2" id="rbox3">
+            <a href="/waysToSave/greenAndClean"><div class="w-56 h-64 rounded-lg shadow-xl text-[#f0eab5] hover:drop-shadow-lg outline outline-slate-950 outline-1 text-center justify-evenly space-y-5 p-2" id="rbox3">
                 <img src={CardPic3.src} transition:name="cImg3" alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
                 <p>Green and Clean Energy Practices</p>
             </div></a>
-            <a href="/waysToSave/sustainibility"><div class="w-56 h-64 rounded-lg shadow-xl text-white hover:drop-shadow-lg outline outline-slate-950 outline-1 text-center justify-evenly space-y-5 p-2" id="rbox4">
+            <a href="/waysToSave/sustainibility"><div class="w-56 h-64 rounded-lg shadow-xl text-[#f0eab5] hover:drop-shadow-lg outline outline-slate-950 outline-1 text-center justify-evenly space-y-5 p-2" id="rbox4">
                 <img src={CardPic4.src} transition:name="cImg4" alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
                 <p>Sustainability Tips</p>
             </div></a>
         </div>
     </div>
-    <div id="body3" class="flex flex-col sm:flex-row justify-evenly h-auto z-10 mt-24 text-white">
+    <div id="body3" class="flex flex-col sm:flex-row justify-evenly h-auto z-10 mt-24 text-[#f0eab5]">
         <div class="w-screen h-auto sm:h-[40vh] sm:w-[40vw]">
             <img src={BodyPic3.src} alt="hero" class="sm:w-[40vw] transition-all ease-out rounded-xl" id="AGIMG"/>
         </div>
@@ -395,39 +395,40 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
         </div>
     </div>
     <!-- A section called whats the difference that has a bar graph and a button click me to find out that calls a function to change the graph -->
-    <div id="body4" class="flex flex-col sm:flex-row justify-evenly w-auto h-auto z-10 mt-16 text-white">
-        <div class="w-[50vw]">
+    <div id="body4" class="flex flex-col sm:flex-row justify-evenly w-auto h-auto z-10 mt-16 text-[#f0eab5]">
+        <div class="w-full p-5 sm:p-4 sm:w-[50vw]">
         <p class="text-3xl font-semibold text-left pb-4">What's the Difference?</p>
         Embarking on the journey of transitioning to green energy is more than just a decision; it's a transformative leap towards a sustainable and eco-conscious lifestyle. Beyond the bold claims lies a tangible impact that reverberates across the environment, your community, and, most importantly, your own well-being.
         By making the switch to green energy, you are not merely embracing a trend; you are investing in a cleaner, healthier future. Picture your home powered by renewable energy sources, radiating an eco-friendly aura that not only reduces your carbon footprint but also sets a precedent for responsible living.
         </div>
         <div class='flex flex-col justify-center w-[45vw]'>
             <div class=" flex p-4 flex-col justify-center items-center w-full">
-                <button class=" p-2 h-auto rounded-md bg-green-400 text-black outline mt-5" id="changeGraphButton">
-                    Click me to find out
-                </button>
+                <p class="text-2xl font-semibold text-center">See for yourself...</p>
                 <div class="flex flex-col gap-4 pt-10 w-full">
                     <div class="flex flex-col gap-1">
-                        <p class="text-white text-lg">Emissions</p>
+                        <p class="text-[#f0eab5] text-lg">Emissions</p>
                         <div id="lineGraph1" class="h-2 w-96 bg-gradient-to-l rounded-full from-green-500 to-green-800"></div>
-                        <p class="text-white text-xs"><span id="CO2value1">48 metric tons</span> of carbon dioxide equivalents/per year</p>
+                        <p class="text-[#f0eab5] text-xs"><span id="CO2value1">48 metric tons</span> of carbon dioxide equivalents/per year</p>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <p class="text-white text-lg">Electricity Bill</p>
+                        <p class="text-[#f0eab5] text-lg">Electricity Bill</p>
                         <div id="lineGraph2" class="h-2 w-96 bg-gradient-to-l rounded-full from-orange-500 to-orange-800"></div>
-                        <p class="text-white text-xs"><span id="CO2value2">$1,480</span>/year</p>
+                        <p class="text-[#f0eab5] text-xs"><span id="CO2value2">$1,480</span>/year</p>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <p class="text-white text-lg">Animal Death Due to Pollution</p>
+                        <p class="text-[#f0eab5] text-lg">Animal Death Due to Pollution</p>
                         <div id="lineGraph3" class="h-2 w-1 bg-gradient-to-l rounded-full from-blue-500 to-blue-800"></div>
-                        <p class="text-white text-xs"><span id='CO2value3'>1 million animals</span>/year</p>
+                        <p class="text-[#f0eab5] text-xs"><span id='CO2value3'>1 million animals</span>/year</p>
                     </div>
                 </div>
+                <button class=" p-2 rounded-md bg-green-400 text-black outline mt-5 w-auto" id="changeGraphButton">
+                    Click me to find out
+                </button>
             </div>
         </div>
     </div>
     <div id="testimonials" class="flex flex-col overflow-hidden pt-24">
-        <p class="text-center pb-5 text-4xl font-medium text-white z-10" id="WWO">What Our Customers Are Saying</p>
+        <p class="text-center pb-5 text-4xl font-medium text-[#f0eab5] z-10" id="WWO">What Our Customers Are Saying</p>
         <div class="flex flex-wrap h-auto w-screen gap-5 pt-16 justify-center" id="row1">
             <!-- create a bunch of rectangles -->
             <div class="w-72 text-base font-semibold rounded-lg h-auto align-middle bg-[#fee488] text-left p-5" id="rbox1">
@@ -498,8 +499,8 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
         </div>
     </div>
     <div id="CTO" class="flex flex-col justify-center h-screen z-50">
-        <p class="text-center pb-1 text-4xl font-medium text-white" id="WWO">What are you waiting for?</p>
-        <p class="text-center pb-5 text-lg font-medium text-white" id="WWO">Make a positive change one baby step at a time</p>
+        <p class="text-center pb-1 text-4xl font-medium text-[#f0eab5]" id="WWO">What are you waiting for?</p>
+        <p class="text-center pb-5 text-lg font-medium text-[#f0eab5]" id="WWO">Make a positive change one baby step at a time</p>
         <a id="CTABtn" href="/" class="mx-auto opacity-0"><button class="bg-[#9498FF] hover:bg-green-400 transition-colors ease-in-out outline p-2 w-40 h-14 rounded-full">
             Go green today!
         </button></a>
