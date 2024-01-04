@@ -158,7 +158,7 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
             scrollTrigger: {
                 trigger: '#body2',
                 start: '50% center', // Trigger point
-                end: '+=1000', // End point
+                end: '+=1200', // End point
                 scrub: true,
             },
             // if it reaches the end of body 1 it will reverse the animation
@@ -262,9 +262,8 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
                 end: 'bottom center', // End point
             },
         })
-    }, { once: false})
 
-    // if the user has scrolled past 150px set the opacity of the AG to 0
+            // if the user has scrolled past 150px set the opacity of the AG to 0
     document.addEventListener('scroll', () => {
         let AG = document.getElementById('AG') as HTMLDivElement
         let scroll = window.scrollY
@@ -311,6 +310,8 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
     changeGraphButton.addEventListener('click', () => {
         changeGraph()
     })
+    }, { once: false})
+
 
 </script>
 
