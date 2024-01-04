@@ -40,19 +40,44 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
 
         // change the word with a slight transition
         function changeWord(){
-            let word = document.getElementById('changedWord') as HTMLSpanElement
-            let randomWord = listOfEcoWrods[Math.floor(Math.random() * listOfEcoWrods.length)]
-            word.classList.add('transition-all', 'duration-500', 'ease-in-out', 'transform', 'scale-0')
-            setTimeout(() => {
-                word.innerText = randomWord
-                word.classList.remove('scale-0')
-            }, 800);
+            let bodWord = document.getElementById('changedWord') as HTMLSpanElement;
+            let randomWord = listOfEcoWrods[Math.floor(Math.random() * listOfEcoWrods.length)];
+            let typingSpeed = 150; // Adjust the typing speed (in milliseconds) as desired
+            let backspaceSpeed = 50; // Adjust the backspace speed (in milliseconds) as desired
+
+            function typeAndBackspace(word: string) {
+                let currentIndex = 0;
+                let intervalId = setInterval(() => {
+                    if (currentIndex < word.length) {
+                        bodWord.textContent = word.substring(0, currentIndex + 1);
+                        currentIndex++;
+                    } else {
+                        clearInterval(intervalId);
+                        setTimeout(() => {
+                            let backspaceIntervalId = setInterval(() => {
+                                if (currentIndex >= 0) {
+                                    bodWord.textContent = word.substring(0, currentIndex);
+                                    currentIndex--;
+                                } else {
+                                    clearInterval(backspaceIntervalId);
+                                    setTimeout(() => {
+                                        let newRandomWord = listOfEcoWrods[Math.floor(Math.random() * listOfEcoWrods.length)];
+                                        typeAndBackspace(newRandomWord);
+                                    }, typingSpeed);
+                                }
+                            }, backspaceSpeed);
+                        }, typingSpeed);
+                    }
+                }, typingSpeed);
+            }
+
+            typeAndBackspace(randomWord);
         }
 
         // change the word every 5 seconds
-        setInterval(() => {
+        // setInterval(() => {
             changeWord()
-        }, 5000);
+
 
         // skew the image so taht it seems like it is rotating according to the mouse position
         let AGIMG = document.getElementById('AGIMG') as HTMLImageElement
