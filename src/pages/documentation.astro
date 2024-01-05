@@ -1,8 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import pdf1 from "../components/pdf/plan-of-work-log (1).pdf";
+import pdf2 from "../components/pdf/student-copyright-checklist (1).pdf";
 ---
 <Layout title="Documentation Portfolio">
-  <h1 class="text-4xl font-bold text-center">Documentation Portfolio</h1>
+  <h1 class="text-4xl font-bold text-center pt-10">Documentation Portfolio</h1>
   <div class=" flex flex-col gap-7 text-center mt-10">
     <p class="text-xl underline">Libraries</p>
     <a href="https://astro.build/" target="_blank" class="text-base font-bold">Astro →</a>
@@ -19,5 +21,20 @@ import Layout from "../layouts/Layout.astro";
     <!--  gsap -->
     <a href="https://greensock.com/gsap/" target="_blank" class="text-base font-bold">GSAP →</a>
 
+    <p class="text-xl underline">Tools</p>
+    <!--  figma -->
+    <a href="https://www.figma.com/" target="_blank" class="text-base font-bold">Figma →</a>
+    <!--  unsplash -->
+    <a href="https://unsplash.com/" target="_blank" class="text-base font-bold">Unsplash →</a>
+    <!--  google fonts -->
+    <a href="https://fonts.google.com/" target="_blank" class="text-base font-bold">Google Fonts →</a>
+    <!--  font awesome -->
+    <a href="https://fontawesome.com/" target="_blank" class="text-base font-bold">Font Awesome →</a>
+  </div>
+  <div class="flex flex-row gap-5 justify-center items-center pt-10 mb-10">
+    <!-- link to pdf -->
+    <a href={pdf1} target="_blank" class="bg-green-950 text-white p-3 rounded-full text-base font-bold">Plan of Work Log →</a>
+    <a href={pdf2} target="_blank" class="bg-green-950 text-white p-3 rounded-full text-base font-bold">Student Copyright
+      Checklist →</a>
   </div>
 </Layout>
