@@ -38,9 +38,15 @@ import { ViewTransitions } from 'astro:transitions';
 		<title>{title}</title>
 	</head>
 	<body>
-		<nav transition:persist class="w-80 sm:w-[75vw] h-11 backdrop-blur-xl text-center items-center text-lg pt-2 sticky top-2 z-50 mx-auto rounded-full bg-[#f0eab5] drop-shadow-xl mt-2 outline">
-			<a class="ml-10" href="/">Home</a>
-			<a class="ml-10" href="/documentation">Documentation</a>
+		<nav transition:persist class=" flex flex-row w-80 sm:w-[75vw] h-11 backdrop-blur-xl text-lg pt-2 sticky top-2 z-[99999999] mx-auto rounded-full bg-[#f0eab5] drop-shadow-xl mt-2 outline">
+			<div class="flex-1">
+				<p class='text-2xl pl-2 font-medium'><span class="text-green-700">Green</span><span class="text-amber-600">Been</span></p>
+			</div>
+			<div>
+			<a class="text-xl mr-8 font-medium" href="/">Home</a>
+			<a class="text-xl mr-8 font-medium" href="/documentation">Documentation</a>
+			<a class="text-xl mr-10 font-bold" href="/goGreen">Go Green</a>
+			</div>
 		</nav>
 		<slot />
 	</body>
@@ -99,4 +105,29 @@ import { ViewTransitions } from 'astro:transitions';
 	.lenis.lenis-scrolling iframe {
 	pointer-events: none;
 	}
+
+	/* make the nav <a> element have a underline animation when hovered */
+	nav a {
+		position: relative;
+		text-decoration: none;
+		color: #0A361E;
+	}
+
+	nav a::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -2px;
+		width: 100%;
+		height: 2px;
+		background-color: #0A361E;
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 0.3s ease;
+	}
+
+	nav a:hover::after {
+		transform: scaleX(1);
+	}
+
 </style>

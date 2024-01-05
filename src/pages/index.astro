@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 
 import WateredPlant from "../img/WateredPlant.png";
 import BodyPic from "../img/1BodyPic.png";
-import BodyPic2 from "../img/BodyPic22.png";
+import BodyPic2 from "../img/2BodyPic.png";
 import BodyPic3 from "../img/TaRebatePic.png";
 import CardPic1 from "../img/cardPictures/cardBodyPic1.jpeg";
 import CardPic2 from "../img/cardPictures/cardBodyPic2.jpeg";
@@ -80,19 +80,19 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
 
 
         // skew the image so taht it seems like it is rotating according to the mouse position
-        let AGIMG = document.getElementById('AGIMG') as HTMLImageElement
-        let AG = document.getElementById('AG') as HTMLDivElement
-        AG.addEventListener('mousemove', (e) => {
-            let x = e.clientX
-            let y = e.clientY
-            let width = AG.clientWidth
-            let height = AG.clientHeight
-            let xPercent = x / width
-            let yPercent = y / height
-            let xSkew = xPercent * 10 - 10
-            let ySkew = yPercent * 10 - 5
-            AGIMG.style.transform = `skew(${ySkew}deg, ${xSkew}deg)`
-        })
+        // let AGIMG = document.getElementById('AGIMG') as HTMLImageElement
+        // let AG = document.getElementById('AG') as HTMLDivElement
+        // AG.addEventListener('mousemove', (e) => {
+        //     let x = e.clientX
+        //     let y = e.clientY
+        //     let width = AG.clientWidth
+        //     let height = AG.clientHeight
+        //     let xPercent = x / width
+        //     let yPercent = y / height
+        //     let xSkew = xPercent * 10 - 10
+        //     let ySkew = yPercent * 10 - 5
+        //     AGIMG.style.transform = `skew(${ySkew}deg, ${xSkew}deg)`
+        // })
 
         
         
@@ -289,7 +289,6 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
         })
 
             // if the user has scrolled past 150px set the opacity of the AG to 0
-    document.addEventListener('scroll', () => {
         let AG = document.getElementById('AG') as HTMLDivElement
         let scroll = window.scrollY
         if(scroll >= 250){
@@ -297,23 +296,53 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
         } else {
             AG.style.opacity = '1'
         }
-    })
+
+        setInterval(() => {
+            let scroll = window.scrollY
+            if(scroll >= 250){
+                AG.style.opacity = '0'
+            } else {
+                AG.style.opacity = '1'
+            }
+        }, 1000);
 
     // change the graph when the user clicks on the button
     let Co2Value1 = document.getElementById('CO2value1') as HTMLSpanElement
     let Co2Value2 = document.getElementById('CO2value2') as HTMLSpanElement
-    // let Co2Value3 = document.getElementById('CO2value3') as HTMLSpanElement
+    let Co2Value3 = document.getElementById('CO2value3') as HTMLSpanElement
 
     let lineGraph1Width = 100
     let lineGraph2Width = 85
-    let lineGraph3Width = 260
+    let lineGraph3Width = 95
+
+    let lineGraph1WidthPrev = 500
+    let lineGraph2WidthPrev = 400
+    let lineGraph3WidthPrev = 350
 
     let changeGraphButton = document.getElementById('changeGraphButton') as HTMLButtonElement
+    let changeGraphButtonPrev = document.getElementById('changeGraphButtonPrev') as HTMLButtonElement
+
+    gsap.to('#lineGraph1',{
+        width: lineGraph1WidthPrev,
+        duration: 1,
+        ease: 'power2.inOut',
+    })
+    gsap.to('#lineGraph2',{
+        width: lineGraph2WidthPrev,
+        duration: 1,
+        ease: 'power2.inOut',
+    })
+    gsap.to('#lineGraph3',{
+        width: lineGraph3WidthPrev,
+        duration: 1,
+        ease: 'power2.inOut',
+    })
 
     function changeGraph(){
         // change the values of the graph
         Co2Value1.innerText = '2 metric tons'
         Co2Value2.innerText = '$400'
+        Co2Value3.innerText = '20,000 animals'
         // animate the graph when the user clicks on the button
     gsap.to('#lineGraph1',{
         width: lineGraph1Width,
@@ -332,8 +361,35 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
     })
     }
 
+    function changeGraphPrev(){
+        // change the values of the graph
+        Co2Value1.innerText = '48 metric tons'
+        Co2Value2.innerText = '$1,480'
+        Co2Value3.innerText = '1 million animals'
+        // animate the graph when the user clicks on the button
+    gsap.to('#lineGraph1',{
+        width: lineGraph1WidthPrev,
+        duration: 1,
+        ease: 'power2.inOut',
+    })
+    gsap.to('#lineGraph2',{
+        width: lineGraph2WidthPrev,
+        duration: 1,
+        ease: 'power2.inOut',
+    })
+    gsap.to('#lineGraph3',{
+        width: lineGraph3WidthPrev,
+        duration: 1,
+        ease: 'power2.inOut',
+    })
+    }
+
     changeGraphButton.addEventListener('click', () => {
         changeGraph()
+    })
+
+    changeGraphButtonPrev.addEventListener('click', () => {
+        changeGraphPrev()
     })
     }, { once: false})
 
@@ -347,7 +403,7 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
             <p class="text-xl pt-5">Saving the environment one <span id="changedWord" class="text-green-700 transition-all ease-in-out transform scale-0 w-96">roof</span> at a time 🌿</p>
 
             <p class="text-xl pt-5 pb-10">GreenBeen is a website that helps you find the best eco-friendly products for your home. We have a wide range of products that are eco-friendly and sustainable.</p>
-            <a id="CTABtn" href="/" class=""><button class="bg-green-400 transition-colors ease-in-out outline p-3 rounded-full text-base">
+            <a id="CTABtn" href="/goGreen" class=""><button class="bg-green-400 transition-colors ease-in-out outline p-3 rounded-full text-base">
                 Go green today!
             </button></a>
         </div>
@@ -429,7 +485,7 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
         </div>
         <div class='flex flex-col justify-center w-[45vw]'>
             <div class=" flex p-4 flex-col justify-center items-center w-full">
-                <p class="text-2xl font-semibold text-center">See for yourself...</p>
+                <p class="text-4xl font-semibold text-center">See for yourself...</p>
                 <div class="flex flex-col gap-4 pt-10 w-full">
                     <div class="flex flex-col gap-1">
                         <p class="text-[#f0eab5] text-lg">Emissions</p>
@@ -447,9 +503,14 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
                         <p class="text-[#f0eab5] text-xs"><span id='CO2value3'>1 million animals</span>/year</p>
                     </div>
                 </div>
-                <button class=" p-2 rounded-md bg-green-400 text-black outline mt-5 w-auto" id="changeGraphButton">
-                    After you switch
-                </button>
+                <div class="flex flex-row gap-8">
+                    <button class=" p-2 rounded-md bg-red-400 text-black outline mt-5 w-auto" id="changeGraphButtonPrev">
+                        Before you switch
+                    </button>
+                    <button class=" p-2 rounded-md bg-green-400 text-black outline mt-5 w-auto" id="changeGraphButton">
+                        After you switch
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -527,8 +588,24 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
     <div id="CTO" class="flex flex-col justify-center h-screen z-50">
         <p class="text-center pb-1 text-4xl font-medium text-[#f0eab5]" id="WWO">What are you waiting for?</p>
         <p class="text-center pb-5 text-lg font-medium text-[#f0eab5]" id="WWO">Make a positive change one baby step at a time</p>
-        <a id="CTABtn" href="/" class="mx-auto opacity-0"><button class="bg-[#9498FF] hover:bg-green-400 transition-colors ease-in-out outline p-2 w-40 h-14 rounded-full">
+        <a id="CTABtn" href="/goGreen" class="mx-auto opacity-0"><button class="bg-[#9498FF] hover:bg-green-400 transition-colors ease-in-out outline p-2 w-40 h-14 rounded-full">
             Go green today!
         </button></a>
     </div>
 </Layout>
+
+<style>
+    /* make the sharow for all the rbox more darker and go all the way around */
+    #rbox1{
+        box-shadow: 0px 0px 30px 0px rgba(0, 29, 7, 0.632);
+    }
+    #rbox2{
+        box-shadow: 0px 0px 30px 0px rgba(0, 29, 7,0.632);
+    }
+    #rbox3{
+        box-shadow: 0px 0px 30px 0px rgba(0, 29, 7,0.632);
+    }
+    #rbox4{
+        box-shadow: 0px 0px 30px 0px rgba(0, 29, 7,0.632);
+    }
+</style>
