@@ -155,8 +155,7 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
 
         gsap.to('#AG', {
             opacity: 0,
-            // make it come form the left
-            x: -100,
+            // zoom
             scrollTrigger: {
                 trigger: '#AG',
                 start: 'left', // Trigger point
@@ -248,7 +247,7 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
         });
 
         // animate the WWO text
-        gsap.fromTo('#WWO', {
+        gsap.fromTo('#WhatWeOffer', {
             opacity: 0,
             y: -100,
         }, {
@@ -256,7 +255,7 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
             y: 0,
             duration: 0.5,
             scrollTrigger: {
-                trigger: '#WWO',
+                trigger: '#WhatWeOffer',
                 start: 'top center', // Trigger point
                 end: 'bottom center', // End point
             },
@@ -305,6 +304,69 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
                 AG.style.opacity = '1'
             }
         }, 1000);
+
+    // This is the hover for the buttons
+    let hovBtn1 = document.getElementById('hovBtn1') as HTMLButtonElement
+    let hovBtn2 = document.getElementById('hovBtn2') as HTMLButtonElement
+    let hovBtn3 = document.getElementById('hovBtn3') as HTMLButtonElement
+    let hovBtn4 = document.getElementById('hovBtn4') as HTMLButtonElement
+
+    let hovTextOutput = document.getElementById('hovTextOutput') as HTMLDivElement
+
+    let infoForBtn = ['','','','']
+
+    hovBtn1.addEventListener('mouseover', () => {
+        infoForBtn[0] = 'Renewable energy programs are a great way to reduce your carbon footprint and save money on your energy bills. Some of the most popular renewable energy programs include solar, wind, and geothermal energy. Learn more about the benefits of renewable energy and how you can make a positive impact on the environment.'
+        gsap.fromTo('#hovTextOutput', {
+            opacity: 0,
+            x: -100,
+        }, {
+            opacity: 1,
+            x: 0,
+            duration: 0.5,
+        });
+        hovTextOutput.innerText = infoForBtn[0]
+    })
+
+    hovBtn2.addEventListener('mouseover', () => {
+        infoForBtn[1] = 'The cost of energy is a major concern for many homeowners. \n Cost-effective solutions are essential for reducing your energy bills and saving money. Learn more about the benefits of cost-effective solutions and how you can make a positive impact on the environment.'
+        gsap.fromTo('#hovTextOutput', {
+            opacity: 0,
+            x: -100,
+        }, {
+            opacity: 1,
+            x: 0,
+            duration: 0.5,
+        });
+        hovTextOutput.innerText = infoForBtn[1]
+    })
+
+    hovBtn3.addEventListener('mouseover', () => {
+        infoForBtn[2] = 'Green and clean energy practices are essential for protecting the environment and reducing your carbon footprint. Some of the most popular green and clean energy practices include energy efficiency, recycling, and waste reduction. Learn more about the benefits of green and clean energy practices and how you can make a positive impact on the environment.'
+        gsap.fromTo('#hovTextOutput', {
+            opacity: 0,
+            x: -100,
+        }, {
+            opacity: 1,
+            x: 0,
+            duration: 0.5,
+        });
+        hovTextOutput.innerText = infoForBtn[2]
+    })
+
+    hovBtn4.addEventListener('mouseover', () => {
+        infoForBtn[3] = 'Sustainability tips are a great way to reduce your carbon footprint and live a more eco-friendly lifestyle. A few tips to help you get started include reducing your energy consumption, recycling, and using eco-friendly products, and writching to electric vehicles. Learn more about the benefits of sustainability tips and how you can make a positive impact on the environment.'
+        gsap.fromTo('#hovTextOutput', {
+            opacity: 0,
+            x: -100,
+        }, {
+            opacity: 1,
+            x: 0,
+            duration: 0.5,
+        });
+        hovTextOutput.innerText = infoForBtn[3]
+    })
+
 
     // change the graph when the user clicks on the button
     let Co2Value1 = document.getElementById('CO2value1') as HTMLSpanElement
@@ -397,18 +459,15 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
 </script>
 
 <Layout title="GreenBeen">
-    <div class="w-[100vw] h-[100vh] p-10 flex sticky top-0" id="AG">
-        <div class="w-screen sm:w-[50vw]">
-            <h1 class='text-4xl font-medium'><span class="text-green-700">Green</span><span class="text-amber-600">Been</span></h1>
-            <p class="text-xl pt-5">Saving the environment one <span id="changedWord" class="text-green-700 transition-all ease-in-out transform scale-0 w-96">roof</span> at a time 🌿</p>
+    <div class="w-[100vw] h-[100vh] flex flex-col items-center sticky top-0 justify-center" id="AG">
+        <div class="w-[50vw]">
+            <h1 class='text-4xl font-extrabold text-center'><span class="text-green-700">Green</span><span class="text-amber-600">Been</span></h1>
+            <p class="text-xl pt-5 h-20">Saving the environment one <span id="changedWord" class="text-green-700 transition-all ease-in-out transform scale-0 w-96">roof</span> at a time 🌿</p>
 
             <p class="text-xl pt-5 pb-10">GreenBeen is a website that helps you find the best eco-friendly products for your home. We have a wide range of products that are eco-friendly and sustainable.</p>
             <a id="CTABtn" href="/goGreen" class=""><button class="bg-green-400 transition-colors ease-in-out outline p-3 rounded-full text-base">
-                Go green today!
+                Learn more
             </button></a>
-        </div>
-        <div class="w-[35vw] hidden sm:block">
-            <img src={WateredPlant.src} alt="hero" class="w-[35vw] transition-all ease-out" id="AGIMG"/>
         </div>
     </div>
     <div id="body1" class="body1 flex flex-col sm:flex-row justify-evenly h-auto">
@@ -434,26 +493,27 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
         </div>
     </div>
     <div class="w-10 h-10 bg-[#1e3e2c] rounded-full fixed z-0" id="smallGreenRect"></div>
-    <div>
-        <p class="text-center pb-10 text-4xl font-medium text-[#f0eab5] z-50" id="WWO">What We Offer</p>
-        <p class=" text-center text-lg text-[#f0eab5] z-50 pb-10 animate-bounce" id="WWO">Click to learn more about each ↓</p>
-        <div class="flex flex-wrap justify-evenly h-auto gap-5 z-10">
-            <a href="/waysToSave/RenuableEnergyProgram"><div class="w-56 h-64 rounded-lg shadow-xl text-[#f0eab5] hover:drop-shadow-lg outline outline-slate-950 outline-1 text-center justify-evenly space-y-5 p-2" id="rbox1">
-                <img src={CardPic1.src} transition:name="cImg1" alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
-                <p>Renewable Energy Programs</p> 
-            </div></a>
-            <a href="/waysToSave/costInsight"><div class="w-56 h-64 rounded-lg shadow-xl text-[#f0eab5] hover:drop-shadow-lg outline outline-slate-950 outline-1 text-center justify-evenly space-y-5 p-2" id="rbox2">
-                <img src={CardPic2.src} transition:name="cImg2" alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
-                <p>Cost Insights</p>
-            </div></a>
-            <a href="/waysToSave/greenAndClean"><div class="w-56 h-64 rounded-lg shadow-xl text-[#f0eab5] hover:drop-shadow-lg outline outline-slate-950 outline-1 text-center justify-evenly space-y-5 p-2" id="rbox3">
-                <img src={CardPic3.src} transition:name="cImg3" alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
-                <p>Green and Clean Energy Practices</p>
-            </div></a>
-            <a href="/waysToSave/sustainibility"><div class="w-56 h-64 rounded-lg shadow-xl text-[#f0eab5] hover:drop-shadow-lg outline outline-slate-950 outline-1 text-center justify-evenly space-y-5 p-2" id="rbox4">
-                <img src={CardPic4.src} transition:name="cImg4" alt="hero" class="w-40 h-auto rounded-md mx-auto"/>
-                <p>Sustainability Tips</p>
-            </div></a>
+    <div id="WhatWeOffer">
+        <p class="text-center pb-10 text-4xl font-medium text-[#f0eab5] z-50" id="WWO">How Can <span class='underline'>You</span> Start Making a Change?</p>
+        <p class=" text-center text-lg text-[#f0eab5] z-50 pb-10" id="WWO">Hover on each to learn more ↓</p>
+        <div class="flex flex-col sm:flex-row justify-center">
+            <div class="flex flex-col gap-1 w-[50vw] p-6 sm:pl-10">
+                <button id="hovBtn1" class="p-2 rounded-md hover:bg-[#f0eab5] bg-[#1e3e2c] text-[#f0eab5] hover:text-[#1e3e2c] transition-all outline mt-5 w-96 z-50" id="changeGraphButtonPrev">
+                    Renuable Energy Programs
+                </button>
+                <button id="hovBtn2" class="p-2 rounded-md hover:bg-[#f0eab5] bg-[#1e3e2c] text-[#f0eab5] hover:text-[#1e3e2c] transition-all outline mt-5 w-96 z-50" id="changeGraphButtonPrev">
+                    Cost Effective solutions
+                </button>
+                <button id="hovBtn3" class="p-2 rounded-md hover:bg-[#f0eab5] bg-[#1e3e2c] text-[#f0eab5] hover:text-[#1e3e2c] transition-all outline mt-5 w-96 z-50" id="changeGraphButtonPrev">
+                    Green and Clean Energy Practices
+                </button>
+                <button id="hovBtn4" class="p-2 rounded-md hover:bg-[#f0eab5] bg-[#1e3e2c] text-[#f0eab5] hover:text-[#1e3e2c] transition-all outline mt-5 w-96 z-50" id="changeGraphButtonPrev">
+                    Sustainability Tips
+                </button>
+            </div>
+            <div class="text-[#f0eab5] sm:w-[50vw] text-xl p-6 sm:pr-10 transition-all" id="hovTextOutput">
+                Hover over the buttons to learn more
+            </div>
         </div>
     </div>
     <div id="body3" class="flex flex-col sm:flex-row justify-evenly h-auto z-10 mt-24 text-[#f0eab5]">
@@ -512,77 +572,6 @@ import CardPic4 from "../img/cardPictures/cardBodyPic4.jpeg";
                     </button>
                 </div>
             </div>
-        </div>
-    </div>
-    <div id="testimonials" class="flex flex-col overflow-hidden pt-24">
-        <p class="text-center pb-5 text-4xl font-medium text-[#f0eab5] z-10" id="WWO">What Our Customers Are Saying</p>
-        <div class="flex flex-wrap h-auto w-screen gap-5 pt-16 justify-center" id="row1">
-            <!-- create a bunch of rectangles -->
-            <div class="w-72 text-base font-semibold rounded-lg h-auto align-middle bg-[#fee488] text-left p-5" id="rbox1">
-                <p>
-                    Thanks to GreenBeen, I found the perfect solar solution for my home – saving the planet and my wallet!
-                </p>
-                <div class="h-auto w-full flex pt-10 gap-10">
-                    - Ryan Greenold
-                    <!--  realistic avatar from https://getavataaars.com/ that is different for each testimonial -->
-                    <img src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=ShirtVNeck&clotheColor=Gray02&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Smile&skinColor=Light" alt="avatar" class="w-10 h-10 rounded-full"/>
-                    
-                </div>
-            </div>
-            <div class="w-72 text-base font-semibold rounded-lg h-auto align-middle bg-[#fee488] text-left p-5" id="rbox1">
-                <p>
-                    GreenBeen's tax rebate info made going green a no-brainer; I wish I'd done it sooner!
-                </p>
-                <div class="h-auto w-full flex pt-16 gap-10">
-                    - Emily Sheerwood
-                    <!--  realistic avatar from https://getavataaars.com/ that is different for each testimonial -->
-                    <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraightStrand&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=ShirtVNeck&clotheColor=Gray02&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Smile&skinColor=Light" alt="avatar" class="w-10 h-10 rounded-full"/>
-                    
-                </div>
-            </div>
-            <div class="w-72 text-base font-semibold rounded-lg h-auto align-middle bg-[#fee488] text-left p-5" id="rbox1">
-                <p>
-                    Incredible resource for green living – GreenBeen's cost analysis page guided my choices and saved me money!
-                </p>
-                <div class="h-auto w-full flex pt-10 gap-10">
-                    - Jim Hussam
-                    <!--  realistic avatar from https://getavataaars.com/ that is different for each testimonial make this one bald -->
-                    <img src="https://avataaars.io/" alt="avatar" class="w-10 h-10 rounded-full"/>
-                </div>
-            </div>
-            <div class="w-72 text-base font-semibold rounded-lg h-auto align-middle bg-[#fee488] text-left p-5" id="rbox1">
-                <p>
-                    Transformed my home with GreenBeen's insights – from smart tech to eco-friendly practices, every tip makes a difference!
-                </p>
-                <div class="h-auto w-full flex pt-10 gap-10">
-                    - Neil Patil Armstrong
-                    <!--  realistic avatar from https://dicebear.com/avatars/ that is different for each testimonial -->
-                    <img src="https://api.dicebear.com/7.x/avataaars/svg" alt="avatar" class="w-10 h-10 rounded-full"/>
-                    
-                </div>
-            </div>
-            <div class="w-72 text-base font-semibold rounded-lg h-auto align-middle bg-[#fee488] text-left p-5" id="rbox1">
-                <p>
-                    GreenBeen turned my eco-goals into a reality; their community support and sustainability tips are my daily inspiration
-                </p>
-                <div class="h-auto w-full flex pt-10 gap-10">
-                    - Jessica Waltuh
-                    <!--  realistic avatar from thispersondoesnotexist.com that is different for each testimonial -->
-                    <img src="https://thispersondoesnotexist.com/" alt="avatar" class="w-10 h-10 rounded-full"/>
-                    
-                </div>
-            </div>
-            <div class="w-72 text-base font-semibold rounded-lg h-auto align-middle bg-[#fee488] text-left p-5" id="rbox1">
-                <p>
-                    GreenBeen empowered me to make eco-friendly choices effortlessly, from tax rebates to sustainable practices – now, my home is a beacon of green living!
-                </p>
-                <div class="h-auto w-full flex pt-4">
-                    - Miachel J Jack
-                    <!--  an random avatar from https://avatars.dicebear.com/ that is different for each testimonial -->
-                    <img src="https://api.dicebear.com/7.x/notionists/svg" alt="avatar" class="w-10 h-10 rounded-full"/>
-                </div>
-            </div>
-
         </div>
     </div>
     <div id="CTO" class="flex flex-col justify-center h-screen z-50">
