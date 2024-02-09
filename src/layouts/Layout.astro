@@ -27,10 +27,9 @@ import { ViewTransitions } from 'astro:transitions';
 	<body>
 		<nav transition:persist class=" flex flex-row w-[95vw]] sm:w-[75vw] h-11 backdrop-blur-xl text-lg pt-2 sticky top-2 z-[99999999] mx-auto rounded-full bg-[#f0eab5] drop-shadow-xl mt-2 outline">
 			<div class="flex-1">
-				<p class='text-2xl pl-2 font-medium sm:block hidden'><span class="text-green-700">Green</span><span class="text-amber-600">Been</span></p>
+				<a href="/" class='text-2xl pl-2 font-medium sm:block hidden'><span class="text-green-700">Green</span><span class="text-amber-600">Been</span></a>
 			</div>
 			<div>
-			<a class="text-xl mr-8 font-medium" href="/">Home</a>
 			<a class="text-xl mr-8 font-medium" href="/documentation">Documentation</a>
 			<a class="text-xl mr-10 font-bold" href="/goGreen">Go Green</a>
 			</div>
@@ -100,7 +99,7 @@ import { ViewTransitions } from 'astro:transitions';
 		color: #0A361E;
 	}
 
-	nav a::after {
+	nav a .text-xl::after {
 		content: '';
 		position: absolute;
 		left: 0;

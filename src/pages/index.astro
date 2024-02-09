@@ -275,21 +275,30 @@ import BodyPic3 from "../img/TaRebatePic.png";
             },
         })
 
-            // if the user has scrolled past 150px set the opacity of the AG to 0
-        let AG = document.getElementById('AG') as HTMLDivElement
-        let scroll = window.scrollY
-        if(scroll >= 250){
-            AG.style.opacity = '0'
-        } else {
-            AG.style.opacity = '1'
-        }
-
         setInterval(() => {
             let scroll = window.scrollY
-            if(scroll >= 250){
-                AG.style.opacity = '0'
+            if(scroll >= 350){
+                gsap.to('#AG', {
+                    opacity: 0,
+                    duration: 1,
+                    // scrollTrigger: {
+                    //     trigger: '#AG',
+                    //     start: 'top center', // Trigger point
+                    //     end: 'bottom center', // End point
+                    //     // scrub: true,
+                    // },
+                });
             } else {
-                AG.style.opacity = '1'
+                gsap.to('#AG', {
+                    opacity: 1,
+                    duration: 1,
+                    // scrollTrigger: {
+                    //     trigger: '#AG',
+                    //     start: 'top center', // Trigger point
+                    //     end: 'bottom center', // End point
+                    //     // scrub: true,
+                    // },
+                });
             }
         }, 1000);
 
@@ -447,47 +456,47 @@ import BodyPic3 from "../img/TaRebatePic.png";
 </script>
 
 <Layout title="GreenBeen">
-    <div class="w-[100vw] h-[100vh] flex flex-col items-center sticky top-0 justify-center -z-40" id="AG">
+    <div class="w-[100vw] h-[100vh] flex flex-col items-center sticky top-0 justify-center -z-20" id="AG">
         <div class="w-full p-2 sm:p-0 sm:w-[50vw]">
             <h1 class='text-6xl font-extrabold text-center'><span class="text-green-700">Green</span><span class="text-amber-600">Been</span></h1>
             <p class="text-xl pt-5 h-20">Saving the environment one <span id="changedWord" class="text-green-700 transition-all ease-in-out transform scale-0 w-96">roof</span> at a time 🌿</p>
 
             <p class="text-xl pt-5 pb-10">GreenBeen is a website that compiles information on the best ways to switch to a greener and a healthier lifestyle. We provide you with cost insights, tax rebates, tips, and much more that will make switching to greener solutions a breeze 🍃</p>
-            <a id="CTABtn" href="/goGreen" class=""><button class="bg-green-400 transition-colors ease-in-out outline p-3 rounded-full text-base">
-                Learn more
-            </button></a>
+
+            <p>Scroll down to learn more ↓</p>
         </div>
     </div>
-    <div class="bg-[#f0eab5] w-[100vw] h-auto z-50 shadow-2xl">
-    <div id="body1" class="body1 flex flex-col sm:flex-row justify-evenly h-auto">
-        <div id="" class="w-screen h-auto sm:h-[40vh] sm:w-[40vw]">
-            <img src={BodyPic.src} alt="hero" class="sm:w-[40vw] transition-all ease-out" id="AGIMG"/>
-        </div>
-        <div class='flex flex-wrap justify-evenly w-auto h-[80vh]'>
-            <div class="p-4 w-full sm:w-[50vw] flex-col mt-9">
-                <p class="text-2xl font-semibold">The Importance of Green Energy Initiatives</p>
-                <p class="text-xl">The world is at a critical juncture when it comes to environmental sustainability. Green energy initiatives are vital to mitigating the harmful effects of fossil fuels and combating climate change. By adopting renewable energy sources, we can make a significant positive impact on the environment.</p>
-            </div>
-        </div>
-    </div>
+    <div class="bg-[#f0eab5] w-[100vw] h-auto z-50">
     <div id="body2" class="flex flex-col-reverse sm:flex-row justify-evenly h-auto -z-50">
         <div class='flex flex-wrap justify-evenly w-auto h-[80vh]'>
             <div class="w-screen sm:w-[50vw] flex-col mt-9 p-4">
-                <p class="text-2xl font-semibold">Why Choose GreenBeen?</p>
-                <p class="text-xl">When you join GreenBeen, you become part of a thriving community dedicated to a greener, more sustainable future. Our website is regularly updated with the most current information, news, and trends in green energy and sustainability. Sign up for our newsletter to stay informed and connect with like-minded individuals who share your enthusiasm for eco-friendly living.</p>
+                <p class="text-3xl font-semibold">Considering a Switch? Explore GreenBeen</p>
+                <p class="text-xl">Contemplating the switch to greener living? GreenBeen is your guide to navigating the world of sustainable energy. Delve into our comprehensive website, offering the latest updates, trends, and practical advice on eco-conscious living.</p>
             </div>
         </div>
         <div class="w-screen h-auto sm:h-[40vh] sm:w-[40vw]">
             <img src={BodyPic2.src} alt="hero" class="sm:w-[40vw] transition-all ease-out" id="AGIMG"/>
         </div>
     </div>
+    <div id="body1" class="body1 flex flex-col sm:flex-row justify-evenly h-auto">
+        <div id="" class="w-screen h-auto sm:h-[40vh] sm:w-[40vw]">
+            <img src={BodyPic.src} alt="hero" class="sm:w-[40vw] transition-all ease-out" id="AGIMG"/>
+        </div>
+        <div class='flex flex-wrap justify-evenly w-auto h-[80vh]'>
+            <div class="p-4 w-full sm:w-[50vw] flex-col mt-9">
+                <p class="text-3xl font-semibold">Green Energy: The Vital Key to Securing Our Future</p>
+                <p class="text-xl">The world is at a critical juncture when it comes to environmental sustainability. Green energy initiatives are vital to mitigating the harmful effects of fossil fuels and combating climate change. By adopting renewable energy sources, we can make a significant positive impact on the environment.</p>
+            </div>
+        </div>
+    </div>
+
     </div>
     <div class="w-10 h-10 bg-[#1e3e2c] rounded-full fixed z-0" id="smallGreenRect"></div>
     <div id="WhatWeOffer">
         <p class="text-center pb-10 text-4xl font-medium text-[#f0eab5] z-50" id="WWO">How Can <span class='underline'>You</span> Start Making a Change?</p>
         <p class=" text-center text-lg text-[#f0eab5] z-50 pb-10" id="WWO">Hover on each to learn more ↓</p>
         <div class="flex flex-col sm:flex-row justify-center">
-            <div class="flex flex-col gap-1 w-[50vw] p-6 sm:pl-10">
+            <div class="flex flex-col gap-1 w-[50vw] p-1 sm:p-6 sm:pl-10">
                 <button id="hovBtn1" class="p-2 rounded-md hover:bg-[#f0eab5] bg-[#1e3e2c] text-[#f0eab5] hover:text-[#1e3e2c] transition-all outline mt-5 w-96 z-50" id="changeGraphButtonPrev">
                     Renuable Energy Programs
                 </button>
@@ -512,8 +521,8 @@ import BodyPic3 from "../img/TaRebatePic.png";
         </div>
         <div class='flex flex-wrap justify-evenly w-auto'>
             <div class="w-screen p-4 sm:w-[50vw] flex-col mt-9 h-96">
-                <p class="text-2xl font-semibold">Tax Rebate</p>
-                <p class="text-lg">Discover the numerous tax incentives offered by governments to homeowners who invest in green and clean energy solutions. Our comprehensive guides will help you navigate these rebate programs, ensuring you maximize your savings while making a significant contribution to the environment.</p>
+                <p class="text-3xl font-semibold">Tax Rebate</p>
+                <p class="text-xl">Discover the numerous tax incentives offered by governments to homeowners who invest in green and clean energy solutions. Our comprehensive guides will help you navigate these rebate programs, ensuring you maximize your savings while making a significant contribution to the environment.</p>
                 <a href="/taxRebate"><div class="flex mt-8"> 
                     <button class=" align-middle pr-2 underline underline-offset-4">
                         Learn More
@@ -527,15 +536,15 @@ import BodyPic3 from "../img/TaRebatePic.png";
         </div>
     </div>
     <!-- A section called whats the difference that has a bar graph and a button click me to find out that calls a function to change the graph -->
-    <div id="body4" class="flex flex-col sm:flex-row justify-evenly w-auto h-auto z-10 mt-16 text-[#f0eab5]">
+    <div id="body4" class="flex flex-col sm:flex-row justify-evenly w-auto h-auto z-10 mt-28 pt-16 text-[#f0eab5]">
         <div class="w-full p-5 sm:p-4 sm:w-[50vw]">
         <p class="text-3xl font-semibold text-left pb-4">What's the Difference?</p>
-        Embarking on the journey of transitioning to green energy is more than just a decision; it's a transformative leap towards a sustainable and eco-conscious lifestyle. Beyond the bold claims lies a tangible impact that reverberates across the environment, your community, and, most importantly, your own well-being.
-        By making the switch to green energy, you are not merely embracing a trend; you are investing in a cleaner, healthier future. Picture your home powered by renewable energy sources, radiating an eco-friendly aura that not only reduces your carbon footprint but also sets a precedent for responsible living.
+        <p class="text-xl">Embarking on the journey of transitioning to green energy is more than just a decision; it's a transformative leap towards a sustainable and eco-conscious lifestyle. Beyond the bold claims lies a tangible impact that reverberates across the environment, your community, and, most importantly, your own well-being.
+        By making the switch to green energy, you are investing in a cleaner, healthier future.</p>
         </div>
-        <div class='flex flex-col justify-center w-[45vw]'>
+        <div class='flex flex-col justify-center w-full sm:w-[45vw]'>
             <div class=" flex p-4 flex-col justify-center items-center w-full">
-                <p class="text-4xl font-semibold text-center">See for yourself...</p>
+                <p class="text-3xl font-semibold text-center">See for yourself...</p>
                 <div class="flex flex-col gap-4 pt-10 w-full">
                     <div class="flex flex-col gap-1">
                         <p class="text-[#f0eab5] text-lg">Emissions</p>
@@ -554,10 +563,10 @@ import BodyPic3 from "../img/TaRebatePic.png";
                     </div>
                 </div>
                 <div class="flex flex-row gap-8">
-                    <button class=" p-2 rounded-md bg-red-400 text-black outline mt-5 w-auto" id="changeGraphButtonPrev">
+                    <button class=" p-2 rounded-md bg-red-400 text-black outline mt-5 sm:w-auto" id="changeGraphButtonPrev">
                         Before you switch
                     </button>
-                    <button class=" p-2 rounded-md bg-green-400 text-black outline mt-5 w-auto" id="changeGraphButton">
+                    <button class=" p-2 rounded-md bg-green-400 text-black outline mt-5 sm:w-auto animate-bounce" id="changeGraphButton">
                         After you switch
                     </button>
                 </div>
@@ -565,8 +574,8 @@ import BodyPic3 from "../img/TaRebatePic.png";
         </div>
     </div>
     <div id="CTO" class="flex flex-col justify-center h-screen z-50">
-        <p class="text-center pb-1 text-4xl font-medium text-[#f0eab5]" id="WhatWeOffer">What are you waiting for?</p>
-        <p class="text-center pb-5 text-lg font-medium text-[#f0eab5]" id="WhatWeOffer">Make a positive change one baby step at a time</p>
+        <p class="text-center pb-1 text-5xl font-medium text-[#f0eab5]" id="WhatWeOffer">What Are You Waiting For?</p>
+        <p class="text-center pb-5 text-xl font-medium text-[#f0eab5]" id="WhatWeOffer">Make a positive change one baby step at a time</p>
         <a id="CTABtn" href="/goGreen" class="mx-auto opacity-0"><button class="bg-[#9498FF] hover:bg-green-400 transition-colors ease-in-out outline p-2 w-40 h-14 rounded-full">
             Go green today!
         </button></a>
