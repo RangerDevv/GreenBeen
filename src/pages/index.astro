@@ -133,8 +133,8 @@ import BodyPic3 from "../img/TaRebatePic.png";
             opacity: 1,
             scrollTrigger: {
                 trigger: '#AG',
-                start: 'top center', // Trigger point
-                end: 'bottom center', // End point
+                start: 'top', // Trigger point
+                end: 'bottom', // End point
             },
         });
 
@@ -448,7 +448,7 @@ import BodyPic3 from "../img/TaRebatePic.png";
     <div class="w-[100vw] h-[100vh] flex flex-col items-center sticky top-0 justify-center -z-20" id="AG">
         <div class="w-full p-2 sm:p-0 sm:w-[50vw]">
             <h1 class='text-6xl font-extrabold text-center'><span class="text-green-700">Green</span><span class="text-amber-600">Been</span></h1>
-            <p class="text-xl pt-5 h-20">Saving the environment one <span id="changedWord" class="text-green-700 transition-all ease-in-out transform scale-0 w-96">roof</span> at a time 🌿</p>
+            <p class="text-xl pt-5 h-20">Saving the environment one <span id="changedWord" class="text-green-700 transition-all ease-in-out transform scale-0 w-80 sm:w-96">roof</span> at a time 🌿</p>
 
             <p class="text-xl pt-5 pb-10">GreenBeen is a website that compiles information on the best ways to switch to a greener and a healthier lifestyle. We provide you with cost insights, tax rebates, tips, and much more that will make switching to greener solutions a breeze 🍃</p>
 
@@ -537,12 +537,12 @@ import BodyPic3 from "../img/TaRebatePic.png";
                 <div class="flex flex-col gap-4 pt-10 w-full">
                     <div class="flex flex-col gap-1">
                         <p class="text-[#f0eab5] text-lg">Emissions</p>
-                        <div id="lineGraph1" class="h-2 w-96 bg-gradient-to-l rounded-full from-green-500 to-green-800"></div>
+                        <div id="lineGraph1" class="h-2 sm:w-96 bg-gradient-to-l rounded-full from-green-500 to-green-800"></div>
                         <p class="text-[#f0eab5] text-xs"><span id="CO2value1">48 metric tons</span> of carbon dioxide equivalents/per year</p>
                     </div>
                     <div class="flex flex-col gap-1">
                         <p class="text-[#f0eab5] text-lg">Electricity Bill</p>
-                        <div id="lineGraph2" class="h-2 w-96 bg-gradient-to-l rounded-full from-orange-500 to-orange-800"></div>
+                        <div id="lineGraph2" class="h-2 sm:w-96 bg-gradient-to-l rounded-full from-orange-500 to-orange-800"></div>
                         <p class="text-[#f0eab5] text-xs"><span id="CO2value2">$1,480</span>/year</p>
                     </div>
                     <div class="flex flex-col gap-1">
