@@ -168,7 +168,7 @@ import BodyPic3 from "../img/TaRebatePic.png";
         let greenRect = gsap.timeline({
             scrollTrigger: {
                 trigger: '#body2',
-                start: '50% center', // Trigger point
+                start: 'top center', // Trigger point
                 end: '+=1200', // End point
                 scrub: true,
             },
@@ -179,7 +179,7 @@ import BodyPic3 from "../img/TaRebatePic.png";
             onLeave: () => {
                 greenRect.reverse()
             },
-        })
+        } as any)
         greenRect.to('#smallGreenRect',{
             scale: 400,
             duration: 2,
@@ -374,9 +374,9 @@ import BodyPic3 from "../img/TaRebatePic.png";
     let lineGraph2Width = 85
     let lineGraph3Width = 95
 
-    let lineGraph1WidthPrev = 500
-    let lineGraph2WidthPrev = 400
-    let lineGraph3WidthPrev = 350
+    let lineGraph1WidthPrev = 300
+    let lineGraph2WidthPrev = 200
+    let lineGraph3WidthPrev = 150
 
     let changeGraphButton = document.getElementById('changeGraphButton') as HTMLButtonElement
     let changeGraphButtonPrev = document.getElementById('changeGraphButtonPrev') as HTMLButtonElement
@@ -467,7 +467,7 @@ import BodyPic3 from "../img/TaRebatePic.png";
         </div>
     </div>
     <div class="bg-[#f0eab5] w-[100vw] h-auto z-50">
-    <div id="body2" class="flex flex-col-reverse sm:flex-row justify-evenly h-auto -z-50">
+    <div id="body1" class="flex flex-col-reverse sm:flex-row justify-evenly h-auto -z-50">
         <div class='flex flex-wrap justify-evenly w-auto h-[80vh]'>
             <div class="w-screen sm:w-[50vw] flex-col mt-9 p-4">
                 <p class="text-3xl font-semibold">Considering a Switch? Explore GreenBeen</p>
@@ -478,7 +478,7 @@ import BodyPic3 from "../img/TaRebatePic.png";
             <img src={BodyPic2.src} alt="hero" class="sm:w-[40vw] transition-all ease-out" id="AGIMG"/>
         </div>
     </div>
-    <div id="body1" class="body1 flex flex-col sm:flex-row justify-evenly h-auto">
+    <div id="body2" class="body1 flex flex-col sm:flex-row justify-evenly h-auto">
         <div id="" class="w-screen h-auto sm:h-[40vh] sm:w-[40vw]">
             <img src={BodyPic.src} alt="hero" class="sm:w-[40vw] transition-all ease-out" id="AGIMG"/>
         </div>
@@ -497,16 +497,16 @@ import BodyPic3 from "../img/TaRebatePic.png";
         <p class=" text-center text-lg text-[#f0eab5] z-50 pb-10" id="WWO">Hover on each to learn more ↓</p>
         <div class="flex flex-col sm:flex-row justify-center">
             <div class="flex flex-col gap-1 w-[50vw] p-1 sm:p-6 sm:pl-10">
-                <button id="hovBtn1" class="p-2 rounded-md hover:bg-[#f0eab5] bg-[#1e3e2c] text-[#f0eab5] hover:text-[#1e3e2c] transition-all outline mt-5 w-96 z-50" id="changeGraphButtonPrev">
+                <button id="hovBtn1" class="p-2 rounded-md hover:bg-[#f0eab5] bg-[#1e3e2c] text-[#f0eab5] hover:text-[#1e3e2c] transition-all outline mt-5 w-80 z-50" id="changeGraphButtonPrev">
                     Renuable Energy Programs
                 </button>
-                <button id="hovBtn2" class="p-2 rounded-md hover:bg-[#f0eab5] bg-[#1e3e2c] text-[#f0eab5] hover:text-[#1e3e2c] transition-all outline mt-5 w-96 z-50" id="changeGraphButtonPrev">
+                <button id="hovBtn2" class="p-2 rounded-md hover:bg-[#f0eab5] bg-[#1e3e2c] text-[#f0eab5] hover:text-[#1e3e2c] transition-all outline mt-5 w-80 z-50" id="changeGraphButtonPrev">
                     Cost Effective solutions
                 </button>
-                <button id="hovBtn3" class="p-2 rounded-md hover:bg-[#f0eab5] bg-[#1e3e2c] text-[#f0eab5] hover:text-[#1e3e2c] transition-all outline mt-5 w-96 z-50" id="changeGraphButtonPrev">
+                <button id="hovBtn3" class="p-2 rounded-md hover:bg-[#f0eab5] bg-[#1e3e2c] text-[#f0eab5] hover:text-[#1e3e2c] transition-all outline mt-5 w-80 z-50" id="changeGraphButtonPrev">
                     Green and Clean Energy Practices
                 </button>
-                <button id="hovBtn4" class="p-2 rounded-md hover:bg-[#f0eab5] bg-[#1e3e2c] text-[#f0eab5] hover:text-[#1e3e2c] transition-all outline mt-5 w-96 z-50" id="changeGraphButtonPrev">
+                <button id="hovBtn4" class="p-2 rounded-md hover:bg-[#f0eab5] bg-[#1e3e2c] text-[#f0eab5] hover:text-[#1e3e2c] transition-all outline mt-5 w-80 z-50" id="changeGraphButtonPrev">
                     Sustainability Tips
                 </button>
             </div>
@@ -542,7 +542,7 @@ import BodyPic3 from "../img/TaRebatePic.png";
         <p class="text-xl">Embarking on the journey of transitioning to green energy is more than just a decision; it's a transformative leap towards a sustainable and eco-conscious lifestyle. Beyond the bold claims lies a tangible impact that reverberates across the environment, your community, and, most importantly, your own well-being.
         By making the switch to green energy, you are investing in a cleaner, healthier future.</p>
         </div>
-        <div class='flex flex-col justify-center w-full sm:w-[45vw]'>
+        <div class='flex flex-col justify-center w-80 sm:w-[45vw]'>
             <div class=" flex p-4 flex-col justify-center items-center w-full">
                 <p class="text-3xl font-semibold text-center">See for yourself...</p>
                 <div class="flex flex-col gap-4 pt-10 w-full">
