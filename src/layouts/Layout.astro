@@ -30,8 +30,27 @@ import { ViewTransitions } from 'astro:transitions';
 				<a href="/" class='text-2xl pl-2 font-medium sm:block hidden'><span class="text-green-700">Green</span><span class="text-amber-600">Been</span></a>
 			</div>
 			<div>
-			<a class="text-xl mr-8 font-medium" href="/documentation">Documentation</a>
-			<a class="text-xl mr-10 font-bold" href="/goGreen">Go Green</a>
+			<a class="text-xl mr-8 font-medium" href="/documentation">📃Documentation</a>
+			<a class="text-xl mr-8 font-medium" id="incentive">🎁Incentives</a>
+			<div class="relative inline-block text-left">
+				<div id="incentiveDropdown" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-[#f0eab5] ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+					<div class="py-1" role="none">
+						<a class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#cbc7a2]" role="menuitem" href="/taxRebate">🤑Tax Rebate</a>
+						<a class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#cbc7a2]" role="menuitem" href="/EV">🚗Electric Vehicles</a>
+				</div>
+			</div>
+			</div>
+			<a id="goGreen" class="text-xl mr-10 font-bold" href="/goGreen">🍀Go Green </a>
+			<!-- dropdown that is hidden that appears when hovered over go green -->
+			<div class="relative inline-block text-left">
+				<div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-[#f0eab5] ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+					<div class="py-1" role="none">
+						<a href="/waysToSave/costInsight" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#cbc7a2]" role="menuitem">🌱Cost Insight</a>
+						<a href="/waysToSave/greenAndClean" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#cbc7a2]" role="menuitem">🌳Green And Clean</a>
+						<a href="/waysToSave/RenuableEnergyProgram" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#cbc7a2]" role="menuitem">🌍Renuable Energy Programs</a>
+						<a href="/waysToSave/sustainibility" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#cbc7a2]" role="menuitem">☀️Sustainability</a>
+				</div>
+			</div>
 			</div>
 		</nav>
 		<slot />
@@ -116,4 +135,30 @@ import { ViewTransitions } from 'astro:transitions';
 		transform: scaleX(1);
 	}
 
+	/* make the dropdown appearn when go green is hovered */
+	nav .relative:hover .absolute {
+		display: block;
+	}
+
+	/* make the dropdown hidden by default */
+	nav .absolute {
+		display: none;
+	}
+
+	/* make the dropdown appear when the dropdown is hovered */
+	nav .absolute a:hover::after {
+		transform: scaleX(1);
+	}
+
+	/* when goGreen is hovered make the dropdown appear */
+	nav #goGreen:hover + .relative .absolute {
+		display: block;
+		animation: fadeIn 1s;
+	}
+
+	/* when incentives is hovered open the incentives dropdown */
+	nav #incentive:hover + .relative .absolute {
+		display: block;
+		animation: fadeIn 1s;
+	}
 </style>
