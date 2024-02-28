@@ -1,7 +1,163 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import TeslaCar from '../img/tesla_car.jpg'
+import ChargingPic from '../img/electric-car.jpg'
 ---
 
+
 <Layout title='Explore EV'>
-  <h1>Hello, Astro!</h1>
+    <div class="h-screen flex flex-col-reverse sm:flex-row justify-center items-center gap-10 p-6">
+        <div class="flex flex-col">
+            <p class="text-4xl font-bold">Explore EV</p>
+            <p class="text-2xl">Discover the ideal electric vehicle tailored to your lifestyle, and delve into its myriad benefits that redefine the way you commute, saving both the environment and your wallet. Scroll down to uncover the future of sustainable transportation.</p>
+        </div>
+        <img src={TeslaCar.src} alt="Tesla Car" id="parallax1" class="h-96 rounded-xl" />
+    </div>
+
+    <!-- Why choose an EV sectrion -->
+    <div class="flex flex-col sm:flex-row items-center gap-10 p-5">
+        <div>
+        <p class="text-4xl font-bold">Why choose an EV?</p>
+        <ul class="text-xl">
+            <li>- EVs can be up to 70% cheaper to operate than traditional gasoline vehicles.</li>
+            <li>- EV owners can reduce their fuel costs by 50% by switching to an EV.</li>
+            <li>- EVs require less maintenance as they don't have gasoline engines.</li>
+            <li>- EVs are more energy efficient in stop and go traffic.</li>
+            <li>- EVs produce zero tailpipe emissions, contributing to cleaner air and a reduction in greenhouse gas emissions.</li>
+        </ul>
+        </div>
+        <img src={ChargingPic.src} alt="Charging Electric Car" class=" rounded-xl w-1/2" />
+    </div>
+
+    <!-- Lets find your EV section -->
+    <div class="flex flex-col items-center gap-10 p-5">
+        <div>
+        <section class="">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+                <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
+                    <h2 class="mb-4 text-4xl tracking-tight font-extrabold">Let's Compare</h2>
+                    <p class="mb-5 font-light sm:text-xl">Discover a curated selection of vehicles meticulously chosen to cater to a spectrum of everyday lifestyles, spanning from families to tradespeople such as carpenters and civil workers.</p>
+                </div>
+                <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
+                    <!-- Pricing Card -->
+                    <div class="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg outline">
+                        <h3 class="mb-4 text-2xl font-semibold">Tesla Model S</h3>
+                        <p class="font-light">Best option for personal use & small families.</p>
+                        <div class="flex justify-center items-baseline my-8">
+                            <span class="mr-2 text-5xl font-extrabold">$74,990
+                            </span>
+                            <span class="text-gray-500 dark:text-gray-400"></span>
+                        </div>
+                        <!-- List -->
+                        <ul role="list" class="mb-8 space-y-4 text-left">
+                            <li class="flex items-center space-x-3">
+                                <!-- Icon -->
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                <span>Range: 359 mi</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <!-- Icon -->
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                <span>Top Speed: 200 mph</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <!-- Icon -->
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                <span>Peak Power <span class="font-semibold">1,020 hp</span></span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <!-- Icon -->
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                <span>Battery Capacity: <span class="font-semibold">100 kWh</span></span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <!-- Icon -->
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                <span>Towing Capacity: <span class="font-semibold">119 lbs</span></span>
+                            </li>
+                        </ul>
+                        <a href="https://www.tesla.com/models" class="rounded-lg bg-green-900 p-3 text-white hover:shadow-xl transition-all ease-in-out">Learn More</a>
+                    </div>
+                    <!-- Pricing Card -->
+                    <div class="flex flex-col p-6 mx-auto max-w-lg text-center xl:p-8 rounded-lg outline">
+                        <h3 class="mb-4 text-2xl font-semibold">Hyundai IONIQ 5</h3>
+                        <p class="font-light">Best Option as SUV. Good for Large Families.</p>
+                        <div class="flex justify-center items-baseline my-8">
+                            <span class="mr-2 text-5xl font-extrabold">$41,800
+                            </span>
+                            <span class="text-slate-700"></span>
+                        </div>
+                        <!-- List -->
+                        <ul role="list" class="mb-8 space-y-4 text-left">
+                            <li class="flex items-center space-x-3">
+                                <!-- Icon -->
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                <span>Range: 303 mi</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <!-- Icon -->
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                <span>Top Speed: 115 mph</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <!-- Icon -->
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                <span>Peak Power <span class="font-semibold">320 hp</span></span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <!-- Icon -->
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                <span>Battery Capacity: <span class="font-semibold">239 kWh</span></span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <!-- Icon -->
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                <span>Towing Capacity: <span class="font-semibold">2,300 lbs</span></span>
+                            </li>
+                        </ul>
+                        <a href="https://www.hyundaiusa.com/us/en/vehicles/ioniq-5" class="bg-green-900 p-3 text-white rounded-lg hover:shadow-xl transition-all ease-in-out">Learn More</a>
+                    </div>
+                    <!-- Pricing Card -->
+                    <div class="flex flex-col p-6 mx-auto max-w-lg text-center xl:p-8 rounded-lg outline">
+                        <h3 class="mb-4 text-2xl font-semibold">Rivian R1T</h3>
+                        <p class="font-light">Best for large scale uses, and towing.</p>
+                        <div class="flex justify-center items-baseline my-8">
+                            <span class="mr-2 text-5xl font-extrabold">$73,000
+                            </span>
+                            <span class="text-slate-700"></span>
+                        </div>
+                        <!-- List -->
+                        <ul role="list" class="mb-8 space-y-4 text-left">
+                            <li class="flex items-center space-x-3">
+                                <!-- Icon -->
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                <span>Range: 410 mi</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <!-- Icon -->
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                <span>Top Speed: 110 mph</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <!-- Icon -->
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                <span>Peak Power <span class="font-semibold">665 hp</span></span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <!-- Icon -->
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                <span>Battery Capacity: <span class="font-semibold">149 kWh</span></span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <!-- Icon -->
+                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                <span>Towing Capacity: <span class="font-semibold">11,000 lbs</span></span>
+                            </li>
+                        </ul>
+                        <a href="https://rivian.com/r1t" class="bg-green-900 p-3 text-white rounded-lg hover:shadow-xl transition-all ease-in-out">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </Layout>
