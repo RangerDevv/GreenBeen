@@ -4,6 +4,29 @@ import TeslaCar from '../img/tesla_car.jpg'
 import ChargingPic from '../img/electric-car.jpg'
 ---
 
+<script>
+    // create an array that has all the content for the content div and the click of the button will change the content
+
+    let bcontent = [
+        "You may qualify for a credit up to $7,500 under Internal Revenue Code Section 30D if you buy a new, qualified plug-in EV or fuel cell electric vehicle (FCV). The Inflation Reduction Act of 2022 changed the rules for this credit for vehicles purchased from 2023 to 2032. <br> <br> <a href='https://www.irs.gov/businesses/irc-30d-new-qualified-plug-in-electric-drive-motor-vehicle-credit' class='bg-green-900 p-2 text-white rounded-lg'>Learn More</a>",
+        "As of September 1, 2022, Pennsylvania's Alternative Fuel Vehicle (AFV) Rebate program offers a $2,000 rebate for battery electric cars and trucks, and a $1,500 rebate for PHEVs. The rebate amount is the same for new and pre-owned vehicles. Lower-income families may be eligible for an additional $1,000 rebate if their total household income is below 200 percent of the Federal Income Poverty level. <br> <br> <a href='https://afdc.energy.gov/laws/all?state=PA' class='bg-green-900 p-2 text-white rounded-lg'>Learn More</a>"
+    ]
+
+    let button1 = document.getElementById('button1') as HTMLButtonElement
+    let button2 = document.getElementById('button2') as HTMLButtonElement
+    let button3 = document.getElementById('button3') as HTMLButtonElement
+    let content = document.getElementById('content') as HTMLParagraphElement
+
+    button1.addEventListener('click', () => {
+        content.innerHTML = bcontent[0]
+    })
+
+    button2.addEventListener('click', () => {
+        content.innerHTML = bcontent[1]
+    })
+
+
+</script>
 
 <Layout title='Explore EV'>
     <div class="sm:h-screen flex flex-col-reverse sm:flex-row justify-center items-center gap-10 p-6">
@@ -31,7 +54,7 @@ import ChargingPic from '../img/electric-car.jpg'
 
     <!-- Lets find your EV section -->
     <div class="flex flex-col items-center gap-10 p-5">
-        <div>
+    <div>
         <section class="">
             <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
                 <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
@@ -159,5 +182,22 @@ import ChargingPic from '../img/electric-car.jpg'
                 </div>
             </div>
         </section>
+    </div>
+
+    <!-- Incentives -->
+    <div class="flex flex-col sm:flex-row sm: text-center items-center gap-10 p-5">
+        <div class="flex flex-col">
+            <p class="text-4xl font-bold">Incentives</p>
+        </div>
+        <div class="flex flex-col gap-5">
+            <!-- tabs and a content text -->
+            <div class="flex flex-row">
+                <button id="button1" class="bg-green-900 p-3 text-white rounded-l-lg hover:shadow-xl transition-all ease-in-out">Federal Incentives</button>
+                <button id="button2" class="bg-green-900 p-3 text-white hover:shadow-xl transition-all ease-in-out rounded-r-lg">State Incentives</button>
+            </div>
+            <div class="p-5 rounded-b-lg">
+                <p class="text-xl text-left" id="content">The federal government offers a tax credit of up to $7,500 for the purchase of a new electric vehicle. The tax credit amount varies based on the capacity of the battery used to power the vehicle. To find out more about the federal tax credit, visit the U.S. Department of Energy's website.</p>
+        </div>
+    </div>
     </div>
 </Layout>
