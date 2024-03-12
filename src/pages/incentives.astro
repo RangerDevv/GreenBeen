@@ -3,5 +3,30 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Explore Incentives">
-  <h1>Hello, Astro!</h1>
+<!-- header section -->
+<header class="">
+  <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold leading-tight text-gray-900">Explore Incentives</hjson>
+  </div>
+</header>
+<!-- EV -->
+<div class="w-[85vw] rounded-xl bg-green-800 p-3 flex flex-col sm:flex-row mx-auto justify-between">
+  <div class="w-full rounded-2xl p-3 text-white">
+    <h2 class="text-2xl font-bold leading-tight">Electric Vehicles</h2>
+    <p class="text-md"> Electric vehicles are a great way to reduce your carbon footprint and save money on fuel. There are many incentives available to help you make the switch to an electric vehicle. </p>
+    <a href="/EV" class="text-white bg-green-600 p-2 rounded-md mt-3 inline-block">Explore EV Incentives</a>
+  </div>
+  <!-- image of EV from external source -->
+  <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Tesla/Model-3/5251/1693556345148/front-left-side-47.jpg?impolicy=resize&imwidth=420" alt="Electric Vehicle" class="w-full sm:w-1/2 rounded-2xl">
+</div>
+
+<!-- taxRebate -->
+<div class="w-[85vw] rounded-xl bg-green-800 p-3 flex flex-col sm:flex-row mx-auto justify-between mt-5">
+  <div class="w-full rounded-2xl p-3 text-white">
+    <h2 class="text-2xl font-bold leading-tight">Tax Rebates</h2>
+    <p class="text-md">Tax rebates are a great way to save money on your taxes. There are many tax rebates available for a variety of different things, including energy efficiency, electric vehicles, and more. </p>
+    <a href="/taxRebate" class="text-white bg-green-600 p-2 rounded-md mt-3 inline-block">Explore Tax Rebates</a>
+  </div>
+  <!-- image of taxRebate from external source -->
+  <img src="https://i.insider.com/61e0454fc5e27c00185b65b9?width=700" alt="Tax Rebate" class="w-full sm:w-1/2 rounded-2xl">
 </Layout>
