@@ -27,13 +27,13 @@
 </script>
 
 <section class="modal hidden fixed inset-0 flex items-center justify-center z-10">
-    <div class="flex flex-col gap-2 w-[85vw] h-[85vh] p-5 min-h-60 bg-[#f0eab5] text-black rounded-lg">
+    <div class="flex flex-col gap-2 w-[85vw] h-[85vh] p-5 min-h-60 bg-[#f0eab5] text-black rounded-lg shadow-2xl">
         <div class="flex flex-col items-center justify-between">
             <div class="flex flex-row gap-5">
             <button class="btn btn-close p-3 rounded-full bg-black z-20 text-white" on:click={closeModal}>Close</button>
             <a href={link.replace('/hidden','')} class="btn btn-open p-3 rounded-full bg-black z-20 text-white">Go To Page</a>
             </div>
-            <iframe src={link} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="frame" allowfullscreen class="w-full h-[75vh]"></iframe>
+            <iframe src={link} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="frame" allowfullscreen class="w-full h-[73vh]"></iframe>
     </div>
 </section>
 
