@@ -510,7 +510,7 @@ import PopUpButton from "../components/svelte/popUpButton.svelte"
                   <h2 class="text-2xl font-bold leading-tight">Electric Vehicles</h2>
                   <p class="text-md"> Electric vehicles are a great way to reduce your carbon footprint and save money on fuel. There are many incentives available to help you make the switch to an electric vehicle. </p>
                   <a href="/EV" class=" sm:hidden block text-white bg-green-600 p-2 rounded-md mt-3">Explore EV Incentives</a>
-                    <div class="sm:block hidden">
+                    <div class="sm:block hidden z-50">
                         <PopUpButton client:only="Svelte" link="https://green-been.vercel.app/hidden/EV" buttonText="Explore EV Incentives" />
                     </div>
                 </div>
@@ -521,13 +521,16 @@ import PopUpButton from "../components/svelte/popUpButton.svelte"
                 <div class="w-full rounded-2xl p-3 text-white">
                   <h2 class="text-2xl font-bold leading-tight">Tax Rebates</h2>
                   <p class="text-md">Tax rebates are a great way to save money on your taxes. There are many tax rebates available for a variety of different things, including energy efficiency, electric vehicles, and more. </p>
-                  <a href="/taxRebate" class="text-white bg-green-600 p-2 rounded-md mt-3 inline-block">Explore Tax Rebates</a>
+                  <a href="/taxRebate" class="text-white bg-green-600 p-2 rounded-md mt-3 inline-block sm:hidden">Explore Tax Rebates</a>
+                    <div class="sm:block hidden z-50">
+                        <PopUpButton client:only="Svelte" link="https://green-been.vercel.app/hidden/taxRebate" buttonText="Explore Tax Rebates" />
+                    </div>
                 </div>
               </div>
         </div>
     </div>
     <!-- A section called whats the difference that has a bar graph and a button click me to find out that calls a function to change the graph -->
-    <div id="body4" class="flex flex-col sm:flex-row justify-evenly w-auto h-auto z-10 mt-28 pt-16 text-[#f0eab5]">
+    <div id="body4" class="flex flex-col sm:flex-row justify-evenly w-auto h-auto mt-28 pt-16 text-[#f0eab5]">
         <div class="w-full p-5 sm:p-4 sm:w-[50vw]">
         <p class="text-3xl font-semibold text-left pb-4">What's the Difference?</p>
         <p class="text-xl">Embarking on the journey of transitioning to green energy is more than just a decision; it's a transformative leap towards a sustainable and eco-conscious lifestyle. Beyond the bold claims lies a tangible impact that reverberates across the environment, your community, and, most importantly, your own well-being.

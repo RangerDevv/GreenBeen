@@ -4,29 +4,57 @@
     export let link: string;
     export let buttonText: string;
     let modal: any;
-    // let overlay: any;
+    let overlay: any;
 
     onMount(() => {
         modal = document.querySelector('.modal');
-        // overlay = document.querySelector('.overlay');
+        overlay = document.querySelector('.overlay');
     });
 
     const openModal = function () {
         if (modal) {
             modal.classList.remove('hidden');
-            // overlay.classList.remove('hidden');
+            overlay.classList.remove('hidden');
         }
     };
 
     const closeModal = function () {
         if (modal) {
             modal.classList.add('hidden');
-            // overlay.classList.add('hidden');
+            overlay.classList.add('hidden');
+
+            // animate the modal
+            modal.animate(
+                [
+                    { transform: 'scale(1)', opacity: 1 },
+                    { transform: 'scale(0.5)', opacity: 0 }
+                ],
+                {
+                    duration: 300,
+                    easing: 'ease-in-out',
+                    fill: 'forwards'
+                }
+            );
+
+            // animate the overlay
+            overlay.animate(
+                [
+                    { opacity: 1 },
+                    { opacity: 0 }
+                ],
+                {
+                    duration: 300,
+                    easing: 'ease-in-out',
+                    fill: 'forwards'
+                }
+            );
         }
     };
 </script>
 
-<section class="modal hidden fixed inset-0 flex items-center justify-center z-10">
+<div class="overlay hidden fixed -inset-0 mb-10 bg-black bg-opacity-50 z-[9] w-screen h-screen top-0"></div>
+
+<section class="modal hidden fixed z-10">
     <div class="flex flex-col gap-2 w-[85vw] h-[85vh] p-5 min-h-60 bg-[#f0eab5] text-black rounded-lg shadow-2xl">
         <div class="flex flex-col items-center justify-between">
             <div class="flex flex-row gap-5">
@@ -37,6 +65,7 @@
     </div>
 </section>
 
+<!-- Overlay -->
 <button class="btn btn-open bottom-4 right-4 text-white bg-green-600 p-2 rounded-md mt-3 inline-block" on:click={openModal}>{buttonText}</button>
 <style>
     /* BEGIN: Tailwind CSS */
@@ -48,5 +77,19 @@
     /* Additional custom styles */
     .hidden {
         display: none;
+    }
+
+    /* make the modal and overlay overlap */
+    .modal {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .overlay {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 </style>
