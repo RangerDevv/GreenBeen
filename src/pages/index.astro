@@ -366,8 +366,9 @@ import PopUpButton1 from "../components/svelte/popUpButton1.svelte"
     let lineGraph2WidthPrev = 200
     let lineGraph3WidthPrev = 150
 
-    let changeGraphButton = document.getElementById('changeGraphButton') as HTMLButtonElement
-    let changeGraphButtonPrev = document.getElementById('changeGraphButtonPrev') as HTMLButtonElement
+    let changeGraphButton = document.getElementById('switch') as HTMLLabelElement
+
+    let clicked = false
 
     gsap.to('#lineGraph1',{
         width: lineGraph1WidthPrev,
@@ -431,12 +432,14 @@ import PopUpButton1 from "../components/svelte/popUpButton1.svelte"
     })
     }
 
-    changeGraphButton.addEventListener('click', () => {
-        changeGraph()
-    })
-
-    changeGraphButtonPrev.addEventListener('click', () => {
-        changeGraphPrev()
+    changeGraphButton.children[0].addEventListener('click', () => {
+        if(clicked){
+            changeGraphPrev()
+            clicked = false
+        } else {
+            changeGraph()
+            clicked = true
+        }
     })
     }, { once: false})
 
@@ -504,7 +507,7 @@ import PopUpButton1 from "../components/svelte/popUpButton1.svelte"
         </div>
     </div>
     <div id="body3" class="flex flex-col justify-evenly h-auto z-10 mt-24 text-[#f0eab5]">
-        <p class="text-3xl font-semibold text-center pb-10">Tax Rebate</p>
+        <p class="text-3xl font-semibold text-center pb-10">Explore Incentives</p>
         <div class="w-[100vw] flex flex-wrap">
             <div class="sm:w-[40vw] rounded-xl bg-transparent outline outline-[#f0eab5] p-3 flex flex-col sm:flex-row mx-auto justify-between h-60">
                 <div class="w-full rounded-2xl p-3 text-white">
@@ -537,9 +540,18 @@ import PopUpButton1 from "../components/svelte/popUpButton1.svelte"
         <p class="text-xl">Embarking on the journey of transitioning to green energy is more than just a decision; it's a transformative leap towards a sustainable and eco-conscious lifestyle. Beyond the bold claims lies a tangible impact that reverberates across the environment, your community, and, most importantly, your own well-being.
         By making the switch to green energy, you are investing in a cleaner, healthier future.</p>
         </div>
-        <div class='flex flex-col justify-center w-80 sm:w-[45vw]'>
+        <div class='flex flex-col justify-center w-full sm:w-[45vw]'>
             <div class=" flex p-4 flex-col justify-center items-center w-full">
-                <p class="text-3xl font-semibold text-center">See for yourself...</p>
+                <p class="text-3xl font-semibold text-center pb-5">See for yourself...</p>
+                <div class="flex flex-row gap-3">
+                <!-- add labels on both sides like before you switch and after you switch -->
+                <p class="text-[#f0eab5] text-base">Before you switch</p>
+                <label class="switch" id="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                <p class="text-[#f0eab5] text-base">After you switch</p>
+                </div>
                 <div class="flex flex-col gap-4 pt-10 w-full">
                     <div class="flex flex-col gap-1">
                         <p class="text-[#f0eab5] text-lg">Emissions</p>
@@ -556,14 +568,6 @@ import PopUpButton1 from "../components/svelte/popUpButton1.svelte"
                         <div id="lineGraph3" class="h-2 w-1 bg-gradient-to-l rounded-full from-blue-500 to-blue-800"></div>
                         <p class="text-[#f0eab5] text-xs"><span id='CO2value3'>1 million animals</span>/year</p>
                     </div>
-                </div>
-                <div class="flex flex-row gap-8">
-                    <button class=" p-2 rounded-md bg-red-400 text-black outline mt-5 sm:w-auto" id="changeGraphButtonPrev">
-                        Before you switch
-                    </button>
-                    <button class=" p-2 rounded-md bg-green-400 text-black outline mt-5 sm:w-auto animate-bounce" id="changeGraphButton">
-                        After you switch
-                    </button>
                 </div>
             </div>
         </div>
@@ -591,4 +595,67 @@ import PopUpButton1 from "../components/svelte/popUpButton1.svelte"
     #rbox4{
         box-shadow: 0px 0px 30px 0px rgba(0, 29, 7,0.632);
     }
+
+    /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #348406;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #348406;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
 </style>
