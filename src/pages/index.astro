@@ -454,15 +454,15 @@ import PopUpButton1 from "../components/svelte/popUpButton1.svelte"
 
             <p class="text-xl pt-5 pb-10">GreenBeen is a website that compiles information on the best ways to switch to a greener and a healthier lifestyle. We provide you with cost insights, tax rebates, tips, and much more that will make switching to greener solutions a breeze 🍃</p>
 
-            <p>Scroll down to learn more ↓</p>
+            <p class="text-2xl h-10 w-10 text-center rounded-full outline">↓</p>
         </div>
     </div>
-    <div class="bg-[#f0eab5] w-[100vw] h-auto z-50">
+    <div class="bg-[#f0eab5] w-[100vw] h-auto z-50" id="mask-bg">
     <div id="body1" class="flex flex-col-reverse sm:flex-row justify-evenly h-auto -z-50">
         <div class='flex flex-wrap justify-evenly w-auto h-[80vh]'>
             <div class="w-screen sm:w-[50vw] flex-col mt-9 p-4">
                 <p class="text-3xl font-semibold">Considering a Switch? Explore GreenBeen</p>
-                <p class="text-xl">Contemplating the switch to greener living? GreenBeen is your guide to navigating the world of sustainable energy. Delve into our comprehensive website, offering the latest updates, trends, and practical advice on eco-conscious living.</p>
+                <p class="text-xl pt-4">Contemplating the switch to greener living? GreenBeen is your guide to navigating the world of sustainable energy. Delve into our comprehensive website, offering the latest updates, trends, and practical advice on eco-conscious living.</p>
             </div>
         </div>
         <div class="w-screen h-auto sm:h-[40vh] sm:w-[40vw]">
@@ -476,7 +476,7 @@ import PopUpButton1 from "../components/svelte/popUpButton1.svelte"
         <div class='flex flex-wrap justify-evenly w-auto h-[80vh]'>
             <div class="p-4 w-full sm:w-[50vw] flex-col mt-9">
                 <p class="text-3xl font-semibold">Green Energy: The Vital Key to Securing Our Future</p>
-                <p class="text-xl">The world is at a critical juncture when it comes to environmental sustainability. Green energy initiatives are vital to mitigating the harmful effects of fossil fuels and combating climate change. By adopting renewable energy sources, we can make a significant positive impact on the environment.</p>
+                <p class="text-xl pt-4">The world is at a critical juncture when it comes to environmental sustainability. Green energy initiatives are vital to mitigating the harmful effects of fossil fuels and combating climate change. By adopting renewable energy sources, we can make a significant positive impact on the environment.</p>
             </div>
         </div>
     </div>
@@ -488,16 +488,16 @@ import PopUpButton1 from "../components/svelte/popUpButton1.svelte"
         <p class=" text-center text-lg text-[#f0eab5] z-50 pb-10" id="WWO">Hover on each to learn more ↓</p>
         <div class="flex flex-col sm:flex-row justify-center">
             <div class="flex flex-col gap-1 w-[50vw] p-1 sm:p-6 sm:pl-10">
-                <button id="hovBtn1" class="p-2 rounded-md hover:bg-[#f0eab5] bg-[#1e3e2c] text-[#f0eab5] hover:text-[#1e3e2c] transition-all outline mt-5 w-80 z-50" id="changeGraphButtonPrev">
+                <button id="hovBtn1" class="p-2 rounded-md hover:text-[#f0eab5] text-[#1e3e2c] bg-[#f0eab5] hover:bg-[#1e3e2c] transition-all outline mt-5 w-80 z-50" id="changeGraphButtonPrev">
                     Renuable Energy Programs
                 </button>
-                <button id="hovBtn2" class="p-2 rounded-md hover:bg-[#f0eab5] bg-[#1e3e2c] text-[#f0eab5] hover:text-[#1e3e2c] transition-all outline mt-5 w-80 z-50" id="changeGraphButtonPrev">
+                <button id="hovBtn2" class="p-2 rounded-md hover:text-[#f0eab5] text-[#1e3e2c] bg-[#f0eab5] hover:bg-[#1e3e2c] transition-all outline mt-5 w-80 z-50" id="changeGraphButtonPrev">
                     Cost Effective solutions
                 </button>
-                <button id="hovBtn3" class="p-2 rounded-md hover:bg-[#f0eab5] bg-[#1e3e2c] text-[#f0eab5] hover:text-[#1e3e2c] transition-all outline mt-5 w-80 z-50" id="changeGraphButtonPrev">
+                <button id="hovBtn3" class="p-2 rounded-md hover:text-[#f0eab5] text-[#1e3e2c] bg-[#f0eab5] hover:bg-[#1e3e2c] transition-all outline mt-5 w-80 z-50" id="changeGraphButtonPrev">
                     Green and Clean Energy Practices
                 </button>
-                <button id="hovBtn4" class="p-2 rounded-md hover:bg-[#f0eab5] bg-[#1e3e2c] text-[#f0eab5] hover:text-[#1e3e2c] transition-all outline mt-5 w-80 z-50" id="changeGraphButtonPrev">
+                <button id="hovBtn4" class="p-2 rounded-md hover:text-[#f0eab5] text-[#1e3e2c] bg-[#f0eab5] hover:bg-[#1e3e2c] transition-all outline mt-5 w-80 z-50" id="changeGraphButtonPrev">
                     Sustainability Tips
                 </button>
             </div>
@@ -510,7 +510,7 @@ import PopUpButton1 from "../components/svelte/popUpButton1.svelte"
         <p class="text-3xl font-semibold text-center pb-10">Explore Incentives</p>
         <div class="w-[100vw] flex flex-wrap">
             <div class="sm:w-[40vw] rounded-xl bg-transparent outline outline-[#f0eab5] p-3 flex flex-col sm:flex-row mx-auto justify-between h-60">
-                <div class="w-full rounded-2xl p-3 text-white">
+                <div class="w-full rounded-2xl p-3 text-[#f0eab5]">
                   <h2 class="text-2xl font-bold leading-tight">Electric Vehicles</h2>
                   <p class="text-md"> Electric vehicles are a great way to reduce your carbon footprint and save money on fuel. There are many incentives available to help you make the switch to an electric vehicle. </p>
                   <a href="/EV" class=" sm:hidden block text-white bg-green-600 p-2 rounded-md mt-3">Explore EV Incentives</a>
@@ -522,7 +522,7 @@ import PopUpButton1 from "../components/svelte/popUpButton1.svelte"
               
               <!-- taxRebate -->
               <div class="sm:w-[40vw] rounded-xl bg-transparent outline outline-[#f0eab5] p-3 flex flex-col sm:flex-row mx-auto justify-between h-60">
-                <div class="w-full rounded-2xl p-3 text-white">
+                <div class="w-full rounded-2xl p-3 text-[#f0eab5]">
                   <h2 class="text-2xl font-bold leading-tight">Tax Rebates</h2>
                   <p class="text-md">Tax rebates are a great way to save money on your taxes. There are many tax rebates available for a variety of different things, including energy efficiency, electric vehicles, and more. </p>
                   <a href="/taxRebate" class="text-white bg-green-600 p-2 rounded-md mt-3 inline-block sm:hidden">Explore Tax Rebates</a>
@@ -535,12 +535,12 @@ import PopUpButton1 from "../components/svelte/popUpButton1.svelte"
     </div>
     <!-- A section called whats the difference that has a bar graph and a button click me to find out that calls a function to change the graph -->
     <div id="body4" class="flex flex-col sm:flex-row justify-evenly w-auto h-auto mt-28 pt-16 text-[#f0eab5]">
-        <div class="w-full p-5 sm:p-4 sm:w-[50vw]">
-        <p class="text-3xl font-semibold text-left pb-4">What's the Difference?</p>
-        <p class="text-xl">Embarking on the journey of transitioning to green energy is more than just a decision; it's a transformative leap towards a sustainable and eco-conscious lifestyle. Beyond the bold claims lies a tangible impact that reverberates across the environment, your community, and, most importantly, your own well-being.
+        <div class="w-full p-4 sm:w-[50vw]">
+        <p class="text-3xl font-semibold text-left">What's the Difference?</p>
+        <p class="text-xl pt-4">Embarking on the journey of transitioning to green energy is more than just a decision; it's a transformative leap towards a sustainable and eco-conscious lifestyle. Beyond the bold claims lies a tangible impact that reverberates across the environment, your community, and, most importantly, your own well-being.
         By making the switch to green energy, you are investing in a cleaner, healthier future.</p>
         </div>
-        <div class='flex flex-col justify-center w-full sm:w-[45vw]'>
+        <div class='flex flex-col justify-center w-full sm:w-[50vw]'>
             <div class=" flex p-4 flex-col justify-center items-center w-full">
                 <p class="text-3xl font-semibold text-center pb-5">See for yourself...</p>
                 <div class="flex flex-row gap-3">
@@ -574,7 +574,7 @@ import PopUpButton1 from "../components/svelte/popUpButton1.svelte"
     </div>
     <div id="CTO" class="flex flex-col justify-center h-screen z-50">
         <p class="text-center pb-1 text-5xl font-medium text-[#f0eab5]" id="WhatWeOffer">What Are You Waiting For?</p>
-        <p class="text-center pb-5 text-xl font-medium text-[#f0eab5]" id="WhatWeOffer">Make a positive change one baby step at a time</p>
+        <p class="text-center pb-5 text-xl font-medium pt-4 text-[#f0eab5]" id="WhatWeOffer">Make a Positive Change One Baby Step at a Time</p>
         <a id="CTABtn" href="/goGreen" class="mx-auto opacity-0"><button class="bg-[#9498FF] hover:bg-green-400 transition-colors ease-in-out outline p-2 w-40 h-14 rounded-full">
             Go green today!
         </button></a>
@@ -657,5 +657,19 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/* add shadows to all of the hoverbtn */
+#hovBtn1:hover{
+    box-shadow: 0px 0px 30px 0px rgba(0, 29, 7, 0.632);
+}
+#hovBtn2:hover{
+    box-shadow: 0px 0px 30px 0px rgba(0, 29, 7, 0.632);
+}
+#hovBtn3:hover{
+    box-shadow: 0px 0px 30px 0px rgba(0, 29, 7, 0.632);
+}
+#hovBtn4:hover{
+    box-shadow: 0px 0px 30px 0px rgba(0, 29, 7, 0.632);
 }
 </style>
