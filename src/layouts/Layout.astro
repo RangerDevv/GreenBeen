@@ -25,11 +25,11 @@ import { ViewTransitions } from 'astro:transitions';
 		<title>{title}</title>
 	</head>
 	<body>
-		<nav transition:persist class=" flex flex-row w-[95vw] sm:w-[75vw] h-11 backdrop-blur-xl text-lg pt-2 sticky top-2 z-[99999999] mx-auto rounded-full bg-[#f0eab5] drop-shadow-xl mt-2 outline">
-			<div class="flex-1">
-				<a href="/" class='text-2xl pl-2 font-medium sm:block hidden'><span class="text-green-700">Green</span><span class="text-amber-600">Been</span></a>
+		<nav transition:persist class="flex justify-around flex-row w-[95vw] sm:w-[75vw] h-auto sm:h-11 backdrop-blur-xl text-lg pt-2 sticky top-2 z-[99999999] mx-auto rounded-full bg-[#f0eab5] drop-shadow-xl mt-2 outline">
+			<div class="sm:flex-1">
+				<a href="/" class='text-2xl pl-2 font-medium sm:text-left text-center'><span class="text-green-700">Green</span><span class="text-amber-600">Been</span></a>
 			</div>
-			<div>
+			<div class="sm:block hidden">
 			<a class="text-xl mr-8 font-medium" href="/documentation">📃Documentation</a>
 			<a class="text-xl mr-8 font-medium" id="incentive" href='/incentives'>🎁Incentives</a>
 			<div class="relative inline-block text-left">
@@ -51,6 +51,21 @@ import { ViewTransitions } from 'astro:transitions';
 						<a href="/waysToSave/sustainibility" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#cbc7a2]" role="menuitem">☀️Sustainability</a>
 				</div>
 			</div>
+			</div>
+			</div>
+
+			<!-- dropdown arrow that will open a drawer of all items -->
+			<div class="sm:hidden block">
+				<button class="text-xl mr-8 font-medium" id="menu" aria-haspopup="true" aria-controls="menu" aria-expanded="false">≡</button>
+				<div id="menu" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-[#f0eab5] ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+					<div class="py-1" role="none">
+						<a class="block px-4
+						py-2 text-sm text-gray-700 hover:bg-[#cbc7a2]" role="menuitem" href="/documentation">📃Documentation</a
+						>
+						<a class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#cbc7a2]" role="menuitem" href="/incentives">🎁Incentives</a>
+						<a class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#cbc7a2]" role="menuitem" href="/goGreen">🍀Go Green</a>
+					</div>
+				</div>
 			</div>
 		</nav>
 		<slot />
@@ -166,4 +181,25 @@ import { ViewTransitions } from 'astro:transitions';
 	nav {
 		box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.3);
 	}
+
+	/* make the dropdown appear when the hamburger menu is hovered */
+	nav #menu:hover + .origin-top-right {
+		display: block;
+	}
+
+	/* make the dropdown hidden by default */
+	nav .origin-top-right {
+		display: none;
+	}
+
+	/* make the dropdown appear when the dropdown is hovered */
+	nav .origin-top-right a:hover::after {
+		transform: scaleX(1);
+	}
+
+	/* make the dropdown appear when the dropdown is hovered */
+	nav .origin-top-right a:hover {
+		background-color: #cbc7a2;
+	}
+
 </style>
