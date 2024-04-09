@@ -6,8 +6,8 @@ import BodyPic from "../img/1BodyPic.png";
 import BodyPic2 from "../img/2BodyPic.png";
 
 // popup button
-import PopUpButton from "../components/svelte/popUpButton.svelte"
-import PopUpButton1 from "../components/svelte/popUpButton1.svelte"
+// import PopUpButton from "../components/svelte/popUpButton.svelte"
+// import PopUpButton1 from "../components/svelte/popUpButton1.svelte"
 ---
 
 <script>
@@ -512,11 +512,8 @@ import PopUpButton1 from "../components/svelte/popUpButton1.svelte"
             <div class="sm:w-[40vw] rounded-xl bg-transparent outline outline-[#f0eab5] p-3 flex flex-col sm:flex-row mx-auto justify-between h-60">
                 <div class="w-full rounded-2xl p-3 text-[#f0eab5]">
                   <h2 class="text-2xl font-bold leading-tight">Electric Vehicles</h2>
-                  <p class="text-md"> Electric vehicles are a great way to reduce your carbon footprint and save money on fuel. There are many incentives available to help you make the switch to an electric vehicle. </p>
-                  <a href="/EV" class=" sm:hidden block text-white bg-green-600 p-2 rounded-md mt-3">Explore EV Incentives</a>
-                    <div class="sm:block hidden z-50">
-                        <PopUpButton client:only="Svelte" link="https://green-been.vercel.app/hidden/EV" buttonText="Explore EV Incentives" />
-                    </div>
+                  <p class="text-md pb-5"> Electric vehicles are a great way to reduce your carbon footprint and save money on fuel. There are many incentives available to help you make the switch to an electric vehicle. </p>
+                  <a href="/EV" class="text-white bg-green-600 p-2 rounded-md">Explore EV Incentives</a>
                 </div>
               </div>
               
@@ -524,11 +521,8 @@ import PopUpButton1 from "../components/svelte/popUpButton1.svelte"
               <div class="sm:w-[40vw] rounded-xl bg-transparent outline outline-[#f0eab5] p-3 flex flex-col sm:flex-row mx-auto justify-between h-60">
                 <div class="w-full rounded-2xl p-3 text-[#f0eab5]">
                   <h2 class="text-2xl font-bold leading-tight">Tax Rebates</h2>
-                  <p class="text-md">Tax rebates are a great way to save money on your taxes. There are many tax rebates available for a variety of different things, including energy efficiency, electric vehicles, and more. </p>
-                  <a href="/taxRebate" class="text-white bg-green-600 p-2 rounded-md mt-3 inline-block sm:hidden">Explore Tax Rebates</a>
-                    <div class="sm:block hidden z-50">
-                        <PopUpButton1 client:only="Svelte" link="https://green-been.vercel.app/hidden/taxRebate" buttonText="Explore Tax Rebates" />
-                    </div>
+                  <p class="text-md pb-5">Tax rebates are a great way to save money on your taxes. There are many tax rebates available for a variety of different things, including energy efficiency, electric vehicles, and more. </p>
+                  <a href="/taxRebate" class="text-white bg-green-600 p-2 rounded-md">Explore Tax Rebates</a>
                 </div>
               </div>
         </div>

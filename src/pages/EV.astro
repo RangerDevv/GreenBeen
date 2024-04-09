@@ -2,6 +2,10 @@
 import Layout from '../layouts/Layout.astro'
 import TeslaCar from '../img/tesla_car.jpg'
 import ChargingPic from '../img/electric-car.jpg'
+import TeslaPic from '../img/Tesla Model S.jpg'
+import RivianPic from '../img/Rivianr1t.jpg'
+import IONIQPic from '../img/IONIQ5.jpg'
+
 ---
 
 <script>
@@ -30,7 +34,7 @@ import ChargingPic from '../img/electric-car.jpg'
 
 <Layout title='Explore EV'>
     <div class="sm:h-screen flex flex-col-reverse sm:flex-row justify-center items-center gap-10 p-6">
-        <div class="flex flex-col">
+        <div class="flex flex-col sm:w-1/2">
             <p class="text-4xl font-bold">Explore EV</p>
             <p class="text-xl">Discover the ideal electric vehicle tailored to your lifestyle, and delve into its myriad benefits that redefine the way you commute, saving both the environment and your wallet. Scroll down to uncover the future of sustainable transportation.</p>
         </div>
@@ -64,6 +68,7 @@ import ChargingPic from '../img/electric-car.jpg'
                 <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
                     <!-- Pricing Card -->
                     <div class="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg outline">
+                        <img src={TeslaPic.src} alt="Tesla Model S" class="rounded-lg h-auto w-auto mx-auto shadow-xl mb-9" />
                         <h3 class="mb-4 text-2xl font-semibold">Tesla Model S</h3>
                         <p class="font-light">Best option for personal use & small families.</p>
                         <div class="flex justify-center items-baseline my-8">
@@ -103,6 +108,7 @@ import ChargingPic from '../img/electric-car.jpg'
                     </div>
                     <!-- Pricing Card -->
                     <div class="flex flex-col p-6 mx-auto max-w-lg text-center xl:p-8 rounded-lg outline">
+                        <img src={IONIQPic.src} alt="Hyundai IONIQ 5" class="rounded-lg h-auto w-auto mx-auto shadow-xl mb-5" />
                         <h3 class="mb-4 text-2xl font-semibold">Hyundai IONIQ 5</h3>
                         <p class="font-light">Best Option as SUV. Good for Large Families.</p>
                         <div class="flex justify-center items-baseline my-8">
@@ -142,6 +148,7 @@ import ChargingPic from '../img/electric-car.jpg'
                     </div>
                     <!-- Pricing Card -->
                     <div class="flex flex-col p-6 mx-auto max-w-lg text-center xl:p-8 rounded-lg outline">
+                        <img src={RivianPic.src} alt="Rivian R1T" class="rounded-lg h-auto w-auto mx-auto shadow-xl mb-10" />
                         <h3 class="mb-4 text-2xl font-semibold">Rivian R1T</h3>
                         <p class="font-light">Best for large scale uses, and towing.</p>
                         <div class="flex justify-center items-baseline my-8">
@@ -196,7 +203,7 @@ import ChargingPic from '../img/electric-car.jpg'
                 <button id="button2" class="bg-green-900 p-3 text-white hover:shadow-xl transition-all ease-in-out rounded-r-lg">State Incentives</button>
             </div>
             <div class="p-5 rounded-b-lg">
-                <p class="text-xl text-left" id="content">The federal government offers a tax credit of up to $7,500 for the purchase of a new electric vehicle. The tax credit amount varies based on the capacity of the battery used to power the vehicle. To find out more about the federal tax credit, visit the U.S. Department of Energy's website.</p>
+                <p class="text-xl text-left h-72" id="content">The federal government offers a tax credit of up to $7,500 for the purchase of a new electric vehicle. The tax credit amount varies based on the capacity of the battery used to power the vehicle. To find out more about the federal tax credit, visit the U.S. Department of Energy's website.</p>
         </div>
     </div>
     </div>
