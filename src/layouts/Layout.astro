@@ -7,12 +7,24 @@ const { title } = Astro.props;
 import { ViewTransitions } from 'astro:transitions';
 ---
 <script>
-	import Lenis from '@studio-freight/lenis'
-
-	import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-</script>
+	document.addEventListener('astro:page-load', () => {
+	// Get the dropdown button
+	const dropdownButton = document.querySelector('#mobilemenu') as HTMLButtonElement;
+  
+	// Add click event listener to the dropdown button
+	dropdownButton.addEventListener('click', function(event) {
+	  // Prevent the default action
+	  event.preventDefault();
+  
+	  // Get the dropdown menu
+	  const dropdownMenu = this.nextElementSibling as HTMLElement;
+  
+	  // Toggle the display of the dropdown menu
+	  dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+	});
+	
+}, { once: false})
+  </script>
 <!doctype html>
 <html lang="en">
 	<head>
@@ -55,15 +67,15 @@ import { ViewTransitions } from 'astro:transitions';
 			</div>
 
 			<!-- dropdown arrow that will open a drawer of all items -->
-			<div class="sm:hidden block">
-				<button class="text-xl mr-8 font-medium" id="menu" aria-haspopup="true" aria-controls="menu" aria-expanded="false">≡</button>
-				<div id="menu" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-[#f0eab5] ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-					<div class="py-1" role="none">
+			<div class="sm:hidden block z-[999999]">
+				<button class="text-xl mr-8 font-medium" id="mobilemenu" aria-haspopup="true" aria-controls="menu" aria-expanded="false">≡</button>
+				<div id="mobilemenu" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-[#f0eab5] ring-1 ring-black ring-opacity-5 z-[999999]" >
+					<div class="py-1 z-[999999]">
 						<a class="block px-4
-						py-2 text-sm text-gray-700 hover:bg-[#cbc7a2]" role="menuitem" href="/documentation">📃Documentation</a
+						py-2 text-sm text-gray-700 hover:bg-[#cbc7a2] z-[999999]"  href="/documentation">📃Documentation</a
 						>
-						<a class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#cbc7a2]" role="menuitem" href="/incentives">🎁Incentives</a>
-						<a class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#cbc7a2]" role="menuitem" href="/goGreen">🍀Go Green</a>
+						<a class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#cbc7a2]"  href="/incentives">🎁Incentives</a>
+						<a class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#cbc7a2]"  href="/goGreen">🍀Go Green</a>
 					</div>
 				</div>
 			</div>
@@ -187,19 +199,15 @@ import { ViewTransitions } from 'astro:transitions';
 		display: block;
 	}
 
-	/* make the dropdown hidden by default */
-	nav .origin-top-right {
-		display: none;
-	}
+/* make the dropdown hidden by default */
+nav .origin-top-right {
+    display: none;
+}
 
-	/* make the dropdown appear when the dropdown is hovered */
-	nav .origin-top-right a:hover::after {
-		transform: scaleX(1);
-	}
+/* make the dropdown appear when a class is added to the button */
+nav #mobilemenu.open + .origin-top-right {
+    display: block;
+}
 
-	/* make the dropdown appear when the dropdown is hovered */
-	nav .origin-top-right a:hover {
-		background-color: #cbc7a2;
-	}
 
 </style>

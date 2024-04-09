@@ -77,23 +77,6 @@ import BodyPic2 from "../img/2BodyPic.png";
         // setInterval(() => {
             changeWord()
 
-
-        // skew the image so taht it seems like it is rotating according to the mouse position
-        // let AGIMG = document.getElementById('AGIMG') as HTMLImageElement
-        // let AG = document.getElementById('AG') as HTMLDivElement
-        // AG.addEventListener('mousemove', (e) => {
-        //     let x = e.clientX
-        //     let y = e.clientY
-        //     let width = AG.clientWidth
-        //     let height = AG.clientHeight
-        //     let xPercent = x / width
-        //     let yPercent = y / height
-        //     let xSkew = xPercent * 10 - 10
-        //     let ySkew = yPercent * 10 - 5
-        //     AGIMG.style.transform = `skew(${ySkew}deg, ${xSkew}deg)`
-        // })
-
-        
         
         gsap.registerPlugin(Flip,ScrollTrigger,Observer,ScrollToPlugin,Draggable,MotionPathPlugin,EaselPlugin,PixiPlugin,TextPlugin);
 
@@ -153,27 +136,97 @@ import BodyPic2 from "../img/2BodyPic.png";
         });
 
         // create a timeline for the green rectangle so that it scales up and down
-        let greenRect = gsap.timeline({
-            scrollTrigger: {
-                trigger: '#body2',
-                start: 'top center', // Trigger point
-                end: '+=1200', // End point
-                scrub: true,
-            },
-            // if it reaches the end of body 1 it will reverse the animation
-            onEnter: () => {
-                greenRect.play()
-            },
-            onLeave: () => {
-                greenRect.reverse()
-            },
-        } as any)
-        greenRect.to('#smallGreenRect',{
-            scale: 400,
-            duration: 2,
-            ease: 'power2.inOut',
-        })
 
+        // if the window width is less than 640px then the scale will be 200
+        // if the window width is more than 640px then the scale will be 400
+        // if the window width is more than 1024px then the scale will be 600
+        // if the window width is more than 1280px then the scale will be 800
+
+        if (window.innerWidth < 640) {
+            var greenRect = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#body2',
+                    start: 'top center', // Trigger point
+                    end: '+=1200', // End point
+                    scrub: true,
+                },
+                // if it reaches the end of body 1 it will reverse the animation
+                onEnter: () => {
+                    greenRect.play()
+                },
+                onLeave: () => {
+                    greenRect.reverse()
+                },
+            } as any)
+            greenRect.to('#smallGreenRect', {
+                scale: 200,
+                duration: 2,
+                ease: 'power2.inOut',
+            })
+        } else if (window.innerWidth > 640 && window.innerWidth < 1024) {
+            var greenRect = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#body2',
+                    start: 'top center', // Trigger point
+                    end: '+=1200', // End point
+                    scrub: true,
+                },
+                // if it reaches the end of body 1 it will reverse the animation
+                onEnter: () => {
+                    greenRect.play()
+                },
+                onLeave: () => {
+                    greenRect.reverse()
+                },
+            } as any)
+            greenRect.to('#smallGreenRect', {
+                scale: 400,
+                duration: 2,
+                ease: 'power2.inOut',
+            })
+        } else if (window.innerWidth > 1024 && window.innerWidth < 1280) {
+            var greenRect = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#body2',
+                    start: 'top center', // Trigger point
+                    end: '+=1200', // End point
+                    scrub: true,
+                },
+                // if it reaches the end of body 1 it will reverse the animation
+                onEnter: () => {
+                    greenRect.play()
+                },
+                onLeave: () => {
+                    greenRect.reverse()
+                },
+            } as any)
+            greenRect.to('#smallGreenRect', {
+                scale: 600,
+                duration: 2,
+                ease: 'power2.inOut',
+            })
+        } else if (window.innerWidth > 1280) {
+            var greenRect = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#body2',
+                    start: 'top center', // Trigger point
+                    end: '+=1200', // End point
+                    scrub: true,
+                },
+                // if it reaches the end of body 1 it will reverse the animation
+                onEnter: () => {
+                    greenRect.play()
+                },
+                onLeave: () => {
+                    greenRect.reverse()
+                },
+            } as any)
+            greenRect.to('#smallGreenRect', {
+                scale: 800,
+                duration: 2,
+                ease: 'power2.inOut',
+            })
+        }
 
         // make each box appear one after the other from the top fading in
         gsap.from('#rbox1', {
