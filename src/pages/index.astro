@@ -540,6 +540,7 @@ import BodyPic2 from "../img/2BodyPic.png";
         <p class="text-center pb-10 text-4xl font-medium text-[#f0eab5] z-50" id="WWO">How Can <span class='underline'>You</span> Start Making a Change?</p>
         <p class=" text-center text-lg text-[#f0eab5] z-50 pb-10" id="WWO">Hover on each to learn more ↓</p>
         <div class="flex flex-col sm:flex-row justify-center">
+    <div class="w-56 h-56 rounded-full z-[9999] sm:block hidden" id="radialr"></div>
             <div class="flex flex-col gap-1 w-[50vw] p-1 sm:p-6 sm:pl-10">
                 <button id="hovBtn1" class="p-2 rounded-md hover:text-[#f0eab5] text-[#1e3e2c] bg-[#f0eab5] hover:bg-[#1e3e2c] transition-all outline mt-5 w-80 z-50" id="changeGraphButtonPrev">
                     Renuable Energy Programs
@@ -580,6 +581,7 @@ import BodyPic2 from "../img/2BodyPic.png";
               </div>
         </div>
     </div>
+    <div class="w-56 h-56 rounded-full z-[9999] sm:block hidden" id="radialr"></div>
     <!-- A section called whats the difference that has a bar graph and a button click me to find out that calls a function to change the graph -->
     <div id="body4" class="flex flex-col sm:flex-row justify-evenly w-auto h-auto mt-28 pt-16 text-[#f0eab5]">
         <div class="w-full p-4 sm:w-[50vw]">
@@ -619,13 +621,14 @@ import BodyPic2 from "../img/2BodyPic.png";
             </div>
         </div>
     </div>
-    <div class="static top-0 w-48 h-48 rounded-full z-[9999999]" id="radial"></div>
+    <div class="w-56 h-56 rounded-full z-[9999] sm:block hidden" id="radial"></div>
     <div id="CTO" class="flex flex-col justify-center h-screen z-50">
         <p class="text-center pb-1 text-5xl font-medium text-[#f0eab5]" id="WhatWeOffer">What Are You Waiting For?</p>
         <p class="text-center pb-5 text-xl font-medium pt-4 text-[#f0eab5]" id="WhatWeOffer">Make a Positive Change One Baby Step at a Time</p>
         <a id="CTABtn" href="/goGreen" class="mx-auto opacity-0"><button class="bg-[#9498FF] hover:bg-green-400 transition-colors ease-in-out outline p-2 w-40 h-14 rounded-full">
             Go green today!
         </button></a>
+        <div class="w-56 h-56 rounded-full z-[9999] sm:block hidden" id="radialr"></div>
     </div>
 </Layout>
 
@@ -733,11 +736,19 @@ input:checked + .slider:before {
     background-image: linear-gradient( #091e12, #1e3e2c);
 }
 
-/* make the circles on the side of the screen */
+/* make the circles on the side of the screen and make them not offset any elements */
 #radial{
+    position: absolute;
     background-image: radial-gradient(#3cb371, #3cb371);
     /* blur it */
-    filter: blur(60px);
+    filter: blur(100px);
     translate : -50%;
+}
+#radialr{
+    position: absolute;
+    background-image: radial-gradient(#3cb371, #3cb371);
+    /* blur it */
+    filter: blur(100px);
+    translate : 90vw;
 }
 </style>
