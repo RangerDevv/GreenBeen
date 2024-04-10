@@ -619,6 +619,7 @@ import BodyPic2 from "../img/2BodyPic.png";
             </div>
         </div>
     </div>
+    <div class="static top-0 w-48 h-48 rounded-full z-[9999999]" id="radial"></div>
     <div id="CTO" class="flex flex-col justify-center h-screen z-50">
         <p class="text-center pb-1 text-5xl font-medium text-[#f0eab5]" id="WhatWeOffer">What Are You Waiting For?</p>
         <p class="text-center pb-5 text-xl font-medium pt-4 text-[#f0eab5]" id="WhatWeOffer">Make a Positive Change One Baby Step at a Time</p>
@@ -729,6 +730,14 @@ input:checked + .slider:before {
 
 /* have a gradient for the smallGreenRect */
 #smallGreenRect{
-    background-image: linear-gradient(#05110a, #3cd3a1);
+    background-image: linear-gradient( #091e12, #1e3e2c);
+}
+
+/* make the circles on the side of the screen */
+#radial{
+    background-image: radial-gradient(#3cb371, #3cb371);
+    /* blur it */
+    filter: blur(60px);
+    translate : -50%;
 }
 </style>
